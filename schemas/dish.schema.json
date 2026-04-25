@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lazy-kitchen.local/schemas/dish.schema.json",
+  "title": "Dish (composed meal)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "cuisine", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^DISH-[A-Z0-9-]+$"
+    },
+    "name": { "$ref": "_common.schema.json#/$defs/bilingualName" },
+    "cuisine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["country"],
+      "properties": {
+        "region": { "type": "string", "description": "Sub-region (e.g. 粤, 川, 沪)" },
+        "country": { "type": "string", "description": "ISO-like code or short name (CN, JP, KR, IN, ...)" }
+      }
+    },
+    "status": { "$ref": "_common.schema.json#/$defs/status" },
+    "planned_skus": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "planned_sops": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^SOP-[A-Z0-9-]+$" }
+    },
+    "uses": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sku": { "type": "array", "items": { "type": "string" } },
+        "sop": { "type": "array", "items": { "type": "string", "pattern": "^SOP-[A-Z0-9-]+$" } },
+        "ratio": { "type": "array", "items": { "type": "string", "pattern": "^RATIO-[A-Z0-9-]+-v\\d+$" } }
+      }
+    },
+    "fresh_ingredients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {
+          "name": { "$ref": "_common.schema.json#/$defs/bilingualName" },
+          "amount": { "type": ["number", "string"] },
+          "unit": {
+            "anyOf": [
+              { "type": "string" },
+              { "$ref": "_common.schema.json#/$defs/bilingualText" }
+            ]
+          },
+          "ingredient_id": { "type": "string", "pattern": "^ING-[A-Z0-9-]+$" }
+        }
+      }
+    },
+    "yield": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "servings": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "time": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "prep_min": { "type": "integer", "minimum": 0 },
+        "hands_on_min": { "type": "integer", "minimum": 0 },
+        "unattended_min": { "type": "integer", "minimum": 0 },
+        "total_min": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "hardware_required": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Default ['MVP'] means only the 10-piece MVP kit needed"
+    },
+    "hardware_extension": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^HW-[A-Z0-9-]+$" },
+      "description": "Non-MVP equipment required (oven, rice-cooker, etc.)"
+    },
+    "flavor_structure": { "$ref": "_common.schema.json#/$defs/flavorStructure" },
+    "flavor_tags": { "type": "array", "items": { "type": "string" } },
+    "diet_tags": {
+      "type": "array",
+      "items": { "$ref": "_common.schema.json#/$defs/diet_tag" }
+    },
+    "meal_pattern": { "type": "string" },
+    "nutrition_summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "calories": { "type": "number" },
+        "protein_g": { "type": "number" },
+        "carbs_g": { "type": "number" },
+        "fat_g": { "type": "number" }
+      }
+    },
+    "image": { "type": "string", "format": "uri-reference" },
+    "notes": {
+      "anyOf": [
+        { "type": "string" },
+        { "$ref": "_common.schema.json#/$defs/bilingualText" }
+      ]
+    },
+    "cross_reviewed": { "type": "boolean" },
+    "cross_reviewer_cli": { "type": "string" },
+    "cross_reviewer_model": { "type": "string" },
+    "cross_review_at": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "approved" } }, "required": ["status"] },
+      "then": { "required": ["cross_reviewed"], "properties": { "cross_reviewed": { "const": true } } }
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+# 食材配对边数据 / Flavor pairings (Flavor Thesaurus style)
+# add-dish skill 在 Step 2 主动查此表，给用户经典配对建议。
+# add-dish queries this in Step 2 to suggest classical companions.
+
+pairings:
+  # 中式经典 / Chinese classic
+  - from: 八角
+    to: 牛腩
+    strength: classical
+    cuisine: 粤
+    notes: 广式清汤体系核心配对
+    source: 公认传统
+
+  - from: 桂皮
+    to: 牛肉
+    strength: classical
+    cuisine: 中
+    notes: 红烧/卤味基础
+
+  - from: 花椒
+    to: 牛肉
+    strength: classical
+    cuisine: 川
+    notes: 麻辣火锅 / 水煮牛肉
+
+  - from: 花椒
+    to: 鸡肉
+    strength: classical
+    cuisine: 川
+    notes: 椒麻鸡 / 川式凉拌
+
+  - from: 陈皮
+    to: 鸭肉
+    strength: classical
+    cuisine: 粤
+    notes: 化解油腻；陈皮鸭
+
+  - from: 白胡椒
+    to: 猪肚
+    strength: classical
+    cuisine: 粤
+    notes: 胡椒猪肚汤经典
+
+  # 日式 / Japanese
+  - from: 海带
+    to: 干香菇
+    strength: classical
+    cuisine: 日
+    notes: 素 dashi 双 umami 协同
+    source: Modernist Cuisine V4 umami discussion
+
+  - from: 味噌
+    to: 豆腐
+    strength: classical
+    cuisine: 日
+
+  # 东南亚 / Southeast Asian
+  - from: 香茅
+    to: 椰浆
+    strength: classical
+    cuisine: 泰
+    notes: 绿咖喱 / 冬阴功 必备
+
+  - from: 鱼露
+    to: 青柠
+    strength: classical
+    cuisine: 越/泰
+    notes: nuoc cham / nam jim 基础
+
+  - from: 椰浆
+    to: 姜黄
+    strength: classical
+    cuisine: 印尼/马来
+    notes: rendang / nasi lemak
+
+  # 印度 / Indian
+  - from: 姜黄
+    to: 黑胡椒
+    strength: classical
+    cuisine: 印
+    notes: 黑胡椒中的 piperine 提升姜黄素生物利用度
+    source: 营养学共识
+
+  - from: 小豆蔻
+    to: 玫瑰水
+    strength: classical
+    cuisine: 印/中东
+    notes: 玛萨拉茶 / 印度甜点
+
+  # 中东 / Middle Eastern
+  - from: 鹰嘴豆
+    to: 芝麻酱
+    strength: classical
+    cuisine: 中东
+    notes: hummus 基础
+
+  - from: 孜然
+    to: 羊肉
+    strength: classical
+    cuisine: 中东/中国西北
+    notes: 全球性配对
+
+  # 西式 / Western
+  - from: 番茄
+    to: 罗勒
+    strength: classical
+    cuisine: 意
+    notes: caprese / pizza margherita
+
+  - from: 鸡肉
+    to: 龙蒿 (tarragon)
+    strength: classical
+    cuisine: 法
+    notes: poulet à l'estragon
+
+  - from: 苹果
+    to: 猪肉
+    strength: classical
+    cuisine: 西
+    notes: 跨文化经典
+
+  # 现代 / Modern
+  - from: 巧克力
+    to: 辣椒
+    strength: modern
+    cuisine: 墨/全球
+    notes: mole 传统 + 当代甜咸潮流
+
+  - from: 西瓜
+    to: 菲达奶酪
+    strength: modern
+    cuisine: 地中海
+    notes: 现代沙拉经典
+
+  # 大胆 / Adventurous
+  - from: 蓝莓
+    to: 蘑菇
+    strength: adventurous
+    cuisine: 全球
+    source: Niki Segnit Flavor Thesaurus
+    notes: 不直观但可成立

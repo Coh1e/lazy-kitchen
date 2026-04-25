@@ -1,0 +1,125 @@
+# 干货包 SKU / DRY (dry spice pack) SKUs
+# 1 个端到端示例（DRY-CANTON-CLEAR-BEEF-v1 状态 approved）+ 5 个 MVP 占位 (status: draft)。
+
+items:
+  # ─────────── 端到端示例 / End-to-end example ───────────
+  - id: DRY-CANTON-CLEAR-BEEF-v1
+    type: DRY
+    name: { zh: 广式清汤牛腩香料包, en: Cantonese clear-broth beef brisket spice pack }
+    region: { zh: 粤 / 港式, en: Cantonese / Hong Kong-style }
+    flavor_profile:
+      zh: 清汤底、白胡椒香、萝卜清甜、牛腩本味
+      en: Clear broth, white pepper aroma, daikon sweetness, beef-forward
+    flavor_tags: [clear, umami, light]
+    flavor_structure:
+      salt: light_soy_sauce + fish_sauce (添加于汤中)
+      fat: 牛腩自带脂肪
+      acid: null
+      heat: 长时间低火
+    diet_tags: [no-pork, gluten-free, nut-free, dairy-free]
+    spicy_level: 0
+    heat_level: simmer
+    ingredients:
+      - item: { zh: 八角, en: Star anise }
+        amount: 1
+        unit: { zh: 颗, en: piece }
+      - item: { zh: 香叶, en: Bay leaf }
+        amount: 1
+        unit: { zh: 片, en: leaf }
+      - item: { zh: 白胡椒粒, en: White peppercorn }
+        amount: 1
+        unit: { zh: 茶匙, en: tsp }
+      - item: { zh: 陈皮, en: Dried tangerine peel }
+        amount: 1
+        unit: { zh: 小片, en: small piece }
+        optional: true
+        notes: 可选；增加香气层次
+    yield:
+      amount: 1
+      unit: pack
+      packs: 1
+      notes: 配 600–800g 牛腩 + 500–800g 白萝卜 + 1.5–2L 水
+    packaging:
+      zh:
+        - 整香料放入茶包袋
+        - 外层用真空袋封口
+        - 常温避光防潮
+      en:
+        - Place whole spices into a spice sachet bag
+        - Vacuum-seal the outer bag
+        - Store in a cool, dark, dry place
+    packaging_sop: SOP-VACUUM-DRY-001
+    use_with:
+      - { zh: 牛腩 600–800g, en: 600–800g beef brisket }
+      - { zh: 白萝卜 500–800g, en: 500–800g daikon radish }
+      - { zh: 水 1.5–2L, en: 1.5–2L water }
+    use_sop:
+      - SOP-BLANCH-MEAT-001
+      - SOP-CANTON-CLEAR-BEEF-001
+    storage_profile: pantry-dry-dark
+    status: approved
+    cross_reviewed: true
+    cross_reviewer_cli: manual
+    cross_reviewer_model: human-curator
+    cross_review_at: 2026-04-25T00:00:00Z
+
+  # ─────────── MVP 占位 / Placeholders ───────────
+  - id: DRY-CN-BRAISE-v1
+    type: DRY
+    name: { zh: 中式红烧 / 卤味干货包, en: Chinese hongshao / lo-mei spice pack }
+    region: { zh: 中 (跨地区), en: 'China (cross-regional)' }
+    flavor_profile:
+      zh: 八角桂皮香叶为主，配花椒一点麻；汤为红色甜咸
+      en: Star anise + cassia + bay leaf base, hint of Sichuan peppercorn; results in red, sweet-savory braising liquid
+    flavor_tags: [umami, sweet, salty, rich]
+    diet_tags: [gluten-free, nut-free, dairy-free]
+    spicy_level: 1
+    status: draft
+
+  - id: DRY-CN-MALA-v1
+    type: DRY
+    name: { zh: 川式麻辣干货包, en: Sichuan mala spice pack }
+    region: { zh: 川, en: Sichuan }
+    flavor_profile:
+      zh: 花椒为麻，二荆条/灯笼椒为辣，少量八角桂皮垫底
+      en: Sichuan peppercorn for numbing, mixed dried chilies for heat, light base of star anise + cassia
+    flavor_tags: [numbing, spicy, umami]
+    diet_tags: [no-pork, gluten-free, nut-free, dairy-free]
+    spicy_level: 4
+    status: draft
+
+  - id: DRY-JP-DASHI-v1
+    type: DRY
+    name: { zh: 日式出汁干料包, en: Japanese dashi dry pack }
+    region: { zh: 日, en: Japanese }
+    flavor_profile:
+      zh: 海带 + 干香菇双 umami；可加柴鱼花
+      en: Kombu + dried shiitake double umami; optionally with bonito flakes
+    flavor_tags: [umami, clear, light]
+    diet_tags: [vegan, vegetarian, halal, kosher, no-pork, gluten-free, nut-free, dairy-free]
+    spicy_level: 0
+    status: draft
+
+  - id: DRY-IN-CURRY-v1
+    type: DRY
+    name: { zh: 印式咖喱粉包, en: Indian curry powder pack }
+    region: { zh: 印, en: Indian }
+    flavor_profile:
+      zh: 孜然 + 芫荽 + 姜黄 + 葫芦巴 + 黑胡椒 + 辣椒
+      en: Cumin + coriander + turmeric + fenugreek + black pepper + chili
+    flavor_tags: [warm, earthy, spicy]
+    diet_tags: [vegan, vegetarian, halal, gluten-free, nut-free, dairy-free]
+    spicy_level: 2
+    status: draft
+
+  - id: DRY-MX-TACO-v1
+    type: DRY
+    name: { zh: 墨西哥塔可粉包, en: Mexican taco spice pack }
+    region: { zh: 墨, en: Mexican }
+    flavor_profile:
+      zh: 安祖辣椒粉 + 烟熏甜椒粉 + 孜然 + 蒜粉 + 牛至
+      en: Ancho chili powder + smoked paprika + cumin + garlic powder + oregano
+    flavor_tags: [smoky, spicy, earthy]
+    diet_tags: [vegan, vegetarian, halal, gluten-free, nut-free, dairy-free]
+    spicy_level: 2
+    status: draft

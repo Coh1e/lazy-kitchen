@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:yingzhaozhu.medium.com)",
+      "WebFetch(domain:www.diasporaco.com)",
+      "WebFetch(domain:www.chefsteps.com)",
+      "WebFetch(domain:www.burlapandbarrel.com)",
+      "WebFetch(domain:modernistcuisine.com)",
+      "mcp__plugin_figma_figma__whoami",
+      "mcp__plugin_figma_figma__create_new_file",
+      "mcp__plugin_figma_figma__use_figma",
+      "mcp__plugin_figma_figma__get_screenshot",
+      "WebFetch(domain:www.figma.com)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(npx playwright *)",
+      "Bash(npx vitest *)",
+      "Bash(npm test *)",
+      "Bash(gh auth *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}

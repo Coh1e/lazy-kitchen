@@ -1,0 +1,38 @@
+{
+  "name": "lazy-kitchen",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "懒蛋厨房 / Lazy Kitchen — modular world-cuisine kitchen OS. Make Kitchen Great Again!",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsx scripts/dev.ts",
+    "build:html": "tsx scripts/build-html.ts",
+    "validate": "tsx scripts/validate-data.ts",
+    "lint:bilingual": "tsx scripts/lint-bilingual.ts",
+    "build:glossary": "tsx scripts/build-glossary.ts",
+    "test": "npm run test:unit && npm run test:e2e && npm run test:visual",
+    "test:unit": "vitest run tests/unit",
+    "test:e2e": "playwright test --project=e2e-desktop",
+    "test:visual": "playwright test --project=visual-desktop --project=visual-mobile",
+    "test:visual:update": "playwright test --project=visual-desktop --project=visual-mobile --update-snapshots",
+    "test:watch": "vitest",
+    "all": "npm run validate && npm run lint:bilingual && npm run build:glossary && npm run build:html && npm run test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@figma/code-connect": "^1.3.0",
+    "@playwright/test": "^1.59.1",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.0.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "marked": "^14.1.0",
+    "tsx": "^4.19.0",
+    "vitest": "^4.1.5"
+  }
+}

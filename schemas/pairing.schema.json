@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lazy-kitchen.local/schemas/pairing.schema.json",
+  "title": "Pairing (flavor pairing edge)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["from", "to", "strength"],
+  "properties": {
+    "from": {
+      "anyOf": [
+        { "type": "string", "pattern": "^ING-[A-Z0-9-]+$" },
+        { "type": "string", "description": "Free text term if no ingredient ID exists yet" }
+      ]
+    },
+    "to": {
+      "anyOf": [
+        { "type": "string", "pattern": "^ING-[A-Z0-9-]+$" },
+        { "type": "string" }
+      ]
+    },
+    "strength": {
+      "type": "string",
+      "enum": ["classical", "modern", "adventurous"]
+    },
+    "cuisine": { "type": "string" },
+    "notes": { "type": "string" },
+    "source": {
+      "type": "string",
+      "description": "Where this pairing comes from (e.g. 公认传统, Flavor Bible, Modernist Cuisine)"
+    }
+  }
+}

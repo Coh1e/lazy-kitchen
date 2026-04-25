@@ -1,0 +1,187 @@
+# 懒蛋厨房硬件主清单 / Lazy Kitchen MVP Hardware (locked at 10 pieces)
+# 任何菜需要超出此清单的设备，必须在 Dish.hardware_extension[] 显式声明。
+# Any dish needing equipment beyond this list must declare it in Dish.hardware_extension[].
+
+items:
+  # ─────────── 刀具 / Knives ───────────
+  - id: HW-CHEF-KNIFE
+    name: { zh: 主厨刀 / 切片刀, en: Chef's knife }
+    category: knives
+    is_mvp: true
+    buying_guide:
+      key_considerations:
+        - 刀长 20cm 左右，太短切大块吃力，太长台面占地
+        - 锻造刀身 vs 冲压：日用前者重平衡好，后者轻便宜
+        - 手柄材质：树脂/木材手感、防滑；新手优先树脂
+        - 钢材：高碳不锈钢（VG-10 / X50CrMoV15）易护理
+      spec_hint: 全长 ~33cm，刀刃 19–21cm，重 200–260g
+      food_safety:
+        - 木手柄需勤擦干，避免霉菌
+        - 切生肉后必须洗刷再切熟食
+      common_pitfalls:
+        - 不要买超薄切生鱼片刀替代主厨刀
+        - 不锈钢号错（如 420 系）易卷刃
+      price_band_cny: 150–800
+
+  - id: HW-CLEAVER
+    name: { zh: 中式菜刀 / 文武刀, en: Chinese cleaver }
+    category: knives
+    is_mvp: true
+    buying_guide:
+      key_considerations:
+        - "文武刀（文片武斩，中等厚度）最通用；纯片刀切骨易崩；纯斩刀切丝太钝"
+        - 刀面宽适合做"刀拍蒜""刀面铲菜入锅"
+        - 重量 350–550g，太轻控制差，太重吃力
+      spec_hint: 刀面长 ~20cm，宽 9–11cm，重 400–500g
+      food_safety: 同主厨刀；勤干燥防锈
+      common_pitfalls:
+        - 网红"日式三德刀"不算中式菜刀，刀面窄，铲菜不顺手
+        - 大砍骨刀（重斩）不属于此件，需要时另购
+      price_band_cny: 100–500
+
+  # ─────────── 锅具 / Cookware ───────────
+  - id: HW-WOK-OR-SKILLET
+    name: { zh: 炒锅或深煎锅, en: 'Wok or deep skillet (12"+)' }
+    category: cookware
+    is_mvp: true
+    buying_guide:
+      key_considerations:
+        - 直径 30–34cm；电磁炉用平底，明火可圆底
+        - 碳钢锅养好之后接近不粘，且耐高温
+        - 不粘锅适合鸡蛋豆腐，但高温炒不耐用，2–3 年要换
+        - 铸铁锅重，蓄热好但日用累
+      spec_hint: 直径 30–34cm，碳钢厚 1.8–2.2mm
+      food_safety:
+        - 不粘锅最高建议 230°C，超温涂层降解
+        - 碳钢/铸铁要"开锅"建立油层，避免铁腥
+      common_pitfalls:
+        - 太薄的炒锅热容差，下肉就降温出水
+        - 全套带玻璃盖的"网红套锅"多为铝制，重度炒菜不耐用
+      price_band_cny: 碳钢 150–400 / 高端不粘 300–800 / 铸铁 400–1000
+
+  - id: HW-SOUP-POT
+    name: { zh: 汤锅 / 炖锅, en: 'Soup pot / Dutch oven (5L+)' }
+    category: cookware
+    is_mvp: true
+    buying_guide:
+      key_considerations:
+        - 容量 5L 起步，做牛腩/红烧需要余量
+        - 三层复合底（钢-铝-钢）受热均匀，不易糊底
+        - 铸铁珐琅炖锅是顶配，但贵且重；钢锅性价比高
+        - 锅盖密封性影响小火炖效果
+      spec_hint: 容量 5–7L，直径 22–24cm，复底厚 ≥4mm
+      food_safety:
+        - 长时间炖煮注意防干烧
+        - 珐琅锅磕碰内层崩裂要换
+      common_pitfalls:
+        - 太大（10L+）日常占地、加热慢
+        - 单层薄铝锅炖肉容易粘糊
+      price_band_cny: 钢锅 200–600 / 珐琅炖锅 600–2000
+
+  # ─────────── 量具 / Measurement ───────────
+  - id: HW-MEASURING-SPOONS
+    name: { zh: 量勺套装, en: Measuring spoons }
+    category: measurement
+    is_mvp: true
+    buying_guide:
+      key_considerations:
+        - 必备 1 tbsp / 1 tsp / 1/2 tsp / 1/4 tsp 四件起
+        - 不锈钢比塑料耐用、易消毒
+        - 长柄方便伸进瓶罐
+        - 公制刻度（ml）+ 美制刻度（tsp）双标更通用
+      spec_hint: 4–6 件套，1.25 / 2.5 / 5 / 7.5 / 15 ml
+      food_safety: 不锈钢 304 食品级
+      common_pitfalls:
+        - 木质或硅胶量勺数值不准，老化变形
+      price_band_cny: 30–80
+
+  - id: HW-KITCHEN-SCALE
+    name: { zh: 厨房秤, en: 'Kitchen scale (0.1g)' }
+    category: measurement
+    is_mvp: true
+    buying_guide:
+      key_considerations:
+        - 精度 0.1g 起步（用于称香料、酵母）；最大量程 ≥3kg
+        - 必须有"去皮"功能
+        - 数字屏比指针式准
+        - 单 AAA 电池供电的不耐用，选可充电
+      spec_hint: 0.1g 精度，3–10kg 最大量程
+      food_safety: 平台为不锈钢或玻璃，易擦洗
+      common_pitfalls:
+        - 廉价秤精度浮动，称香料误差 ±0.5g
+        - 重力感应类用久会漂移，定期校准
+      price_band_cny: 60–200
+
+  # ─────────── 耗材 / Consumables ───────────
+  - id: HW-VACUUM-SEALER
+    name: { zh: 真空封袋器, en: Vacuum sealer }
+    category: consumables
+    is_mvp: true
+    buying_guide:
+      key_considerations:
+        - 家用首选外抽式（非腔体），300–500W 即可
+        - 必须支持"湿物模式"或脉冲模式，否则液体湿酱包封不了
+        - 可调节"软封 vs 硬封"防压碎香料
+        - 双热封条比单热封条耐用
+      spec_hint: 真空度 ≥-65kPa，封口宽 ≥3mm
+      food_safety: 散热口 30 秒后再开盖，避免烫伤
+      common_pitfalls:
+        - 千元以内别买"号称腔体真空"，多为伪标
+        - 太便宜的真空机 1–2 年故障，建议中端
+      price_band_cny: 200–600
+
+  - id: HW-VACUUM-BAGS
+    name: { zh: 真空袋, en: Vacuum sealer bags }
+    category: consumables
+    is_mvp: true
+    buying_guide:
+      key_considerations:
+        - 厚度 90 微米起步（常见 90/100/120），太薄漏气漏汁
+        - 单面光滑+单面纹路（"channel/网纹"）配家用机；纯光滑只能配腔体机
+        - 食品级 PA+PE 复合膜；认准食品接触认证
+        - 尺寸：常用 20×30cm + 25×35cm 各备一卷
+      spec_hint: 90–120μ，PA+PE 复合，BPA-free
+      food_safety:
+        - 必须 BPA-free 标识
+        - 不可微波；可冷冻、可沸水加热（标识耐温）
+        - 已用包装不可二次封（避免交叉污染）
+      common_pitfalls:
+        - 网上低价卷可能是工业级 PE 单层，无认证勿用
+        - 卷装比袋装划算 30%+，但要按需剪
+      price_band_cny: 一卷 25×500cm 30–80
+
+  - id: HW-SPICE-SACHETS
+    name: { zh: 茶包袋 / 香料袋, en: Spice sachet bags }
+    category: consumables
+    is_mvp: true
+    buying_guide:
+      key_considerations:
+        - 食品级无纺布（PP/玉米纤维），可耐沸水
+        - 抽绳款比订口款好用，方便取出
+        - 尺寸：6×8cm（小）+ 8×12cm（中）够用
+        - 一次性、勿重复使用
+      spec_hint: 6×8cm / 8×12cm 食品级 PP，抽绳
+      food_safety:
+        - 真空封外袋之前先把香料装入茶包袋，避免颗粒被吸入封口机
+        - PE 塑料茶包袋遇高温析出，**勿用**
+      common_pitfalls:
+        - 漂白棉布袋不耐高温煮
+        - 绑线不抽紧，香料泄漏
+      price_band_cny: 100 个 10–25
+
+  - id: HW-FREEZER-LABELS
+    name: { zh: 冷冻标签, en: Freezer labels }
+    category: consumables
+    is_mvp: true
+    buying_guide:
+      key_considerations:
+        - 必须冷冻防水（普通快递贴纸冷冻会脱胶）
+        - 圆形 4cm 或方形 5×5cm 够用
+        - 配防水油性笔（zebra mckee / sharpie）
+        - 双面标签纸（前撕后揭）方便贴
+      spec_hint: 防水 PET 材质，冷冻级胶水
+      food_safety: 标签贴在外袋，不接触食物
+      common_pitfalls:
+        - 用胶带写字会冻得脱落
+        - 没标日期 + 内容，3 周后变身考古挑战
+      price_band_cny: 一卷 200 张 15–30

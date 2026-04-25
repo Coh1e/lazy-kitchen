@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lazy-kitchen.local/schemas/hardware.schema.json",
+  "title": "Hardware item (MVP or extension)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^HW-[A-Z0-9-]+$"
+    },
+    "name": { "$ref": "_common.schema.json#/$defs/bilingualName" },
+    "category": {
+      "type": "string",
+      "enum": ["knives", "cookware", "measurement", "consumables", "appliance", "tool"]
+    },
+    "is_mvp": { "type": "boolean", "description": "True if part of the locked 10-piece MVP kit" },
+    "buying_guide": { "$ref": "_common.schema.json#/$defs/buyingGuide" },
+    "why": {
+      "type": "string",
+      "description": "For extensions: why you might want it"
+    },
+    "workaround": {
+      "type": "string",
+      "description": "For extensions: how to get by without it using only MVP gear"
+    }
+  }
+}

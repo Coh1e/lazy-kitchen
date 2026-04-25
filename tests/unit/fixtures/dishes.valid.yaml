@@ -1,0 +1,8 @@
+items:
+  - id: DISH-TEST-VALID
+    name: { zh: 测试菜, en: Test dish }
+    cuisine: { region: 'Test', country: 'CN' }
+    status: planned
+    planned_skus: [DRY-TEST-v1]
+    planned_sops: [SOP-TEST-001]
+    notes: A minimal valid dish for unit testing.

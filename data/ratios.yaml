@@ -1,0 +1,251 @@
+# 调味公式 / Flavor ratios + Mother sauces
+# 5 大经典母酱 + 中式扩展（红烧基础）+ 几个常用派生比例。
+# Escoffier's 5 mother sauces + CN-BRAISE + commonly-used derivatives.
+
+ratios:
+  # ─────────── 母酱 / Mother sauces ───────────
+  - id: RATIO-MOTHER-BECHAMEL-v1
+    name: { zh: 白酱基底 / 贝夏梅尔, en: Béchamel mother sauce }
+    is_mother: true
+    parent: null
+    daughters: []
+    ratio:
+      formula: 'roux 1:1 + milk 10x'
+      components:
+        - item: { zh: 黄油, en: Butter }
+          parts: 1
+        - item: { zh: 面粉, en: Flour }
+          parts: 1
+        - item: { zh: 牛奶, en: Milk }
+          parts: 10
+    cuisine: { region: 法 / 经典法餐, country: FR }
+    use_with:
+      - { zh: 千层面 / 焗菜 / 奶油浓汤, en: Lasagne / gratins / cream soups }
+    notes:
+      zh: 万能白酱母体；加奶酪 → mornay；加洋葱 → soubise
+      en: Universal white sauce base; +cheese = mornay; +onion = soubise
+    status: approved
+    cross_reviewed: true
+    cross_reviewer_cli: manual
+    cross_reviewer_model: human-curator
+    cross_review_at: 2026-04-25T00:00:00Z
+
+  - id: RATIO-MOTHER-VELOUTE-v1
+    name: { zh: 天鹅绒酱 / Velouté, en: Velouté mother sauce }
+    is_mother: true
+    parent: null
+    daughters: []
+    ratio:
+      formula: 'white roux + light stock 1:10'
+      components:
+        - item: { zh: 黄油, en: Butter }
+          parts: 1
+        - item: { zh: 面粉, en: Flour }
+          parts: 1
+        - item: { zh: 白色高汤 (鸡/鱼), en: Light stock (chicken/fish) }
+          parts: 10
+    cuisine: { region: 法, country: FR }
+    use_with:
+      - { zh: 配白肉、蔬菜, en: With white meat and vegetables }
+    notes:
+      zh: 加蛋黄+奶油 → allemande；加蘑菇 → mushroom velouté
+      en: '+egg yolk+cream = allemande; +mushrooms = mushroom velouté'
+    status: approved
+    cross_reviewed: true
+    cross_reviewer_cli: manual
+    cross_reviewer_model: human-curator
+    cross_review_at: 2026-04-25T00:00:00Z
+
+  - id: RATIO-MOTHER-ESPAGNOLE-v1
+    name: { zh: 布朗酱 / Espagnole, en: Espagnole mother sauce }
+    is_mother: true
+    parent: null
+    daughters: []
+    ratio:
+      formula: 'brown roux + brown stock + mirepoix + tomato'
+      components:
+        - item: { zh: 黄油, en: Butter }
+          parts: 1
+        - item: { zh: 面粉, en: Flour }
+          parts: 1
+        - item: { zh: 棕色高汤 (牛骨), en: Brown stock (beef bones) }
+          parts: 10
+        - item: { zh: 番茄酱, en: Tomato paste }
+          parts: 0.5
+    cuisine: { region: 法, country: FR }
+    use_with:
+      - { zh: '红肉、demi-glace 派生', en: 'Red meat, demi-glace derivatives' }
+    notes:
+      zh: 收汁一半 → demi-glace；加红酒蘑菇 → bordelaise
+      en: Reduce by half = demi-glace; +red wine+mushrooms = bordelaise
+    status: approved
+    cross_reviewed: true
+    cross_reviewer_cli: manual
+    cross_reviewer_model: human-curator
+    cross_review_at: 2026-04-25T00:00:00Z
+
+  - id: RATIO-MOTHER-HOLLANDAISE-v1
+    name: { zh: 荷兰酱, en: Hollandaise mother sauce }
+    is_mother: true
+    parent: null
+    daughters: []
+    ratio:
+      formula: 'egg yolk 1 : melted butter 60ml : lemon juice 1 tsp'
+      components:
+        - item: { zh: 蛋黄, en: Egg yolk }
+          parts: 1
+        - item: { zh: 化黄油, en: Melted butter }
+          parts: 60
+          notes: ml per yolk
+        - item: { zh: 柠檬汁, en: Lemon juice }
+          parts: 5
+          notes: ml per yolk
+    cuisine: { region: 法, country: FR }
+    use_with:
+      - { zh: Eggs Benedict / 芦笋, en: Eggs Benedict / asparagus }
+    notes:
+      zh: 加龙蒿+白酒醋 → béarnaise
+      en: '+tarragon+white wine vinegar = béarnaise'
+    status: approved
+    cross_reviewed: true
+    cross_reviewer_cli: manual
+    cross_reviewer_model: human-curator
+    cross_review_at: 2026-04-25T00:00:00Z
+
+  - id: RATIO-MOTHER-TOMATO-v1
+    name: { zh: 番茄基底 / Sauce Tomate, en: Tomato mother sauce }
+    is_mother: true
+    parent: null
+    daughters: []
+    ratio:
+      formula: 'tomato 6 : mirepoix 1 : pork fat or olive oil 0.5'
+      components:
+        - item: { zh: 番茄 (新鲜或罐装), en: Tomato (fresh or canned) }
+          parts: 6
+        - item: { zh: 米尔普瓦 (洋葱+胡萝卜+西芹), en: Mirepoix }
+          parts: 1
+        - item: { zh: 油脂 (橄榄油或猪油), en: Fat (olive oil or pork fat) }
+          parts: 0.5
+    cuisine: { region: 法 (传统) / 意 (变体), country: FR/IT }
+    use_with:
+      - { zh: 意面 / 烩饭 / 焗菜底, en: Pasta / risotto / casserole bases }
+    notes:
+      zh: 这是 Escoffier 五大母酱里唯一不依赖面糊的；意式 marinara 是它的近亲
+      en: The only mother sauce without roux; Italian marinara is a close cousin
+    status: approved
+    cross_reviewed: true
+    cross_reviewer_cli: manual
+    cross_reviewer_model: human-curator
+    cross_review_at: 2026-04-25T00:00:00Z
+
+  - id: RATIO-MOTHER-CN-BRAISE-v1
+    name: { zh: 中式红烧基础, en: Chinese hongshao braise base }
+    is_mother: true
+    parent: null
+    daughters: [RATIO-CN-FISHSCENT-v1]
+    ratio:
+      formula: 'light soy 2 : dark soy 1 : sugar 2 : Shaoxing wine 2 : water 8 + 八角 + 桂皮 + 香叶'
+      components:
+        - item: { zh: 生抽, en: Light soy sauce }
+          parts: 2
+        - item: { zh: 老抽, en: Dark soy sauce }
+          parts: 1
+        - item: { zh: 冰糖, en: Rock sugar }
+          parts: 2
+        - item: { zh: 绍兴料酒, en: Shaoxing rice wine }
+          parts: 2
+        - item: { zh: 水, en: Water }
+          parts: 8
+    cuisine: { region: 中 (跨地区), country: CN }
+    use_with:
+      - { zh: 红烧肉 / 红烧鱼 / 卤蛋, en: Red-braised pork / fish / soy eggs }
+    notes:
+      zh: 中餐母酱体系的代表；与 Escoffier 母酱平行存在
+      en: Chinese counterpart to Escoffier mother sauces; equally productive lineage
+    status: approved
+    cross_reviewed: true
+    cross_reviewer_cli: manual
+    cross_reviewer_model: human-curator
+    cross_review_at: 2026-04-25T00:00:00Z
+
+  # ─────────── 派生 / Derivatives ───────────
+  - id: RATIO-CN-FISHSCENT-v1
+    name: { zh: 鱼香酱 (川式), en: Yuxiang (fish-fragrant) sauce }
+    is_mother: false
+    parent: RATIO-MOTHER-CN-BRAISE-v1
+    daughters: []
+    ratio:
+      formula: '糖 1 : 醋 1 : 生抽 1 : 料酒 1 + 泡椒 + 姜蒜葱'
+      components:
+        - item: { zh: 白糖, en: White sugar }
+          parts: 1
+        - item: { zh: 米醋, en: Rice vinegar }
+          parts: 1
+        - item: { zh: 生抽, en: Light soy sauce }
+          parts: 1
+        - item: { zh: 料酒, en: Shaoxing wine }
+          parts: 1
+    cuisine: { region: 川, country: CN }
+    use_with:
+      - { zh: 鱼香肉丝 / 鱼香茄子, en: Yuxiang pork / yuxiang eggplant }
+    notes:
+      zh: '"鱼香"不含鱼，是泡椒蒜姜创造出的拟鱼香风味'
+      en: '"Fish-fragrant" contains no fish — flavor mimics traditional Sichuan fish-cooking aromatics'
+    status: approved
+    cross_reviewed: true
+    cross_reviewer_cli: manual
+    cross_reviewer_model: human-curator
+    cross_review_at: 2026-04-25T00:00:00Z
+
+  - id: RATIO-PH-ADOBO-v1
+    name: { zh: 菲律宾阿多波, en: Filipino Adobo }
+    is_mother: false
+    parent: null
+    daughters: []
+    ratio:
+      formula: '醋 1 : 酱油 1 : 水 1 + 蒜 + 月桂叶 + 黑胡椒'
+      components:
+        - item: { zh: 蔗糖醋 / 苹果醋, en: Cane / apple cider vinegar }
+          parts: 1
+        - item: { zh: 酱油, en: Soy sauce }
+          parts: 1
+        - item: { zh: 水, en: Water }
+          parts: 1
+    cuisine: { region: 菲, country: PH }
+    use_with:
+      - { zh: 鸡 / 猪 / 鱿鱼, en: Chicken / pork / squid }
+    notes:
+      zh: 菲律宾国菜结构；酸咸炖煮典范
+      en: Philippine national dish blueprint; vinegar-soy braising paradigm
+    status: approved
+    cross_reviewed: true
+    cross_reviewer_cli: manual
+    cross_reviewer_model: human-curator
+    cross_review_at: 2026-04-25T00:00:00Z
+
+  - id: RATIO-WEST-VINAIGRETTE-v1
+    name: { zh: 油醋汁, en: Vinaigrette }
+    is_mother: false
+    parent: null
+    daughters: []
+    ratio:
+      formula: '油 3 : 醋 1 + 盐 + 第戎芥末 (可选)'
+      components:
+        - item: { zh: 橄榄油, en: Olive oil }
+          parts: 3
+        - item: { zh: 醋 (酒醋/白醋/雪利醋), en: Vinegar (wine/white/sherry) }
+          parts: 1
+        - item: { zh: 第戎芥末 (乳化用), en: Dijon mustard (emulsifier) }
+          parts: 0.25
+          notes: optional but stabilizes emulsion
+    cuisine: { region: 法/全球, country: FR }
+    use_with:
+      - { zh: 沙拉 / 蔬菜 / 腌料, en: Salads / vegetables / marinades }
+    notes:
+      zh: 全球最通用的酸性调味；3:1 油醋是经典平衡，可调整
+      en: Most universal acid-based dressing; 3:1 is classic balance, adjustable
+    status: approved
+    cross_reviewed: true
+    cross_reviewer_cli: manual
+    cross_reviewer_model: human-curator
+    cross_review_at: 2026-04-25T00:00:00Z

@@ -1,0 +1,257 @@
+# 标准操作流程 / SOPs (Standard Operating Procedures)
+# 1 个端到端示例（SOP-CANTON-CLEAR-BEEF-001 状态 approved）+ 18 个 MVP 占位。
+
+items:
+  # ─────────── 端到端示例 / End-to-end example ───────────
+  - id: SOP-CANTON-CLEAR-BEEF-001
+    name: { zh: 广式清汤牛腩 SOP, en: Cantonese clear-broth beef brisket SOP }
+    category: regional
+    heat_type: moist
+    cooking_method: simmer
+    station: saucier
+    time_tier: half-day
+    heat_level_used: simmer
+    cut_required: []
+    equipment_required: [HW-SOUP-POT, HW-SPICE-SACHETS]
+    optional_if_pre_prepped: false
+    hardware: [HW-SOUP-POT, HW-CHEF-KNIFE]
+    steps:
+      zh: |
+        1. 牛腩冷水下锅，水开后焯水 3–5 分钟。
+        2. 捞出后用温水冲洗血沫，沥干切大块（5cm 见方）。
+        3. 汤锅注入 1.5–2L 清水，下牛腩、3 片姜、广式清汤牛腩香料包。
+        4. 大火烧开后转微火，加盖虚掩，慢炖 90–150 分钟。
+        5. 出锅前 25–40 分钟下白萝卜（切大块）。
+        6. 起锅前调味：盐 + 鱼露少许 + 冰糖 5g 试味。
+        7. 撒葱花，可配米线/河粉/米饭。
+      en: |
+        1. Place beef brisket in cold water; bring to boil, blanch 3–5 minutes.
+        2. Remove, rinse off scum with warm water, drain, cut into ~5cm cubes.
+        3. To soup pot: 1.5–2L water + beef + 3 ginger slices + spice pack.
+        4. Bring to a hard boil, then drop to a bare simmer with lid ajar; simmer 90–150 minutes.
+        5. Add daikon (large cubes) for the last 25–40 minutes.
+        6. Season at the end: salt + a touch of fish sauce + ~5g rock sugar; taste.
+        7. Top with chopped scallion; serve over rice noodles, flat noodles, or rice.
+    tips:
+      zh: |
+        - 焯水必须冷水下锅，否则血沫锁在肉里
+        - 微火虚掩盖以保汤清；大火翻滚 = 浑汤
+        - 萝卜不要一开始就下，会发苦
+        - 鱼露用量很小，目的是增鲜不夺味
+      en: |
+        - Blanch from cold water; hot start traps scum inside the meat
+        - Bare simmer with lid ajar keeps broth clear; rolling boil = cloudy broth
+        - Daikon goes in late or it turns bitter
+        - Use fish sauce sparingly — it deepens umami without imposing its own flavor
+    status: approved
+    cross_reviewed: true
+    cross_reviewer_cli: manual
+    cross_reviewer_model: human-curator
+    cross_review_at: 2026-04-25T00:00:00Z
+
+  # ─────────── 焯水 / Blanching ───────────
+  - id: SOP-BLANCH-MEAT-001
+    name: { zh: 肉类焯水 SOP, en: Meat blanching SOP }
+    category: blanch
+    heat_type: moist
+    cooking_method: blanch
+    station: saucier
+    time_tier: 5m
+    optional_if_pre_prepped: false
+    status: draft
+
+  # ─────────── 炖煮 / Stewing & braising ───────────
+  - id: SOP-CLEAR-STEW-001
+    name: { zh: 清炖 SOP, en: Clear stewing SOP }
+    category: stew
+    heat_type: moist
+    cooking_method: simmer
+    station: saucier
+    time_tier: half-day
+    status: draft
+
+  - id: SOP-BRAISE-001
+    name: { zh: 红烧 / 卤煮 SOP, en: Hongshao / red-braising SOP }
+    category: braise
+    heat_type: combination
+    cooking_method: braise
+    station: saucier
+    time_tier: 1h
+    status: draft
+
+  # ─────────── 高热快炒 / High-heat ───────────
+  - id: SOP-STIR-FRY-001
+    name: { zh: 快炒 SOP, en: Stir-fry SOP }
+    category: stir-fry
+    heat_type: dry
+    cooking_method: stir-fry
+    station: saute
+    time_tier: 5m
+    heat_level_used: high
+    status: draft
+
+  - id: SOP-PAN-SEAR-001
+    name: { zh: 煎蛋白 / 煎肉 SOP, en: Pan-sear protein SOP }
+    category: pan-sear
+    heat_type: dry
+    cooking_method: pan-fry
+    station: saute
+    time_tier: 15m
+    status: draft
+
+  # ─────────── 汤面 / Soup noodle ───────────
+  - id: SOP-SOUP-NOODLE-001
+    name: { zh: 汤面组装 SOP, en: Soup noodle assembly SOP }
+    category: soup-noodle
+    heat_type: moist
+    cooking_method: boil
+    station: saucier
+    time_tier: 15m
+    status: draft
+
+  # ─────────── 熟底 / Cooked base ───────────
+  - id: SOP-COOKED-BASE-001
+    name: { zh: 熟底酱制作 SOP, en: Cooked base preparation SOP }
+    category: cooked-base
+    heat_type: moist
+    cooking_method: simmer
+    station: saucier
+    time_tier: 1h
+    status: draft
+
+  # ─────────── 切法 / Cuts ───────────
+  - id: SOP-CUT-JULIENNE-001
+    name: { zh: 切丝 SOP, en: Julienne SOP }
+    category: cut
+    cooking_method: julienne
+    station: garde-manger
+    time_tier: 5m
+    optional_if_pre_prepped: true
+    status: draft
+
+  - id: SOP-CUT-DICE-001
+    name: { zh: 切丁 SOP, en: Dice SOP }
+    category: cut
+    cooking_method: dice
+    station: garde-manger
+    time_tier: 5m
+    optional_if_pre_prepped: true
+    status: draft
+
+  - id: SOP-CUT-MINCE-001
+    name: { zh: 切末 SOP, en: Mince SOP }
+    category: cut
+    cooking_method: mince
+    station: garde-manger
+    time_tier: 5m
+    optional_if_pre_prepped: true
+    status: draft
+
+  - id: SOP-CUT-ROLLBLOCK-001
+    name: { zh: 滚刀块 SOP, en: Roll-cut chunks SOP }
+    category: cut
+    cooking_method: cut
+    station: garde-manger
+    time_tier: 5m
+    optional_if_pre_prepped: true
+    status: draft
+
+  # ─────────── 腌制 / Marinating ───────────
+  - id: SOP-MARINATE-WET-001
+    name: { zh: 湿腌 SOP, en: Wet marinade SOP }
+    category: marinate
+    cooking_method: marinate
+    station: garde-manger
+    time_tier: 30m
+    status: draft
+
+  - id: SOP-MARINATE-DRY-RUB-001
+    name: { zh: 干腌 SOP, en: Dry rub SOP }
+    category: marinate
+    cooking_method: marinate
+    station: garde-manger
+    time_tier: 30m
+    status: draft
+
+  - id: SOP-MARINATE-VELVET-001
+    name: { zh: 上浆 SOP, en: Velveting SOP }
+    category: marinate
+    cooking_method: marinate
+    station: garde-manger
+    time_tier: 15m
+    status: draft
+
+  # ─────────── 分装 + 储存 / Packaging & storage ───────────
+  - id: SOP-VACUUM-DRY-001
+    name: { zh: 干货包分装 SOP, en: Dry-pack packaging SOP }
+    category: vacuum-dry
+    cooking_method: package
+    station: none
+    time_tier: 15m
+    status: draft
+
+  - id: SOP-VACUUM-LIQUID-001
+    name: { zh: 液体真空分装 SOP, en: Liquid vacuum packaging SOP }
+    category: vacuum-liquid
+    cooking_method: package
+    station: none
+    time_tier: 15m
+    status: draft
+
+  - id: SOP-REHEAT-FROZEN-001
+    name: { zh: 冷冻熟包复热 SOP, en: Frozen pack reheating SOP }
+    category: reheat
+    cooking_method: rehydrate
+    station: saucier
+    time_tier: 15m
+    status: draft
+
+  - id: SOP-LABELING-001
+    name: { zh: 标签命名 SOP, en: Labeling SOP }
+    category: labeling
+    cooking_method: label
+    station: none
+    time_tier: 5m
+    status: draft
+
+  # ─────────── 清洁 / Cleaning ───────────
+  - id: SOP-CLEAN-WOK-HOT-001
+    name: { zh: 热锅清洁 SOP, en: Hot-wok cleaning SOP }
+    category: clean
+    cooking_method: clean
+    station: none
+    time_tier: 5m
+    status: draft
+
+  # ─────────── 时间优化 / Optimize ───────────
+  - id: SOP-OPTIMIZE-PARALLEL-001
+    name: { zh: 双锅并行 SOP, en: Two-pot parallel cooking SOP }
+    category: optimize
+    cooking_method: optimize
+    station: none
+    time_tier: 5m
+    status: draft
+
+  - id: SOP-OPTIMIZE-OVERLAP-001
+    name: { zh: 重叠等待 SOP, en: Overlap-while-waiting SOP }
+    category: optimize
+    cooking_method: optimize
+    station: none
+    time_tier: 5m
+    status: draft
+
+  - id: SOP-OPTIMIZE-SKU-AHEAD-001
+    name: { zh: 用预制 SKU 抢跑 SOP, en: Use prepped SKU to skip steps SOP }
+    category: optimize
+    cooking_method: optimize
+    station: none
+    time_tier: 5m
+    status: draft
+
+  - id: SOP-OPTIMIZE-BATCH-PREP-001
+    name: { zh: 周末批量切配 SOP, en: Weekend batch-prep SOP }
+    category: optimize
+    cooking_method: optimize
+    station: none
+    time_tier: half-day
+    status: draft

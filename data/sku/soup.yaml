@@ -1,0 +1,6 @@
+# 汤底包 SKU / SOUP base SKUs
+# v1 暂无；首批将由 #18 酱油拉面 与 #23 越南河粉 通过 add-dish 引入：
+#   SOUP-JP-SHOYU-RAMEN-v1
+#   SOUP-VN-PHO-BROTH-v1
+
+items: []

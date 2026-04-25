@@ -1,0 +1,267 @@
+# 双语术语表 / Bilingual glossary
+# 这是 add-dish skill 的术语护栏 —— 任何调料/食材/工艺出现在 yaml 之前，必须在此查得到。
+# This is add-dish's terminology guardrail — any ingredient/spice/technique must be found here before use.
+
+terms:
+  # ─────────── 酱油 / Soy sauces ───────────
+  - zh: 生抽
+    en: Light soy sauce
+    category: sauce
+    do_not_translate_as: [soy sauce]
+    notes: 不要笼统写 'soy sauce'，必须区分生抽与老抽
+
+  - zh: 老抽
+    en: Dark soy sauce
+    category: sauce
+    notes: 主要功能是上色，咸度低于生抽
+
+  - zh: 蚝油
+    en: Oyster sauce
+    category: sauce
+
+  - zh: 鱼露
+    en: Fish sauce
+    category: sauce
+    notes: 东南亚菜核心咸鲜来源
+
+  # ─────────── 醋 / Vinegars ───────────
+  - zh: 米醋
+    en: Rice vinegar
+    category: vinegar
+    do_not_translate_as: [white vinegar]
+
+  - zh: 黑醋
+    en: Chinese black vinegar
+    alias_en: [Chinkiang vinegar, 镇江醋]
+    category: vinegar
+
+  # ─────────── 酱料 / Pastes ───────────
+  - zh: 郫县豆瓣酱
+    en: Pixian chili bean paste
+    alias_en: [doubanjiang]
+    category: paste
+    do_not_translate_as: [bean sauce]
+    notes: 川菜灵魂；不要简化成 'bean sauce'
+
+  - zh: 韩式辣酱
+    en: Gochujang
+    alias_en: [Korean chili paste]
+    category: paste
+
+  - zh: 味噌
+    en: Miso
+    category: paste
+
+  - zh: 泰式红咖喱酱
+    en: Thai red curry paste
+    category: paste
+
+  - zh: 泰式绿咖喱酱
+    en: Thai green curry paste
+    category: paste
+
+  # ─────────── 整香料 / Whole spices ───────────
+  - zh: 八角
+    en: Star anise
+    alias_zh: [大料]
+    category: whole-spice
+    do_not_translate_as: [big spice, generic spice]
+    notes: "'大料' 是 '八角' 的俗称，不是 'big spice'"
+
+  - zh: 香叶
+    en: Bay leaf
+    category: whole-spice
+
+  - zh: 桂皮
+    en: Cassia bark
+    alias_en: [Chinese cinnamon]
+    category: whole-spice
+    notes: 中餐用的是 cassia 不是 true cinnamon (Ceylon)
+
+  - zh: 白胡椒粒
+    en: White peppercorn
+    category: whole-spice
+
+  - zh: 花椒
+    en: Sichuan peppercorn
+    category: whole-spice
+    do_not_translate_as: [black pepper, peppercorn]
+    notes: 麻味独特来源；与黑/白胡椒完全不同
+
+  - zh: 陈皮
+    en: Dried tangerine peel
+    category: whole-spice
+
+  - zh: 干辣椒
+    en: Dried chili
+    category: whole-spice
+
+  # ─────────── 粉香料 / Ground spices ───────────
+  - zh: 孜然粉
+    en: Ground cumin
+    category: ground-spice
+
+  - zh: 甜椒粉
+    en: Paprika
+    category: ground-spice
+
+  - zh: 烟熏甜椒粉
+    en: Smoked paprika
+    category: ground-spice
+
+  - zh: 辣椒粉
+    en: Chili powder
+    category: ground-spice
+    notes: 不同国家配方差异极大；中国/墨/印度/南美都不同
+
+  - zh: 咖喱粉
+    en: Curry powder
+    category: ground-spice
+
+  - zh: 姜黄粉
+    en: Turmeric powder
+    category: ground-spice
+
+  - zh: 黑胡椒粉
+    en: Ground black pepper
+    category: ground-spice
+
+  - zh: 白胡椒粉
+    en: Ground white pepper
+    category: ground-spice
+
+  # ─────────── 干货鲜味 / Dried umami ───────────
+  - zh: 出汁粉
+    en: Dashi powder
+    category: ground-spice
+    do_not_translate_as: [broth powder, soup powder]
+
+  - zh: 干香菇
+    en: Dried shiitake mushrooms
+    category: technique
+
+  - zh: 海带
+    en: Kombu
+    alias_en: [dried kelp]
+    category: technique
+
+  - zh: 海带芽
+    en: Dried wakame
+    category: technique
+
+  # ─────────── 生鲜香辛 / Fresh aromatics ───────────
+  - zh: 姜
+    en: Ginger
+    category: fresh-aromatic
+
+  - zh: 蒜
+    en: Garlic
+    category: fresh-aromatic
+
+  - zh: 葱
+    en: Scallion
+    alias_en: [green onion]
+    category: fresh-aromatic
+
+  - zh: 香菜
+    en: Cilantro
+    alias_en: [coriander leaves]
+    category: fresh-aromatic
+
+  - zh: 香茅
+    en: Lemongrass
+    category: fresh-aromatic
+
+  - zh: 南姜
+    en: Galangal
+    category: fresh-aromatic
+    do_not_translate_as: [ginger]
+
+  - zh: 柠檬叶
+    en: Makrut lime leaves
+    category: fresh-aromatic
+    notes: 避免 'kaffir' 一词（争议）
+
+  - zh: 罗勒
+    en: Basil
+    category: fresh-aromatic
+
+  - zh: 泰国九层塔
+    en: Thai basil
+    alias_en: [holy basil]
+    category: fresh-aromatic
+
+  # ─────────── 蛋白质 / Proteins ───────────
+  - zh: 牛腩
+    en: Beef brisket
+    alias_en: [beef flank]
+    category: protein
+    notes: 港粤式清汤牛腩用 brisket；有些菜叫 flank
+
+  - zh: 五花肉
+    en: Pork belly
+    category: protein
+
+  - zh: 鸡腿肉
+    en: Chicken thigh
+    category: protein
+
+  - zh: 鸡胸肉
+    en: Chicken breast
+    category: protein
+
+  - zh: 虾仁
+    en: Peeled shrimp
+    category: protein
+
+  - zh: 豆腐
+    en: Tofu
+    category: protein
+
+  # ─────────── 蔬菜 / Vegetables ───────────
+  - zh: 白萝卜
+    en: Daikon radish
+    category: vegetable
+
+  - zh: 卷心菜
+    en: Cabbage
+    alias_zh: [圆白菜, 包菜]
+    category: vegetable
+
+  - zh: 青菜
+    en: Leafy greens
+    category: vegetable
+
+  # ─────────── 主食 / Grains ───────────
+  - zh: 河粉
+    en: Rice noodles
+    alias_en: [flat rice noodles]
+    category: grain
+
+  - zh: 乌冬
+    en: Udon
+    category: grain
+
+  - zh: 米
+    en: Rice
+    category: grain
+
+  - zh: 面条
+    en: Noodles
+    category: grain
+
+  # ─────────── 工艺词 / Techniques ───────────
+  - zh: 焯水
+    en: Blanch
+    category: technique
+
+  - zh: 红烧
+    en: Hongshao braise
+    alias_en: [red-braise]
+    category: technique
+    notes: 中式红烧法；是 braise 的中式特殊形式
+
+  - zh: 上浆
+    en: Velveting
+    category: technique
+    notes: 中式肉类预处理（淀粉+蛋清+酒）以保持嫩度

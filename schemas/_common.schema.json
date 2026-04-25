@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lazy-kitchen.local/schemas/_common.schema.json",
+  "title": "Common reusable definitions",
+  "$defs": {
+    "bilingualName": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zh", "en"],
+      "properties": {
+        "zh": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 }
+      }
+    },
+    "bilingualText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zh", "en"],
+      "properties": {
+        "zh": { "type": "string" },
+        "en": { "type": "string" }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["planned", "draft", "proposed", "review", "approved", "deprecated"],
+      "description": "planned = idea only; draft = local AI-generated, not pushed; proposed = on 告示栏 soliciting community vote; review = consensus building; approved = published; deprecated = retired"
+    },
+    "timeTier": {
+      "type": "string",
+      "enum": ["5m", "15m", "30m", "1h", "half-day", "overnight"]
+    },
+    "heatType": {
+      "type": "string",
+      "enum": ["dry", "moist", "combination"]
+    },
+    "cookingMethod": {
+      "type": "string",
+      "enum": [
+        "saute", "stir-fry", "pan-fry", "deep-fry", "shallow-fry",
+        "grill", "broil", "roast", "bake", "smoke",
+        "blanch", "parboil", "boil", "poach", "simmer", "steam",
+        "braise", "stew", "sous-vide",
+        "marinate", "cure", "ferment",
+        "cut", "mince", "julienne", "dice",
+        "mix", "emulsify", "thicken", "reduce",
+        "clean", "package", "label", "optimize", "compose", "rehydrate"
+      ]
+    },
+    "station": {
+      "type": "string",
+      "enum": ["garde-manger", "saucier", "saute", "grill", "fry", "pastry", "none"]
+    },
+    "heatLevel": {
+      "type": "string",
+      "enum": ["high", "medium-high", "medium", "medium-low", "low", "simmer"]
+    },
+    "spicyLevel": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "procurementMode": {
+      "type": "string",
+      "enum": ["bulk_pantry", "seasonal_buy", "on_demand_online"]
+    },
+    "skuType": {
+      "type": "string",
+      "enum": ["DRY", "WET", "COOKED", "SOUP", "READY"]
+    },
+    "diet_tag": {
+      "type": "string",
+      "enum": ["vegan", "vegetarian", "halal", "kosher", "no-pork", "gluten-free", "nut-free", "dairy-free"]
+    },
+    "amountUnit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["amount", "unit"],
+      "properties": {
+        "amount": { "type": ["number", "string"] },
+        "unit": {
+          "anyOf": [
+            { "type": "string" },
+            { "$ref": "#/$defs/bilingualText" }
+          ]
+        }
+      }
+    },
+    "season": {
+      "type": "string",
+      "enum": ["spring", "summer", "fall", "winter", "year-round"]
+    },
+    "flavorStructure": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "salt": { "type": ["string", "null"] },
+        "fat": { "type": ["string", "null"] },
+        "acid": { "type": ["string", "null"] },
+        "heat": { "type": ["string", "null"] }
+      }
+    },
+    "crossReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cross_reviewed": {
+          "type": "boolean",
+          "description": "True only if a different CLI/model audited this entry via add-dish Step 6"
+        },
+        "cross_reviewer_cli": {
+          "type": "string",
+          "enum": ["codex", "gemini", "aider", "claude-code", "cline", "continue", "cursor", "manual", "skipped"]
+        },
+        "cross_reviewer_model": { "type": "string" },
+        "cross_review_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "buyingGuide": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "key_considerations": { "type": "array", "items": { "type": "string" } },
+        "spec_hint": { "type": "string" },
+        "food_safety": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "array", "items": { "type": "string" } }
+          ]
+        },
+        "common_pitfalls": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "array", "items": { "type": "string" } }
+          ]
+        },
+        "price_band_cny": { "type": "string" }
+      }
+    }
+  }
+}

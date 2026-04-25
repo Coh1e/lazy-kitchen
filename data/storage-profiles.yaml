@@ -1,0 +1,45 @@
+# 储藏档位 / Storage profiles
+# Ingredient.storage_profile 与 SKU.storage_profile 字段引用此表 ID。
+
+profiles:
+  - id: pantry-dry-dark
+    name: { zh: 常温避光防潮, en: Cool dark dry pantry }
+    temperature_c: 15–25
+    humidity: low
+    typical_shelf_life: 6–24 months
+    spoilage_signs:
+      zh: 受潮结块、虫蛀、气味变质
+      en: Caking, insect, off odor
+
+  - id: fridge-staple
+    name: { zh: 冷藏 (开封后调料), en: 'Refrigerated (opened condiments)' }
+    temperature_c: 2–8
+    typical_shelf_life: 1–6 months
+    spoilage_signs:
+      zh: 颜色变深、长霉、酸味
+      en: Darkening, mold, sour smell
+
+  - id: fridge-fresh
+    name: { zh: 冷藏 (生鲜), en: Refrigerated (fresh produce/meat) }
+    temperature_c: 0–4
+    typical_shelf_life: 2–7 days
+    spoilage_signs:
+      zh: 黏液、异味、变色
+      en: Slime, off smell, discoloration
+
+  - id: freezer-vacuum
+    name: { zh: 真空冷冻, en: Vacuum-sealed freezer }
+    temperature_c: -18 or lower
+    typical_shelf_life: 6–12 months (taste); 24+ months (safety)
+    spoilage_signs:
+      zh: 包装鼓气、霜烧
+      en: Bag puffing, freezer burn
+    notes: 真空封冷冻可显著延长风味保鲜期
+
+  - id: freezer-bag
+    name: { zh: 普通冷冻 (拉链袋), en: 'Standard freezer (zip bag)' }
+    temperature_c: -18 or lower
+    typical_shelf_life: 1–3 months (quality)
+    spoilage_signs:
+      zh: 霜烧、风味流失
+      en: Freezer burn, flavor loss

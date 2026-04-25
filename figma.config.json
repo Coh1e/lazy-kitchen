@@ -1,0 +1,12 @@
+{
+  "$schema": "https://figma.com/schemas/code-connect.json",
+  "codeConnect": {
+    "include": ["figma/**/*.figma.ts"],
+    "exclude": ["node_modules/**", "dist/**"],
+    "parser": "html",
+    "label": "Lazy Kitchen v0.2",
+    "documentUrlSubstitutions": {
+      "https://www.figma.com/design/WKCKghfPr2XXsJIovE7Azo": "lazy-kitchen-design-system"
+    }
+  }
+}

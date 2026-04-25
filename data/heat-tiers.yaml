@@ -1,0 +1,47 @@
+# 火候档位 / Heat tiers
+# SOP.heat_level_used 字段从此处选取。
+# Mapped to BTU intuition + visual cues so home cooks can calibrate.
+
+tiers:
+  - id: high
+    name: { zh: 大火, en: High }
+    visual:
+      zh: 锅冒烟、油有"哔啵"声、明火舔锅边
+      en: Pan smokes; oil sizzles audibly; flames lick the wok edge
+    use_for: [stir-fry, sear, bring-water-to-boil, wok-hei]
+    btu_hint: 14000+ BTU 燃气；电磁炉最高档
+
+  - id: medium-high
+    name: { zh: 中大火, en: Medium-high }
+    visual:
+      zh: 油面有微动；下肉立即发出滋滋声
+      en: Oil surface trembles; meat sizzles loudly on contact
+    use_for: [pan-fry-protein, brown-onions, reduce-sauce]
+
+  - id: medium
+    name: { zh: 中火, en: Medium }
+    visual:
+      zh: 油静止微暖；下蛋液不立即凝
+      en: Oil still and warm; eggs don't set instantly
+    use_for: [scramble-eggs, sweat-aromatics, gentle-saute]
+
+  - id: medium-low
+    name: { zh: 中小火, en: Medium-low }
+    visual:
+      zh: 锅边几乎无热感
+      en: Almost no heat radiating from pan edge
+    use_for: [reduce-sauce-slow, melt-fat, soft-onion]
+
+  - id: low
+    name: { zh: 小火, en: Low }
+    visual:
+      zh: 汤面有细密小泡缓慢上升
+      en: Tiny bubbles slowly rising from broth surface
+    use_for: [simmer, slow-braise, warming-sauces]
+
+  - id: simmer
+    name: { zh: 微火 / 文火, en: Bare simmer }
+    visual:
+      zh: 汤面几乎静止，偶有 1–2 个气泡破开
+      en: Surface nearly still; occasional 1–2 bubbles
+    use_for: [long-stew, bone-broth, custard-cooking]

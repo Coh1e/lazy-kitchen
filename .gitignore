@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build artifacts (lazy-kitchen.html is intentionally NOT ignored — it's committed)
+dist/
+*.tsbuildinfo
+
+# Test artifacts (baselines under tests/visual/__screenshots__ ARE committed)
+playwright-report/
+test-results/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Env
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*

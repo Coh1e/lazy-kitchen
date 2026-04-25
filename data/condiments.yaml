@@ -1,0 +1,182 @@
+# 基础调料 / Base condiments (L3)
+# 大瓶常备，不分装成 SKU。
+
+items:
+  # ─────────── 咸鲜 / Salty-umami ───────────
+  - id: COND-LIGHT-SOY
+    name: { zh: 生抽, en: Light soy sauce }
+    category: salty-umami
+    storage_profile: fridge-staple
+    procurement_mode: bulk_pantry
+    mvp_level: core
+    status: approved
+
+  - id: COND-DARK-SOY
+    name: { zh: 老抽, en: Dark soy sauce }
+    category: salty-umami
+    storage_profile: fridge-staple
+    procurement_mode: bulk_pantry
+    mvp_level: core
+    status: approved
+
+  - id: COND-OYSTER-SAUCE
+    name: { zh: 蚝油, en: Oyster sauce }
+    category: salty-umami
+    storage_profile: fridge-staple
+    procurement_mode: bulk_pantry
+    mvp_level: common
+    status: approved
+
+  - id: COND-FISH-SAUCE
+    name: { zh: 鱼露, en: Fish sauce }
+    category: salty-umami
+    storage_profile: fridge-staple
+    procurement_mode: bulk_pantry
+    mvp_level: common
+    status: approved
+
+  - id: COND-SALT
+    name: { zh: 盐, en: Salt }
+    category: salty-umami
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    diet_tags: [vegan, vegetarian, halal, kosher, no-pork, gluten-free, nut-free, dairy-free]
+    mvp_level: core
+    status: approved
+
+  # ─────────── 酸 / Acids ───────────
+  - id: COND-RICE-VINEGAR
+    name: { zh: 米醋, en: Rice vinegar }
+    category: acid
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    mvp_level: core
+    status: approved
+
+  - id: COND-BLACK-VINEGAR
+    name: { zh: 黑醋 / 镇江醋, en: Chinese black vinegar }
+    aliases:
+      en: [Chinkiang vinegar]
+    category: acid
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  - id: COND-LEMON-JUICE
+    name: { zh: 柠檬汁 (瓶装), en: Bottled lemon juice }
+    category: acid
+    storage_profile: fridge-staple
+    procurement_mode: on_demand_online
+    mvp_level: common
+    status: approved
+
+  # ─────────── 甜 / Sweet ───────────
+  - id: COND-WHITE-SUGAR
+    name: { zh: 白糖, en: White sugar }
+    category: sweet
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    mvp_level: core
+    status: approved
+
+  - id: COND-ROCK-SUGAR
+    name: { zh: 冰糖, en: Rock sugar }
+    category: sweet
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  - id: COND-HONEY
+    name: { zh: 蜂蜜, en: Honey }
+    category: sweet
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    mvp_level: common
+    status: approved
+
+  # ─────────── 油脂 / Oils ───────────
+  - id: COND-NEUTRAL-OIL
+    name: { zh: 食用油, en: Neutral cooking oil }
+    category: oil
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    mvp_level: core
+    status: approved
+
+  - id: COND-SESAME-OIL
+    name: { zh: 芝麻油, en: Toasted sesame oil }
+    category: oil
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: core
+    status: approved
+
+  - id: COND-OLIVE-OIL
+    name: { zh: 橄榄油, en: Olive oil }
+    category: oil
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    mvp_level: common
+    status: approved
+
+  # ─────────── 酱料 / Pastes ───────────
+  - id: COND-DOUBANJIANG
+    name: { zh: 郫县豆瓣酱, en: Pixian chili bean paste }
+    aliases:
+      en: [doubanjiang]
+    category: paste
+    storage_profile: fridge-staple
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  - id: COND-MISO
+    name: { zh: 味噌, en: Miso }
+    category: paste
+    storage_profile: fridge-staple
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  - id: COND-GOCHUJANG
+    name: { zh: 韩式辣酱, en: Gochujang }
+    category: paste
+    storage_profile: fridge-staple
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  - id: COND-THAI-RED-CURRY
+    name: { zh: 泰式红咖喱酱, en: Thai red curry paste }
+    category: paste
+    storage_profile: fridge-staple
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  - id: COND-THAI-GREEN-CURRY
+    name: { zh: 泰式绿咖喱酱, en: Thai green curry paste }
+    category: paste
+    storage_profile: fridge-staple
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  # ─────────── 罐头 / Canned ───────────
+  - id: COND-CANNED-TOMATO
+    name: { zh: 番茄罐头, en: Canned tomatoes }
+    category: canned
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    mvp_level: common
+    status: approved
+
+  - id: COND-COCONUT-MILK
+    name: { zh: 椰浆, en: Coconut milk }
+    category: canned
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved

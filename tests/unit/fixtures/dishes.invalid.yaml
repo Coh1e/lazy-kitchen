@@ -1,0 +1,5 @@
+items:
+  - id: DISH-TEST-INVALID
+    name: { zh: 测试菜, en: Test dish }
+    # cuisine MISSING — required
+    status: planned

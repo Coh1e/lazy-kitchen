@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lazy-kitchen.local/schemas/glossary-entry.schema.json",
+  "title": "Glossary entry (bilingual term + alias)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["zh", "en"],
+  "properties": {
+    "zh": { "type": "string", "minLength": 1 },
+    "en": { "type": "string", "minLength": 1 },
+    "alias_zh": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "alias_en": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "whole-spice", "ground-spice", "sauce", "paste", "vinegar", "oil",
+        "fresh-aromatic", "protein", "vegetable", "grain", "dairy",
+        "technique", "equipment", "cuisine"
+      ]
+    },
+    "notes": { "type": "string" },
+    "source": { "type": "string", "description": "Cited source if non-obvious translation" },
+    "do_not_translate_as": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Common wrong translations to explicitly forbid (e.g. 大料 != 'big spice')"
+    }
+  }
+}

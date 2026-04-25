@@ -1,0 +1,47 @@
+# 油温档位 / Oil temperature tiers
+# 中式"几成热"传统刻度 + 摄氏度对照 + 视觉判断。
+# Traditional Chinese "成" scale paired with Celsius + visual cues.
+
+tiers:
+  - id: 1-2-cheng
+    name: { zh: 一二成热, en: '1–2 cheng (warm)' }
+    celsius: 30–60
+    visual:
+      zh: 油面静止；筷子伸入无气泡
+      en: Oil still; chopstick produces no bubbles
+    use_for: [infuse-aromatics-low, gentle-confit]
+
+  - id: 3-4-cheng
+    name: { zh: 三四成热, en: '3–4 cheng (medium-low)' }
+    celsius: 90–120
+    visual:
+      zh: 油面微动；筷子周围出小泡
+      en: Oil surface ripples; small bubbles around chopstick
+    use_for: [velveting-meat, slipped-fish, delicate-shrimp]
+
+  - id: 5-6-cheng
+    name: { zh: 五六成热, en: '5–6 cheng (medium)' }
+    celsius: 150–180
+    visual:
+      zh: 筷子周围密集小泡；微微烟青
+      en: Dense small bubbles around chopstick; faint smoke haze
+    use_for: [first-fry-twice-fried, stir-fry-aromatics, deep-fry-meat]
+
+  - id: 7-8-cheng
+    name: { zh: 七八成热, en: '7–8 cheng (medium-high)' }
+    celsius: 200–220
+    visual:
+      zh: 油面大波动；明显烟雾
+      en: Surface visibly waves; distinct smoke
+    use_for: [second-fry-crisp, sear-skin-crispy, deep-fry-finish]
+
+  - id: 9-cheng
+    name: { zh: 九成热, en: '9 cheng (very high)' }
+    celsius: 230+
+    visual:
+      zh: 浓烟；油接近燃点
+      en: Heavy smoke; oil near smoke point
+    use_for: [wok-hei-flash, final-flash-fry]
+    warning:
+      zh: 接近油烟点，仅秒级使用，长时间会燃
+      en: Near smoke point — use only for seconds, sustained heat will ignite

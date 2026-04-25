@@ -1,0 +1,69 @@
+# 替换规则 / Substitution rules
+# 边数据（from → to）+ 适用场景 + 风味损失说明。
+# Edge data: when X is unavailable, what (and at what flavor cost) can replace it?
+
+substitutions:
+  - from: 鱼露
+    to: 生抽 + 一点凤尾鱼酱 (1 tbsp 鱼露 ≈ 1 tbsp 生抽 + 1/4 tsp anchovy paste)
+    when: 没鱼露但需要东南亚菜的咸鲜深度
+    flavor_loss: 30%（鱼露发酵复杂度独特）
+
+  - from: 花椒
+    to: 无替代
+    when: 任何"麻"味的菜
+    flavor_loss: 100%（麻味无替代，建议省略并告知客人）
+
+  - from: 香茅
+    to: 现成的泰式咖喱酱 + 多挤一点柠檬汁
+    when: 找不到新鲜香茅
+    flavor_loss: 20%（咖喱酱已含香茅）
+
+  - from: 南姜
+    to: 用一点姜代替（不同物，但应急）
+    when: 找不到南姜
+    flavor_loss: 50%（南姜花香独特）
+
+  - from: 柠檬叶 (Makrut)
+    to: 普通柠檬皮屑 + 月桂叶
+    when: 找不到 Makrut lime leaves
+    flavor_loss: 40%
+
+  - from: 黑醋 (镇江)
+    to: 米醋 + 1/2 量的老抽 + 一撮糖
+    when: 没黑醋
+    flavor_loss: 20%
+
+  - from: 郫县豆瓣酱
+    to: 韩式辣酱 (gochujang) + 一点豆豉
+    when: 没豆瓣酱（最近的替代）
+    flavor_loss: 30%
+
+  - from: 普通生抽 (含麦)
+    to: Tamari 酱油
+    when: 无麸质需求
+    flavor_loss: 5%
+
+  - from: 米酒 (料酒)
+    to: 干雪利酒 (dry sherry) 或 dry vermouth
+    when: 西厨房无中式料酒
+    flavor_loss: 10%
+
+  - from: 椰浆
+    to: 牛奶 + 椰子油
+    when: 没椰浆但要风味
+    flavor_loss: 50%（推荐去买椰浆罐头，差太大）
+
+  - from: 出汁粉
+    to: 干香菇水 + 一点海带泡水
+    when: 没出汁粉，自制 dashi
+    flavor_loss: 0%（这才是正宗做法，省时才用粉）
+
+  - from: 新鲜罗勒
+    to: 干罗勒 1/3 量 + 一点橄榄油
+    when: 应急
+    flavor_loss: 60%（新鲜罗勒精油最易挥发）
+
+  - from: 红葱头
+    to: 普通洋葱 + 一瓣蒜
+    when: 没红葱头
+    flavor_loss: 30%

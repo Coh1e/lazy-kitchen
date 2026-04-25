@@ -1,0 +1,546 @@
+# 菜品 / Dishes
+# 1 个端到端示例 (status: approved) + 60 个全球种子菜单占位 (status: planned)。
+# Maintainer 通过 /add-dish skill 将 planned 推到 proposed → review → approved。
+
+items:
+  # ─────────── 端到端示例 / End-to-end example ───────────
+  - id: DISH-CN-CANTON-CLEAR-BEEF-NOODLES
+    name: { zh: 清汤牛腩粉, en: Cantonese clear-broth beef brisket rice noodles }
+    cuisine: { region: 粤, country: CN }
+    status: approved
+    cross_reviewed: true
+    cross_reviewer_cli: manual
+    cross_reviewer_model: human-curator
+    cross_review_at: 2026-04-25T00:00:00Z
+    uses:
+      sku: [DRY-CANTON-CLEAR-BEEF-v1]
+      sop: [SOP-BLANCH-MEAT-001, SOP-CANTON-CLEAR-BEEF-001, SOP-SOUP-NOODLE-001]
+      ratio: []
+    fresh_ingredients:
+      - name: { zh: 牛腩, en: Beef brisket }
+        amount: 600
+        unit: g
+        ingredient_id: ING-BEEF-BRISKET
+      - name: { zh: 白萝卜, en: Daikon radish }
+        amount: 600
+        unit: g
+        ingredient_id: ING-DAIKON
+      - name: { zh: 河粉, en: Rice noodles }
+        amount: 200
+        unit: g
+        ingredient_id: ING-RICE-NOODLES
+      - name: { zh: 青菜, en: Leafy greens }
+        amount: 100
+        unit: g
+        ingredient_id: ING-LEAFY-GREENS
+      - name: { zh: 葱花, en: Chopped scallion }
+        amount: 1
+        unit: { zh: 把, en: handful }
+    yield:
+      servings: 3
+    time:
+      prep_min: 15
+      hands_on_min: 25
+      unattended_min: 120
+      total_min: 160
+    hardware_required: [MVP]
+    hardware_extension: []
+    flavor_structure:
+      salt: 'fish_sauce + light_soy'
+      fat: '牛腩自带脂肪'
+      acid: null
+      heat: 'long simmer'
+    flavor_tags: [clear, umami, light]
+    diet_tags: [no-pork, gluten-free, nut-free, dairy-free]
+    meal_pattern: bowl
+    notes:
+      zh: 端到端示例。展示"DRY 包 + 多 SOP 协作"的最小完整闭环。
+      en: End-to-end example. Demonstrates the minimal closed loop of "DRY pack + multi-SOP composition".
+
+  # ─────────── 全球种子菜单 60 道 / 60 planned global seeds ───────────
+
+  # ── 中国 12 (剩余，#1 已上端到端) ──
+  - id: DISH-CN-CANTON-CHAR-SIU-RICE
+    name: { zh: 港式叉烧饭, en: Cantonese char siu over rice }
+    cuisine: { region: 粤, country: CN }
+    status: planned
+    planned_skus: [WET-CN-CHARSIU-v1]
+    planned_sops: [SOP-MARINATE-WET-001, SOP-PAN-SEAR-001]
+    notes: WET 新增；广式蜜汁烤制需要烤箱
+
+  - id: DISH-CN-HONGSHAO-PORK
+    name: { zh: 红烧肉饭, en: Hongshao pork belly over rice }
+    cuisine: { region: 中, country: CN }
+    status: planned
+    planned_skus: [DRY-CN-BRAISE-v1]
+    planned_sops: [SOP-BRAISE-001]
+    notes: 与清汤牛腩反差：浓 vs 清，验证 BRAISE SOP
+
+  - id: DISH-CN-TOMATO-EGGS
+    name: { zh: 番茄炒蛋, en: Tomato and eggs }
+    cuisine: { region: 中, country: CN }
+    status: planned
+    planned_skus: []
+    planned_sops: [SOP-STIR-FRY-001]
+    notes: 无 SKU 极简示例，5 分钟全程 hands-on
+
+  - id: DISH-CN-MALA-XIANGGUO
+    name: { zh: 麻辣香锅, en: Mala xiang guo }
+    cuisine: { region: 川, country: CN }
+    status: planned
+    planned_skus: [DRY-CN-MALA-v1]
+    planned_sops: [SOP-STIR-FRY-001]
+    notes: 麻辣体系开张
+
+  - id: DISH-CN-SICHUAN-MALA-BEEF-NOODLES
+    name: { zh: 川式麻辣牛肉面, en: Sichuan mala beef noodle soup }
+    cuisine: { region: 川, country: CN }
+    status: planned
+    planned_skus: [DRY-CN-MALA-v1]
+    planned_sops: [SOP-SOUP-NOODLE-001, SOP-CLEAR-STEW-001]
+    notes: 重用 DRY-CN-MALA-v1，证明 SKU 跨菜复用
+
+  - id: DISH-CN-DAN-DAN-NOODLES
+    name: { zh: 担担面, en: Dan dan noodles }
+    cuisine: { region: 川, country: CN }
+    status: planned
+    planned_skus: [DRY-CN-MALA-v1]
+    planned_sops: [SOP-STIR-FRY-001]
+    notes: 重用 DRY-CN-MALA-v1；新增 RATIO-CN-DANDAN
+
+  - id: DISH-CN-KUNG-PAO-CHICKEN
+    name: { zh: 宫保鸡丁, en: Kung pao chicken }
+    cuisine: { region: 川, country: CN }
+    status: planned
+    planned_skus: []
+    planned_sops: [SOP-MARINATE-VELVET-001, SOP-STIR-FRY-001]
+    notes: 新增 RATIO-CN-KUNGPAO
+
+  - id: DISH-CN-MAPO-TOFU
+    name: { zh: 麻婆豆腐, en: Mapo tofu }
+    cuisine: { region: 川, country: CN }
+    status: planned
+    planned_skus: [DRY-CN-MALA-v1]
+    planned_sops: [SOP-STIR-FRY-001]
+    notes: 重用 DRY-CN-MALA-v1
+
+  - id: DISH-CN-YUXIANG-PORK
+    name: { zh: 鱼香肉丝, en: Yuxiang shredded pork }
+    cuisine: { region: 川, country: CN }
+    status: planned
+    planned_skus: []
+    planned_sops: [SOP-MARINATE-VELVET-001, SOP-STIR-FRY-001]
+    notes: 用 RATIO-CN-FISHSCENT-v1（已存在）
+
+  - id: DISH-CN-SCALLION-OIL-NOODLES
+    name: { zh: 葱油拌面, en: Scallion oil noodles }
+    cuisine: { region: 沪, country: CN }
+    status: planned
+    planned_skus: []
+    planned_sops: []
+    notes: 无 SKU 证明系统支持极简菜；新增 SOP-AROMATIC-OIL-001
+
+  - id: DISH-CN-BEIJING-ZHAJIANGMIAN
+    name: { zh: 北京炸酱面, en: Beijing zhajiangmian }
+    cuisine: { region: 京, country: CN }
+    status: planned
+    planned_skus: [WET-CN-ZHAJIANG-v1]
+    planned_sops: [SOP-COOKED-BASE-001]
+    notes: WET 新增
+
+  - id: DISH-CN-WEST-LAKE-VINEGAR-FISH
+    name: { zh: 西湖醋鱼, en: West Lake vinegar fish }
+    cuisine: { region: 浙, country: CN }
+    status: planned
+    planned_skus: []
+    planned_sops: [SOP-BLANCH-MEAT-001]
+    notes: 新增 RATIO-CN-SWEET-SOUR
+
+  # ── 日本 5 ──
+  - id: DISH-JP-TERIYAKI-CHICKEN-DON
+    name: { zh: 日式照烧鸡饭, en: Japanese teriyaki chicken donburi }
+    cuisine: { region: 日, country: JP }
+    status: planned
+    planned_skus: [WET-JP-TERIYAKI-v1]
+    planned_sops: [SOP-MARINATE-WET-001, SOP-PAN-SEAR-001]
+    notes: 第一个 WET SKU 实战
+
+  - id: DISH-JP-MISO-TOFU-SOUP
+    name: { zh: 日式味噌豆腐汤, en: Miso tofu soup }
+    cuisine: { region: 日, country: JP }
+    status: planned
+    planned_skus: [DRY-JP-DASHI-v1]
+    planned_sops: [SOP-CLEAR-STEW-001]
+    notes: 出汁体系；SOP 跨菜系复用
+
+  - id: DISH-JP-OYAKODON
+    name: { zh: 亲子丼, en: Oyakodon (chicken & egg rice bowl) }
+    cuisine: { region: 日, country: JP }
+    status: planned
+    planned_skus: [DRY-JP-DASHI-v1, WET-JP-TERIYAKI-v1]
+    planned_sops: [SOP-CLEAR-STEW-001]
+    notes: 多 SKU 协作
+
+  - id: DISH-JP-CURRY-RICE
+    name: { zh: 日式咖喱饭, en: Japanese curry rice }
+    cuisine: { region: 日, country: JP }
+    status: planned
+    planned_skus: [DRY-JP-CURRY-v1]
+    planned_sops: [SOP-BRAISE-001]
+    notes: 与印度咖喱系不同；新增 DRY-JP-CURRY
+
+  - id: DISH-JP-SHOYU-RAMEN
+    name: { zh: 酱油拉面, en: Shoyu ramen }
+    cuisine: { region: 日, country: JP }
+    status: planned
+    planned_skus: [SOUP-JP-SHOYU-RAMEN-v1]
+    planned_sops: [SOP-CLEAR-STEW-001, SOP-SOUP-NOODLE-001]
+    notes: 首个 SOUP SKU 入场
+
+  # ── 韩国 4 ──
+  - id: DISH-KR-BIBIMBAP
+    name: { zh: 韩式拌饭, en: Bibimbap }
+    cuisine: { region: 韩, country: KR }
+    status: planned
+    planned_skus: [WET-KR-GOCHUJANG-MIX-v1]
+    planned_sops: [SOP-PAN-SEAR-001]
+
+  - id: DISH-KR-BUDAE-JJIGAE
+    name: { zh: 韩式部队锅, en: Budae jjigae (Korean army stew) }
+    cuisine: { region: 韩, country: KR }
+    status: planned
+    planned_skus: [DRY-KR-KIMCHI-STEW-v1]
+    planned_sops: [SOP-CLEAR-STEW-001]
+
+  - id: DISH-KR-FRIED-CHICKEN
+    name: { zh: 韩式炸鸡, en: Korean fried chicken }
+    cuisine: { region: 韩, country: KR }
+    status: planned
+    planned_skus: [WET-KR-YANGNYEOM-v1]
+    planned_sops: []
+    hardware_extension: [HW-AIR-FRYER, HW-INSTANT-THERMOMETER]
+    notes: 需 SOP-DEEP-FRY 新增
+
+  - id: DISH-KR-SAMGYEOPSAL
+    name: { zh: 烤五花肉, en: Samgyeopsal (Korean grilled pork belly) }
+    cuisine: { region: 韩, country: KR }
+    status: planned
+    planned_skus: [WET-KR-SSAMJANG-v1]
+    planned_sops: [SOP-PAN-SEAR-001]
+
+  # ── 东南亚 10 ──
+  - id: DISH-VN-PHO-BO
+    name: { zh: 越南河粉, en: Pho Bo }
+    cuisine: { region: 越, country: VN }
+    status: planned
+    planned_skus: [SOUP-VN-PHO-BROTH-v1]
+    planned_sops: [SOP-CLEAR-STEW-001, SOP-SOUP-NOODLE-001]
+    notes: 第二个 SOUP SKU；半天工程
+
+  - id: DISH-VN-LEMONGRASS-CHICKEN
+    name: { zh: 越式柠檬草烤鸡, en: Vietnamese lemongrass roast chicken }
+    cuisine: { region: 越, country: VN }
+    status: planned
+    planned_skus: [WET-VN-LEMONGRASS-v1]
+    planned_sops: [SOP-MARINATE-WET-001]
+    hardware_extension: [HW-OVEN]
+    notes: skill propose_new 演示
+
+  - id: DISH-VN-BANH-MI
+    name: { zh: 越南法包, en: Banh Mi }
+    cuisine: { region: 越, country: VN }
+    status: planned
+    planned_skus: [WET-VN-FISH-SAUCE-DRESSING-v1]
+    planned_sops: [SOP-MARINATE-WET-001]
+    notes: 自制酸萝卜
+
+  - id: DISH-TH-GREEN-CURRY-CHICKEN
+    name: { zh: 泰式绿咖喱鸡, en: Thai green curry chicken }
+    cuisine: { region: 泰, country: TH }
+    status: planned
+    planned_skus: []
+    planned_sops: []
+    notes: 无 SKU；用商业绿咖喱酱直接
+
+  - id: DISH-TH-TOM-YUM-GOONG
+    name: { zh: 冬阴功汤, en: Tom Yum Goong }
+    cuisine: { region: 泰, country: TH }
+    status: planned
+    planned_skus: [DRY-TH-TOMYUM-v1]
+    planned_sops: [SOP-CLEAR-STEW-001]
+
+  - id: DISH-TH-PAD-THAI
+    name: { zh: 泰式炒河粉, en: Pad Thai }
+    cuisine: { region: 泰, country: TH }
+    status: planned
+    planned_skus: []
+    planned_sops: [SOP-STIR-FRY-001]
+    notes: 新增 RATIO-TH-PADTHAI-SAUCE
+
+  - id: DISH-TH-PAD-KRAPOW-MOO
+    name: { zh: 泰式罗勒猪肉, en: Pad Krapow Moo }
+    cuisine: { region: 泰, country: TH }
+    status: planned
+    planned_skus: []
+    planned_sops: [SOP-STIR-FRY-001]
+    notes: 新增 RATIO-TH-PADKRAPOW
+
+  - id: DISH-PH-ADOBO-CHICKEN
+    name: { zh: 菲律宾阿多波鸡, en: Filipino chicken adobo }
+    cuisine: { region: 菲, country: PH }
+    status: planned
+    planned_skus: [WET-PH-ADOBO-v1]
+    planned_sops: [SOP-BRAISE-001]
+    notes: skill propose_new + RATIO-PH-ADOBO-v1（已存在）演示
+
+  - id: DISH-ID-BEEF-RENDANG
+    name: { zh: 仁当牛肉, en: Beef Rendang }
+    cuisine: { region: 印尼, country: ID }
+    status: planned
+    planned_skus: [DRY-ID-RENDANG-v1]
+    planned_sops: [SOP-BRAISE-001]
+    hardware_extension: [HW-PRESSURE-COOKER]
+    notes: 高压锅可缩短 1.5 倍时间
+
+  - id: DISH-MY-NASI-LEMAK
+    name: { zh: 椰浆饭, en: Nasi Lemak }
+    cuisine: { region: 马来, country: MY }
+    status: planned
+    planned_skus: [WET-MY-SAMBAL-v1]
+    planned_sops: []
+    notes: 椰浆饭复合菜，含三宝（鸡蛋/凤尾鱼干/花生）
+
+  # ── 南亚 5 ──
+  - id: DISH-IN-BUTTER-CHICKEN
+    name: { zh: 黄油鸡, en: Butter chicken (Murgh Makhani) }
+    cuisine: { region: 印, country: IN }
+    status: planned
+    planned_skus: [DRY-IN-GARAM-MASALA-v1, COOKED-IN-CURRY-BASE-v1]
+    planned_sops: [SOP-MARINATE-WET-001, SOP-BRAISE-001]
+
+  - id: DISH-IN-CHICKEN-TIKKA-MASALA
+    name: { zh: 玛萨拉烤鸡, en: Chicken Tikka Masala }
+    cuisine: { region: 印, country: IN }
+    status: planned
+    planned_skus: [DRY-IN-GARAM-MASALA-v1]
+    planned_sops: [SOP-MARINATE-WET-001]
+    hardware_extension: [HW-OVEN]
+
+  - id: DISH-IN-CHANA-MASALA
+    name: { zh: 鹰嘴豆咖喱, en: Chana Masala }
+    cuisine: { region: 印, country: IN }
+    status: planned
+    planned_skus: [DRY-IN-CURRY-v1]
+    planned_sops: [SOP-COOKED-BASE-001]
+
+  - id: DISH-IN-CHICKEN-BIRYANI
+    name: { zh: 印度香饭, en: Chicken Biryani }
+    cuisine: { region: 印, country: IN }
+    status: planned
+    planned_skus: [DRY-IN-BIRYANI-v1]
+    planned_sops: [SOP-MARINATE-WET-001]
+    hardware_extension: [HW-RICE-COOKER, HW-OVEN]
+
+  - id: DISH-IN-DAL
+    name: { zh: 印度扁豆糊, en: Indian Dal }
+    cuisine: { region: 印, country: IN }
+    status: planned
+    planned_skus: [DRY-IN-CURRY-v1]
+    planned_sops: [SOP-CLEAR-STEW-001]
+
+  # ── 中东 5 ──
+  - id: DISH-LB-HUMMUS
+    name: { zh: 鹰嘴豆泥, en: Hummus }
+    cuisine: { region: 黎/中东, country: LB }
+    status: planned
+    planned_skus: []
+    planned_sops: []
+    hardware_extension: [HW-IMMERSION-BLENDER]
+    notes: 新增 RATIO-ME-TAHINI
+
+  - id: DISH-IL-SHAKSHUKA
+    name: { zh: 番茄烩蛋, en: Shakshuka }
+    cuisine: { region: 以/北非, country: IL }
+    status: planned
+    planned_skus: [COOKED-GLOBAL-TOMATO-v1, DRY-ME-BAHARAT-v1]
+    planned_sops: [SOP-COOKED-BASE-001]
+    notes: 重用 COOKED-GLOBAL-TOMATO
+
+  - id: DISH-LB-FALAFEL
+    name: { zh: 鹰嘴豆丸, en: Falafel }
+    cuisine: { region: 黎/以, country: LB }
+    status: planned
+    planned_skus: [DRY-ME-FALAFEL-v1]
+    planned_sops: []
+    hardware_extension: [HW-INSTANT-THERMOMETER]
+    notes: 需 SOP-DEEP-FRY 新增
+
+  - id: DISH-IR-CHELO-KEBAB
+    name: { zh: 伊朗烤肉饭, en: Chelo Kebab }
+    cuisine: { region: 伊朗, country: IR }
+    status: planned
+    planned_skus: [DRY-IR-KEBAB-RUB-v1]
+    planned_sops: [SOP-MARINATE-DRY-RUB-001]
+    hardware_extension: [HW-OVEN]
+
+  - id: DISH-TR-KOFTE
+    name: { zh: 土耳其肉丸, en: Köfte }
+    cuisine: { region: 土, country: TR }
+    status: planned
+    planned_skus: [DRY-TR-KOFTE-v1]
+    planned_sops: [SOP-PAN-SEAR-001]
+
+  # ── 北非 3 ──
+  - id: DISH-MA-CHICKEN-TAGINE
+    name: { zh: 摩洛哥鸡肉塔吉锅, en: Moroccan chicken tagine with preserved lemon }
+    cuisine: { region: 摩, country: MA }
+    status: planned
+    planned_skus: [DRY-MA-RAS-EL-HANOUT-v1]
+    planned_sops: [SOP-BRAISE-001]
+    notes: 传统塔吉锅可省，汤锅替代
+
+  - id: DISH-MA-COUSCOUS-7VEG
+    name: { zh: 摩洛哥七蔬 Couscous, en: Moroccan seven-vegetable couscous }
+    cuisine: { region: 摩, country: MA }
+    status: planned
+    planned_skus: [DRY-MA-RAS-EL-HANOUT-v1]
+    planned_sops: [SOP-CLEAR-STEW-001]
+    notes: 重用 DRY-MA-RAS-EL-HANOUT
+
+  - id: DISH-TN-BRIK
+    name: { zh: 突尼斯 Brik 鸡蛋酥饼, en: Tunisian Brik }
+    cuisine: { region: 突尼斯, country: TN }
+    status: planned
+    planned_skus: [DRY-TN-HARISSA-v1]
+    planned_sops: []
+    hardware_extension: [HW-INSTANT-THERMOMETER]
+
+  # ── 撒哈拉以南非洲 3 ──
+  - id: DISH-NG-JOLLOF-RICE
+    name: { zh: 西非朱洛夫饭, en: Jollof rice }
+    cuisine: { region: 尼日利亚/加纳, country: NG }
+    status: planned
+    planned_skus: [DRY-WA-JOLLOF-v1, COOKED-GLOBAL-TOMATO-v1]
+    planned_sops: [SOP-COOKED-BASE-001]
+    notes: 重用 COOKED-GLOBAL-TOMATO
+
+  - id: DISH-WA-PEANUT-CHICKEN-STEW
+    name: { zh: 西非花生鸡汤, en: West African peanut chicken stew (Mafe) }
+    cuisine: { region: 西非, country: SN }
+    status: planned
+    planned_skus: []
+    planned_sops: [SOP-BRAISE-001]
+
+  - id: DISH-ET-DORO-WAT
+    name: { zh: 埃塞俄比亚红辣椒鸡, en: Doro Wat (Ethiopian spicy chicken stew) }
+    cuisine: { region: 埃塞俄比亚, country: ET }
+    status: planned
+    planned_skus: [DRY-ET-BERBERE-v1]
+    planned_sops: [SOP-BRAISE-001]
+
+  # ── 欧洲 7 ──
+  - id: DISH-IT-SPAGHETTI-BOLOGNESE
+    name: { zh: 意式番茄肉酱意面, en: Spaghetti Bolognese }
+    cuisine: { region: 意, country: IT }
+    status: planned
+    planned_skus: [COOKED-GLOBAL-TOMATO-v1]
+    planned_sops: [SOP-COOKED-BASE-001]
+    notes: COOKED-GLOBAL-TOMATO 主用
+
+  - id: DISH-IT-CACIO-E-PEPE
+    name: { zh: 黑椒奶酪意面, en: Cacio e Pepe }
+    cuisine: { region: 意, country: IT }
+    status: planned
+    planned_skus: []
+    planned_sops: []
+    notes: 新增 RATIO-IT-CACIO-E-PEPE；3 食材极简
+
+  - id: DISH-FR-COQ-AU-VIN
+    name: { zh: 法式红酒炖鸡, en: Coq au Vin }
+    cuisine: { region: 法, country: FR }
+    status: planned
+    planned_skus: [DRY-FR-BOUQUET-GARNI-v1]
+    planned_sops: [SOP-BRAISE-001]
+    hardware_extension: [HW-OVEN]
+
+  - id: DISH-FR-RATATOUILLE
+    name: { zh: 普罗旺斯杂烩, en: Ratatouille }
+    cuisine: { region: 法, country: FR }
+    status: planned
+    planned_skus: [DRY-FR-HERBES-DE-PROVENCE-v1]
+    planned_sops: [SOP-COOKED-BASE-001]
+    hardware_extension: [HW-OVEN]
+    notes: 烤版本需烤箱；炖版本可省
+
+  - id: DISH-ES-PAELLA
+    name: { zh: 西班牙海鲜饭, en: Paella }
+    cuisine: { region: 西, country: ES }
+    status: planned
+    planned_skus: [DRY-ES-PAELLA-v1]
+    planned_sops: []
+    notes: 含藏红花；大平底锅勉强当 paella pan
+
+  - id: DISH-GR-MOUSSAKA
+    name: { zh: 希腊穆萨卡, en: Moussaka }
+    cuisine: { region: 希, country: GR }
+    status: planned
+    planned_skus: [COOKED-GLOBAL-TOMATO-v1, DRY-GR-MOUSSAKA-v1]
+    planned_sops: [SOP-BRAISE-001]
+    hardware_extension: [HW-OVEN]
+    notes: 重用 COOKED-GLOBAL-TOMATO
+
+  - id: DISH-RU-BORSCHT
+    name: { zh: 罗宋汤, en: Borscht }
+    cuisine: { region: 俄/东欧, country: RU }
+    status: planned
+    planned_skus: [DRY-RU-BORSCHT-v1]
+    planned_sops: [SOP-CLEAR-STEW-001]
+
+  # ── 美洲 6 ──
+  - id: DISH-MX-TACOS
+    name: { zh: 墨西哥塔可, en: Mexican tacos }
+    cuisine: { region: 墨, country: MX }
+    status: planned
+    planned_skus: [DRY-MX-TACO-v1]
+    planned_sops: [SOP-PAN-SEAR-001]
+
+  - id: DISH-MX-MOLE-POBLANO
+    name: { zh: 墨西哥莫雷酱鸡, en: Mole Poblano }
+    cuisine: { region: 墨, country: MX }
+    status: planned
+    planned_skus: [COOKED-MX-MOLE-v1]
+    planned_sops: [SOP-COOKED-BASE-001]
+    hardware_extension: [HW-IMMERSION-BLENDER]
+    notes: 最复杂的 COOKED 实例；30+ 食材
+
+  - id: DISH-US-SOUTHERN-FRIED-CHICKEN
+    name: { zh: 美南南方炸鸡, en: Southern fried chicken }
+    cuisine: { region: 美南, country: US }
+    status: planned
+    planned_skus: [DRY-US-SOUTHERN-v1]
+    planned_sops: [SOP-MARINATE-WET-001]
+    hardware_extension: [HW-INSTANT-THERMOMETER]
+    notes: 需 SOP-DEEP-FRY 新增；油温控制是关键
+
+  - id: DISH-BR-FEIJOADA
+    name: { zh: 巴西黑豆肉炖, en: Feijoada }
+    cuisine: { region: 巴西, country: BR }
+    status: planned
+    planned_skus: [DRY-BR-FEIJOADA-v1]
+    planned_sops: [SOP-BRAISE-001]
+    hardware_extension: [HW-PRESSURE-COOKER]
+
+  - id: DISH-PE-LOMO-SALTADO
+    name: { zh: 秘鲁炒牛肉, en: Lomo Saltado }
+    cuisine: { region: 秘鲁, country: PE }
+    status: planned
+    planned_skus: []
+    planned_sops: [SOP-STIR-FRY-001]
+    notes: 新增 RATIO-PE-LOMO；秘鲁中餐融合典范
+
+  - id: DISH-AR-ASADO-CHIMICHURRI
+    name: { zh: 阿根廷烤肉 + 香草酱, en: Argentinian asado with chimichurri }
+    cuisine: { region: 阿根廷, country: AR }
+    status: planned
+    planned_skus: [WET-AR-CHIMICHURRI-v1]
+    planned_sops: [SOP-PAN-SEAR-001]

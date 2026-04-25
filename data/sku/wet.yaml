@@ -1,0 +1,27 @@
+# 湿酱包 SKU / WET (sauce pack) SKUs
+# v1 仅 2 个 MVP 占位；后续菜单（如越式柠檬草、菲式 Adobo、韩式辣酱混合）通过 add-dish skill 增。
+
+items:
+  - id: WET-JP-TERIYAKI-v1
+    type: WET
+    name: { zh: 照烧汁, en: Japanese teriyaki sauce }
+    region: { zh: 日, en: Japanese }
+    flavor_profile:
+      zh: 酱油 + 味醂 + 糖 + 清酒，焦化后甜咸光泽
+      en: Soy + mirin + sugar + sake, caramelizes into glossy sweet-savory glaze
+    flavor_tags: [sweet, salty, umami, oily]
+    diet_tags: [no-pork, dairy-free, nut-free]
+    spicy_level: 0
+    status: draft
+
+  - id: WET-VN-FISH-SAUCE-DRESSING-v1
+    type: WET
+    name: { zh: 越式鱼露酸甜汁, en: Vietnamese fish-sauce dressing (nuoc cham) }
+    region: { zh: 越, en: Vietnamese }
+    flavor_profile:
+      zh: 鱼露 + 青柠 + 糖 + 蒜 + 鸟眼椒
+      en: Fish sauce + lime + sugar + garlic + bird's-eye chili
+    flavor_tags: [umami, sour, sweet, spicy]
+    diet_tags: [no-pork, gluten-free, nut-free, dairy-free]
+    spicy_level: 2
+    status: draft

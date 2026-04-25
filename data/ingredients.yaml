@@ -1,0 +1,218 @@
+# 基础食材 / Base ingredients
+# L1 储藏分层：会经常买、经常消耗的主食材。
+# L1 storage layer: main ingredients you'll buy and use frequently.
+
+items:
+  # ─────────── 蛋白质 / Proteins ───────────
+  - id: ING-EGG
+    name: { zh: 鸡蛋, en: Eggs }
+    category: protein-egg
+    storage_profile: fridge-fresh
+    procurement_mode: bulk_pantry
+    diet_tags: [vegetarian, halal, kosher, no-pork, gluten-free, nut-free]
+    cn_market_pre_prepped: []
+    mvp_level: core
+    status: approved
+
+  - id: ING-TOFU
+    name: { zh: 豆腐, en: Tofu }
+    category: protein-soy
+    storage_profile: fridge-fresh
+    procurement_mode: on_demand_online
+    diet_tags: [vegan, vegetarian, halal, no-pork, gluten-free, nut-free]
+    cn_market_pre_prepped: [嫩豆腐切块, 老豆腐切块]
+    mvp_level: core
+    status: approved
+
+  - id: ING-CHICKEN-THIGH
+    name: { zh: 鸡腿肉, en: Chicken thigh }
+    category: protein-poultry
+    storage_profile: fridge-fresh
+    procurement_mode: on_demand_online
+    diet_tags: [halal, no-pork, gluten-free, nut-free, dairy-free]
+    cn_market_pre_prepped: [鸡腿剔骨, 去皮鸡腿肉, 鸡腿切块]
+    mvp_level: core
+    status: approved
+
+  - id: ING-PORK-BELLY
+    name: { zh: 五花肉, en: Pork belly }
+    category: protein-meat
+    storage_profile: fridge-fresh
+    procurement_mode: on_demand_online
+    diet_tags: [gluten-free, nut-free, dairy-free]
+    cn_market_pre_prepped: [五花肉切片, 五花肉切块]
+    mvp_level: core
+    status: approved
+
+  - id: ING-BEEF-BRISKET
+    name: { zh: 牛腩, en: Beef brisket }
+    aliases:
+      en: [beef flank]
+    category: protein-meat
+    storage_profile: fridge-fresh
+    procurement_mode: on_demand_online
+    diet_tags: [halal, no-pork, gluten-free, nut-free, dairy-free]
+    cn_market_pre_prepped: [牛腩切大块, 牛腩切小块]
+    buying_notes:
+      zh: 选带筋膜、肥瘦相间的部位；清汤牛腩适合大块炖，熟后再切
+      en: Choose cuts with connective tissue and moderate fat; for clear broth, simmer in large pieces and slice after cooking
+    mvp_level: core
+    status: approved
+
+  - id: ING-PORK-SLICED
+    name: { zh: 猪肉片, en: Sliced pork }
+    category: protein-meat
+    storage_profile: fridge-fresh
+    procurement_mode: on_demand_online
+    cn_market_pre_prepped: [里脊切片, 里脊切丝, 五花肉切片]
+    mvp_level: common
+    status: approved
+
+  - id: ING-BEEF-SLICED
+    name: { zh: 牛肉片, en: Sliced beef }
+    category: protein-meat
+    storage_profile: fridge-fresh
+    procurement_mode: on_demand_online
+    cn_market_pre_prepped: [牛肉切片, 雪花牛肉片]
+    mvp_level: common
+    status: approved
+
+  - id: ING-SHRIMP
+    name: { zh: 虾仁, en: Peeled shrimp }
+    category: protein-seafood
+    storage_profile: freezer-bag
+    procurement_mode: on_demand_online
+    cn_market_pre_prepped: [虾仁去线, 鲜虾仁速冻]
+    mvp_level: common
+    status: approved
+
+  - id: ING-FISH-FILLET
+    name: { zh: 鱼片, en: Fish fillet }
+    category: protein-seafood
+    storage_profile: fridge-fresh
+    procurement_mode: on_demand_online
+    cn_market_pre_prepped: [龙利鱼片, 巴沙鱼片]
+    mvp_level: common
+    status: approved
+
+  # ─────────── 蔬菜 / Vegetables ───────────
+  - id: ING-ONION
+    name: { zh: 洋葱, en: Onion }
+    category: vegetable-allium
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    season: year-round
+    diet_tags: [vegan, vegetarian, halal, kosher, no-pork, gluten-free, nut-free, dairy-free]
+    mvp_level: core
+    status: approved
+
+  - id: ING-DAIKON
+    name: { zh: 白萝卜, en: Daikon radish }
+    category: vegetable-root
+    storage_profile: fridge-fresh
+    procurement_mode: seasonal_buy
+    season: fall
+    diet_tags: [vegan, vegetarian, halal, kosher, no-pork, gluten-free, nut-free, dairy-free]
+    cn_market_pre_prepped: [白萝卜切块, 白萝卜切丝]
+    mvp_level: core
+    status: approved
+
+  - id: ING-CABBAGE
+    name: { zh: 卷心菜, en: Cabbage }
+    category: vegetable-leafy
+    storage_profile: fridge-fresh
+    procurement_mode: seasonal_buy
+    season: year-round
+    cn_market_pre_prepped: [卷心菜切丝]
+    mvp_level: core
+    status: approved
+
+  - id: ING-LEAFY-GREENS
+    name: { zh: 青菜, en: Leafy greens }
+    category: vegetable-leafy
+    storage_profile: fridge-fresh
+    procurement_mode: on_demand_online
+    cn_market_pre_prepped: [青菜洗净]
+    mvp_level: core
+    status: approved
+
+  - id: ING-MUSHROOM
+    name: { zh: 蘑菇, en: Mushrooms }
+    category: vegetable-mushroom
+    storage_profile: fridge-fresh
+    procurement_mode: on_demand_online
+    cn_market_pre_prepped: [口蘑切片, 香菇去蒂]
+    mvp_level: common
+    status: approved
+
+  - id: ING-CARROT
+    name: { zh: 胡萝卜, en: Carrot }
+    category: vegetable-root
+    storage_profile: fridge-fresh
+    procurement_mode: bulk_pantry
+    cn_market_pre_prepped: [胡萝卜切丝, 胡萝卜切丁]
+    mvp_level: core
+    status: approved
+
+  - id: ING-POTATO
+    name: { zh: 土豆, en: Potato }
+    category: vegetable-root
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    cn_market_pre_prepped: [土豆切块, 土豆切丝]
+    mvp_level: core
+    status: approved
+
+  - id: ING-TOMATO
+    name: { zh: 番茄, en: Tomato }
+    category: vegetable-fruit
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    season: summer
+    mvp_level: core
+    status: approved
+
+  # ─────────── 主食 / Grains ───────────
+  - id: ING-RICE
+    name: { zh: 米, en: Rice }
+    category: grain-rice
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    diet_tags: [vegan, vegetarian, halal, kosher, no-pork, gluten-free, nut-free, dairy-free]
+    mvp_level: core
+    status: approved
+
+  - id: ING-NOODLES
+    name: { zh: 面条, en: Noodles }
+    category: grain-noodle
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    mvp_level: core
+    status: approved
+
+  - id: ING-RICE-NOODLES
+    name: { zh: 河粉 / 米粉, en: Rice noodles }
+    aliases:
+      en: [flat rice noodles]
+    category: grain-noodle
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    diet_tags: [gluten-free]
+    mvp_level: common
+    status: approved
+
+  - id: ING-UDON
+    name: { zh: 乌冬, en: Udon }
+    category: grain-noodle
+    storage_profile: fridge-staple
+    procurement_mode: on_demand_online
+    mvp_level: common
+    status: approved
+
+  - id: ING-PASTA
+    name: { zh: 意面, en: Pasta }
+    category: grain-noodle
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    mvp_level: common
+    status: approved

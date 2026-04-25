@@ -1,0 +1,131 @@
+# 非 MVP 设备清单 / Non-MVP equipment
+# 每件标 why（什么菜要它）+ workaround（不买怎么替代）。
+# Each item documents why it helps + how to get by without it using only MVP gear.
+
+items:
+  - id: HW-OVEN
+    name: { zh: 烤箱, en: Oven }
+    category: appliance
+    is_mvp: false
+    why: 烘烤、烤鸡、Coq au Vin、Biryani 的 dum 阶段、面包烘焙
+    workaround: 厚底汤锅小火 + 锡纸密封可替"湿热烤"场景；脆皮烤鸡确实难替代
+    buying_guide:
+      key_considerations:
+        - "嵌入式 vs 台式 vs 蒸烤一体：嵌入式贵且需装修；台式 32–40L 够 4 人用；蒸烤一体多用"
+        - 上下独立控温 + 风扇对流是基本款
+        - 内部温度计精度差，进阶用户配独立探针
+        - 内胆搪瓷比镀锌更易擦洗
+      spec_hint: 台式 32–40L，最高 230°C，上下管+风扇
+      food_safety: 烘烤后内壁油渍 30 天清一次，否则积碳
+      common_pitfalls:
+        - "微波炉的烧烤模式不是真烤箱（无对流）"
+        - 内部小于 20L 不能烤整鸡
+      price_band_cny: 台式 600–2500 / 蒸烤一体 2000–6000 / 嵌入式 3000–10000+
+
+  - id: HW-RICE-COOKER
+    name: { zh: 电饭煲, en: Rice cooker }
+    category: appliance
+    is_mvp: false
+    why: 米饭批量、Biryani 替代方案、保温
+    workaround: 汤锅煮饭可，需掌握水量（米：水 = 1:1.2 米饭，1:1.5 软饭）
+    buying_guide:
+      key_considerations:
+        - 'IH 电磁加热 vs 普通发热盘：IH 米粒受热均匀，价格 2x'
+        - '容量 3 人选 3L、5 人选 5L'
+        - '"保温 24h 不馊"是基本款'
+        - 不粘内胆易刮花，用木勺别用金属
+      spec_hint: 3–5L，IH 优先
+      food_safety: 米饭保温超 24h 微生物风险升高，建议冷藏复热
+      common_pitfalls:
+        - '多功能"煮粥/煲汤"模式实际效果一般'
+      price_band_cny: 普通 200–500 / IH 800–2500
+
+  - id: HW-PRESSURE-COOKER
+    name: { zh: 高压锅, en: Pressure cooker }
+    category: appliance
+    is_mvp: false
+    why: 大幅缩短炖煮时间（牛腩 30min、Rendang 1h）
+    workaround: 汤锅延长时间 1.5–2x 同效果，更省心但更慢
+    buying_guide:
+      key_considerations:
+        - 电高压锅（Instant Pot 类）安全且会自动泄压，新手友好
+        - 老式燃气高压锅需手动经验
+        - 容量 6L 是甜点
+        - 多重安全阀必备
+      spec_hint: 电高压 6L，多重安全阀
+      food_safety:
+        - 千万别在压力下硬开盖
+        - 浮子阀堵塞要立即停用
+      common_pitfalls:
+        - 充得太满（>2/3）会堵泄压口
+      price_band_cny: 电高压 400–1500 / 老式 200–600
+
+  - id: HW-STEAMER
+    name: { zh: 蒸笼 / 蒸架, en: Steamer / steaming rack }
+    category: cookware
+    is_mvp: false
+    why: 蒸鱼、点心、蒸蛋、复热
+    workaround: 汤锅 + 隔水架 + 盘子，效果接近；竹蒸笼仅在做点心更香
+    buying_guide:
+      key_considerations:
+        - 不锈钢蒸架最便宜也最通用
+        - 竹蒸笼吸水气，做包子点心更好；但易霉
+        - 多层蒸笼可同时蒸多道
+      spec_hint: 直径匹配汤锅；竹蒸笼 26–28cm
+      food_safety: 竹蒸笼用后晾干透，霉了换
+      common_pitfalls:
+        - 蒸架太矮，水位高会让食物泡水
+      price_band_cny: 不锈钢架 30–100 / 竹蒸笼 50–200
+
+  - id: HW-AIR-FRYER
+    name: { zh: 空气炸锅, en: Air fryer }
+    category: appliance
+    is_mvp: false
+    why: 韩式炸鸡、薯条、复热脆皮、低油烤翅
+    workaround: 烤箱 + 烤架同效果；锅深炸更脆但费油
+    buying_guide:
+      key_considerations:
+        - 容量 4–6L 主流
+        - 篮筐 vs 烤架：篮筐易清洗，烤架更接近烤箱效果
+        - 1500W+ 加热快
+      spec_hint: 4–6L，1500W+，可调温到 200°C
+      food_safety: 篮筐涂层老化（2–3 年）必须换
+      common_pitfalls:
+        - 当烤箱用时容量不够烤整鸡
+        - 涂层刮花后释放微塑料
+      price_band_cny: 200–800
+
+  - id: HW-IMMERSION-BLENDER
+    name: { zh: 手持搅拌棒, en: Immersion blender }
+    category: tool
+    is_mvp: false
+    why: 番茄底打泥、汤打丝滑、Mole Poblano 必备、自制酱料
+    workaround: 普通台式搅拌机分批打；或干脆不打留颗粒感
+    buying_guide:
+      key_considerations:
+        - 功率 ≥600W 才能打硬料
+        - 全不锈钢杆 + 防溅护罩好
+        - 配套打蛋头 / 量杯实用
+      spec_hint: ≥600W，不锈钢杆
+      food_safety: 刀头分离清洗，避免食物残渣藏污
+      common_pitfalls:
+        - 塑料杆遇热汤会变形
+        - 廉价款电机 6 个月烧
+      price_band_cny: 150–500
+
+  - id: HW-INSTANT-THERMOMETER
+    name: { zh: 探针温度计, en: Instant-read thermometer }
+    category: tool
+    is_mvp: false
+    why: 油炸温控（180°C）、肉类断生（鸡 74°C / 牛排定制）、烘焙
+    workaround: 视觉判断 + 经验；油温用筷子起泡测；肉用刀切看汁色
+    buying_guide:
+      key_considerations:
+        - 数字探针 4–6 秒读数，机械式表盘 30 秒
+        - 量程 -50°C 到 300°C 够厨房用
+        - 防水（IP65+）方便清洗
+      spec_hint: 数字探针，-50–300°C，4 秒读数，IP65
+      food_safety: 探针每次插不同食物前用酒精擦
+      common_pitfalls:
+        - 红外测温枪只测表面温度，不能用于肉类断生
+      price_band_cny: 50–200

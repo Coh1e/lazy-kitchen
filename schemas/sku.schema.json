@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lazy-kitchen.local/schemas/sku.schema.json",
+  "title": "SKU (pre-packaged preparation)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "type", "name", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(DRY|WET|COOKED|SOUP|READY)-[A-Z0-9-]+-v\\d+$"
+    },
+    "type": { "$ref": "_common.schema.json#/$defs/skuType" },
+    "name": { "$ref": "_common.schema.json#/$defs/bilingualName" },
+    "region": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "zh": { "type": "string" },
+        "en": { "type": "string" }
+      }
+    },
+    "flavor_profile": { "$ref": "_common.schema.json#/$defs/bilingualText" },
+    "flavor_tags": { "type": "array", "items": { "type": "string" } },
+    "diet_tags": {
+      "type": "array",
+      "items": { "$ref": "_common.schema.json#/$defs/diet_tag" }
+    },
+    "heat_level": { "$ref": "_common.schema.json#/$defs/heatLevel" },
+    "spicy_level": { "$ref": "_common.schema.json#/$defs/spicyLevel" },
+    "flavor_structure": { "$ref": "_common.schema.json#/$defs/flavorStructure" },
+    "ingredients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["item", "amount"],
+        "properties": {
+          "item": {
+            "anyOf": [
+              { "type": "string", "description": "Ingredient or condiment ID" },
+              { "$ref": "_common.schema.json#/$defs/bilingualName" }
+            ]
+          },
+          "amount": { "type": ["number", "string"] },
+          "unit": {
+            "anyOf": [
+              { "type": "string" },
+              { "$ref": "_common.schema.json#/$defs/bilingualText" }
+            ]
+          },
+          "optional": { "type": "boolean" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "yield": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amount": { "type": ["number", "string"] },
+        "unit": { "type": "string" },
+        "packs": { "type": "integer" },
+        "notes": { "type": "string" }
+      }
+    },
+    "packaging": {
+      "anyOf": [
+        { "$ref": "_common.schema.json#/$defs/bilingualText" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["zh", "en"],
+          "properties": {
+            "zh": {
+              "anyOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } }
+              ]
+            },
+            "en": {
+              "anyOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "packaging_sop": {
+      "type": "string",
+      "pattern": "^SOP-[A-Z0-9-]+$"
+    },
+    "use_with": {
+      "type": "array",
+      "items": { "$ref": "_common.schema.json#/$defs/bilingualText" }
+    },
+    "use_sop": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^SOP-[A-Z0-9-]+$" }
+    },
+    "storage_profile": { "type": "string" },
+    "status": { "$ref": "_common.schema.json#/$defs/status" },
+    "cross_reviewed": { "type": "boolean" },
+    "cross_reviewer_cli": { "type": "string" },
+    "cross_reviewer_model": { "type": "string" },
+    "cross_review_at": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "approved" } }, "required": ["status"] },
+      "then": { "required": ["cross_reviewed"], "properties": { "cross_reviewed": { "const": true } } }
+    }
+  ]
+}

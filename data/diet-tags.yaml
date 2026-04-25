@@ -1,0 +1,40 @@
+# 饮食标签 / Diet tags
+# Cross-cuts SKU / Dish / Ingredient.
+# Closed vocabulary; use only ids defined here.
+
+tags:
+  - id: vegan
+    name: { zh: 纯素, en: Vegan }
+    excludes: [meat, poultry, seafood, dairy, egg, honey]
+
+  - id: vegetarian
+    name: { zh: 素食 (含蛋奶), en: Vegetarian }
+    excludes: [meat, poultry, seafood]
+
+  - id: halal
+    name: { zh: 清真, en: Halal }
+    excludes: [pork, alcohol]
+    requires: [halal-slaughter]
+
+  - id: kosher
+    name: { zh: 犹太洁食, en: Kosher }
+    excludes: [pork, shellfish, mixing-meat-and-dairy]
+
+  - id: no-pork
+    name: { zh: 不含猪肉, en: No pork }
+    excludes: [pork]
+    notes: 比 halal 更宽松，不要求酒类禁忌
+
+  - id: gluten-free
+    name: { zh: 无麸质, en: Gluten-free }
+    excludes: [wheat, barley, rye, regular-soy-sauce]
+    notes: 普通生抽含麦麸；用 tamari 替代
+
+  - id: nut-free
+    name: { zh: 无坚果, en: Nut-free }
+    excludes: [tree-nuts]
+    notes: 通常允许花生（按定义不算 tree nut）
+
+  - id: dairy-free
+    name: { zh: 无乳制品, en: Dairy-free }
+    excludes: [milk, butter, cheese, cream, yogurt]

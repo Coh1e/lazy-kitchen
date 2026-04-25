@@ -1,0 +1,18 @@
+# Aider 全局配置
+# 运行: aider --config .aider.conf.yml
+
+# 默认编辑模式
+edit-format: diff
+
+# 加载这两个文件作为系统上下文
+read:
+  - AGENTS.md
+  - skills/add-dish/workflow.md
+
+# 不自动 commit（违反 Lazy Kitchen 硬规则）
+auto-commits: false
+dirty-commits: false
+
+# 推荐模型 (示例；用户按自己的 API 调整)
+# model: deepseek/deepseek-chat
+# weak-model: deepseek/deepseek-chat

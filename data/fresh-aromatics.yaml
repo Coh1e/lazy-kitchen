@@ -1,0 +1,117 @@
+# 生鲜香辛 / Fresh aromatics (L2)
+# 不预制，按需买；procurement_mode 区分常备/按需。
+
+items:
+  # ─────────── 常备 / Always keep ───────────
+  - id: ING-GINGER
+    name: { zh: 姜, en: Ginger }
+    category: fresh-aromatic
+    storage_profile: fridge-fresh
+    procurement_mode: bulk_pantry
+    diet_tags: [vegan, vegetarian, halal, kosher, no-pork, gluten-free, nut-free, dairy-free]
+    buying_notes:
+      zh: 选硬实有重量的；可切片冷冻
+      en: Choose firm, heavy roots; can slice and freeze
+    mvp_level: core
+    status: approved
+
+  - id: ING-GARLIC
+    name: { zh: 蒜, en: Garlic }
+    category: fresh-aromatic
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    diet_tags: [vegan, vegetarian, halal, kosher, no-pork, gluten-free, nut-free, dairy-free]
+    buying_notes:
+      zh: 整头买、用前剥；剥好的市售蒜易失风味
+      en: Buy whole heads; pre-peeled garlic loses flavor quickly
+    mvp_level: core
+    status: approved
+
+  - id: ING-SCALLION
+    name: { zh: 葱, en: Scallion }
+    aliases:
+      en: [green onion]
+    category: fresh-aromatic
+    storage_profile: fridge-fresh
+    procurement_mode: bulk_pantry
+    mvp_level: core
+    status: approved
+
+  # ─────────── 按需买 / Buy when needed ───────────
+  - id: ING-CILANTRO
+    name: { zh: 香菜, en: Cilantro }
+    aliases:
+      en: [coriander leaves]
+    category: fresh-aromatic
+    storage_profile: fridge-fresh
+    procurement_mode: on_demand_online
+    mvp_level: common
+    status: approved
+
+  - id: ING-LIME
+    name: { zh: 青柠, en: Lime }
+    category: fruit
+    storage_profile: fridge-fresh
+    procurement_mode: on_demand_online
+    buying_notes:
+      zh: 中国家庭少量备用；瓶装柠檬汁可应急但风味略差
+      en: Bottled lime juice works in a pinch but loses brightness
+    mvp_level: common
+    status: approved
+
+  - id: ING-MINT
+    name: { zh: 薄荷, en: Mint }
+    category: fresh-aromatic
+    storage_profile: fridge-fresh
+    procurement_mode: on_demand_online
+    mvp_level: uncommon
+    status: approved
+
+  - id: ING-BASIL
+    name: { zh: 罗勒, en: Basil }
+    category: fresh-aromatic
+    storage_profile: fridge-fresh
+    procurement_mode: on_demand_online
+    mvp_level: common
+    status: approved
+
+  - id: ING-THAI-BASIL
+    name: { zh: 泰国九层塔, en: Thai basil }
+    aliases:
+      en: [holy basil]
+    category: fresh-aromatic
+    storage_profile: fridge-fresh
+    procurement_mode: on_demand_online
+    mvp_level: uncommon
+    status: approved
+
+  # ─────────── MVP 不买 / Avoid for MVP ───────────
+  - id: ING-LEMONGRASS
+    name: { zh: 香茅, en: Lemongrass }
+    category: fresh-aromatic
+    storage_profile: freezer-bag
+    procurement_mode: on_demand_online
+    buying_notes:
+      zh: 中国大城市可网购；MVP 阶段建议用现成泰式咖喱酱替代
+      en: Available online in major Chinese cities; MVP can substitute with commercial Thai curry paste
+    mvp_level: specialty
+    status: approved
+
+  - id: ING-GALANGAL
+    name: { zh: 南姜, en: Galangal }
+    category: fresh-aromatic
+    storage_profile: freezer-bag
+    procurement_mode: on_demand_online
+    buying_notes:
+      zh: 不易买；MVP 阶段不囤；用商业咖喱酱替代
+      en: Hard to source; skip in MVP; use commercial curry paste instead
+    mvp_level: specialty
+    status: approved
+
+  - id: ING-MAKRUT-LIME-LEAVES
+    name: { zh: 柠檬叶, en: Makrut lime leaves }
+    category: fresh-aromatic
+    storage_profile: freezer-bag
+    procurement_mode: on_demand_online
+    mvp_level: specialty
+    status: approved

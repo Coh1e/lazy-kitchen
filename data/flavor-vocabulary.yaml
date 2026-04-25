@@ -1,0 +1,67 @@
+# 风味受控词表 / Flavor controlled vocabulary
+# SKU、Dish、Ingredient 的 flavor_tags 字段必须从此表选取，避免随意造词。
+# Used by SKU/Dish/Ingredient flavor_tags fields. Closed vocabulary.
+
+tags:
+  # 基础味 / Basic tastes
+  - id: salty
+    name: { zh: 咸, en: Salty }
+  - id: sweet
+    name: { zh: 甜, en: Sweet }
+  - id: sour
+    name: { zh: 酸, en: Sour }
+  - id: bitter
+    name: { zh: 苦, en: Bitter }
+  - id: umami
+    name: { zh: 鲜, en: Umami }
+
+  # 辣麻系 / Heat & numbing
+  - id: spicy
+    name: { zh: 辣, en: Spicy }
+  - id: numbing
+    name: { zh: 麻, en: Numbing }
+  - id: pungent
+    name: { zh: 冲, en: Pungent }
+    notes: { zh: 芥末/生洋葱的冲鼻感, en: Mustard/raw onion sharpness }
+
+  # 香气家族 / Aromatic families
+  - id: citrus
+    name: { zh: 柑橘香, en: Citrus }
+  - id: herbal
+    name: { zh: 草本香, en: Herbal }
+  - id: floral
+    name: { zh: 花香, en: Floral }
+  - id: smoky
+    name: { zh: 烟熏, en: Smoky }
+  - id: roasted
+    name: { zh: 烘烤香, en: Roasted }
+  - id: fermented
+    name: { zh: 发酵, en: Fermented }
+  - id: nutty
+    name: { zh: 坚果香, en: Nutty }
+  - id: dairy
+    name: { zh: 奶香, en: Dairy }
+  - id: yeasty
+    name: { zh: 酵母香, en: Yeasty }
+
+  # 质地 / Texture
+  - id: crispy
+    name: { zh: 脆, en: Crispy }
+  - id: tender
+    name: { zh: 嫩, en: Tender }
+  - id: chewy
+    name: { zh: 有嚼劲, en: Chewy }
+  - id: silky
+    name: { zh: 丝滑, en: Silky }
+  - id: gelatinous
+    name: { zh: 胶质, en: Gelatinous }
+
+  # 浓度 / Body
+  - id: light
+    name: { zh: 清淡, en: Light }
+  - id: rich
+    name: { zh: 浓郁, en: Rich }
+  - id: clear
+    name: { zh: 清汤, en: Clear-broth }
+  - id: oily
+    name: { zh: 油润, en: Oily }

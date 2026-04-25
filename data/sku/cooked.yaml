@@ -1,0 +1,14 @@
+# 熟底包 SKU / COOKED (cooked base) SKUs
+
+items:
+  - id: COOKED-GLOBAL-TOMATO-v1
+    type: COOKED
+    name: { zh: 通用番茄熟底, en: Universal tomato base }
+    region: { zh: 全球通用, en: Global }
+    flavor_profile:
+      zh: 洋葱 + 蒜 + 番茄罐头 + 橄榄油，慢炖到浓稠
+      en: Onion + garlic + canned tomato + olive oil, slow-cooked to thick
+    flavor_tags: [umami, sweet, sour, rich]
+    diet_tags: [vegan, vegetarian, halal, kosher, no-pork, gluten-free, nut-free, dairy-free]
+    spicy_level: 0
+    status: draft

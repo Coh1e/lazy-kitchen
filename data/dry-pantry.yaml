@@ -1,0 +1,180 @@
+# 干货母库 / Dry pantry (L4)
+# 大批量采买；按 SKU 公式分装成 DRY 包；常温避光防潮存储。
+
+items:
+  # ─────────── 整香料 / Whole spices ───────────
+  - id: DRY-PANTRY-STAR-ANISE
+    name: { zh: 八角, en: Star anise }
+    aliases:
+      zh: [大料]
+    category: whole-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: core
+    status: approved
+
+  - id: DRY-PANTRY-BAY-LEAF
+    name: { zh: 香叶, en: Bay leaf }
+    category: whole-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: core
+    status: approved
+
+  - id: DRY-PANTRY-CASSIA
+    name: { zh: 桂皮, en: Cassia bark }
+    aliases:
+      en: [Chinese cinnamon]
+    category: whole-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: core
+    status: approved
+
+  - id: DRY-PANTRY-WHITE-PEPPERCORN
+    name: { zh: 白胡椒粒, en: White peppercorn }
+    category: whole-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: core
+    status: approved
+
+  - id: DRY-PANTRY-SICHUAN-PEPPERCORN
+    name: { zh: 花椒, en: Sichuan peppercorn }
+    category: whole-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: core
+    status: approved
+
+  - id: DRY-PANTRY-DRIED-TANGERINE-PEEL
+    name: { zh: 陈皮, en: Dried tangerine peel }
+    category: whole-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  - id: DRY-PANTRY-DRIED-CHILI
+    name: { zh: 干辣椒, en: Dried chili }
+    category: whole-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  # ─────────── 粉香料 / Ground spices ───────────
+  - id: DRY-PANTRY-CUMIN
+    name: { zh: 孜然粉, en: Ground cumin }
+    category: ground-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: core
+    status: approved
+
+  - id: DRY-PANTRY-PAPRIKA
+    name: { zh: 甜椒粉, en: Paprika }
+    category: ground-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: core
+    status: approved
+
+  - id: DRY-PANTRY-SMOKED-PAPRIKA
+    name: { zh: 烟熏甜椒粉, en: Smoked paprika }
+    category: ground-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  - id: DRY-PANTRY-CHILI-POWDER
+    name: { zh: 辣椒粉, en: Chili powder }
+    category: ground-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: core
+    status: approved
+
+  - id: DRY-PANTRY-CURRY-POWDER
+    name: { zh: 咖喱粉, en: Curry powder }
+    category: ground-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  - id: DRY-PANTRY-TURMERIC
+    name: { zh: 姜黄粉, en: Turmeric powder }
+    category: ground-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  - id: DRY-PANTRY-GARLIC-POWDER
+    name: { zh: 蒜粉, en: Garlic powder }
+    category: ground-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  - id: DRY-PANTRY-ONION-POWDER
+    name: { zh: 洋葱粉, en: Onion powder }
+    category: ground-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  - id: DRY-PANTRY-BLACK-PEPPER
+    name: { zh: 黑胡椒粉, en: Ground black pepper }
+    category: ground-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    mvp_level: core
+    status: approved
+
+  - id: DRY-PANTRY-WHITE-PEPPER
+    name: { zh: 白胡椒粉, en: Ground white pepper }
+    category: ground-spice
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    mvp_level: core
+    status: approved
+
+  # ─────────── 干鲜 / Dried umami ───────────
+  - id: DRY-PANTRY-DASHI
+    name: { zh: 出汁粉, en: Dashi powder }
+    category: dried-umami
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  - id: DRY-PANTRY-SHIITAKE
+    name: { zh: 干香菇, en: Dried shiitake mushrooms }
+    category: dried-umami
+    storage_profile: pantry-dry-dark
+    procurement_mode: bulk_pantry
+    mvp_level: core
+    status: approved
+
+  - id: DRY-PANTRY-WAKAME
+    name: { zh: 海带芽, en: Dried wakame }
+    category: dried-umami
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
+
+  - id: DRY-PANTRY-KOMBU
+    name: { zh: 海带, en: Kombu }
+    aliases:
+      en: [dried kelp]
+    category: dried-umami
+    storage_profile: pantry-dry-dark
+    procurement_mode: seasonal_buy
+    mvp_level: common
+    status: approved
