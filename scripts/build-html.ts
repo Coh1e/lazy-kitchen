@@ -511,7 +511,10 @@ async function main() {
 </html>`;
 
   await writeFile(join(ROOT, 'lazy-kitchen.html'), html, 'utf-8');
-  console.log(`✅ wrote lazy-kitchen.html`);
+  // Also write index.html so CF Pages serves it as the default route.
+  // Same content; lazy-kitchen.html stays for offline "double-click" affordance.
+  await writeFile(join(ROOT, 'index.html'), html, 'utf-8');
+  console.log(`✅ wrote lazy-kitchen.html + index.html`);
   console.log(`   ${pages.length} pages · ${dishes.length} dishes · ${glossary.length} glossary terms`);
 }
 
