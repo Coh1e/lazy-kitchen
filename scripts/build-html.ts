@@ -17,8 +17,11 @@ const DOCS = join(ROOT, 'docs');
 const DATA = join(ROOT, 'data');
 
 const REPO = process.env.BUILD_REPO ?? 'Coh1e/lazy-kitchen';
-const GISCUS_REPO_ID = process.env.GISCUS_REPO_ID ?? '';
-const GISCUS_CATEGORY_ID = process.env.GISCUS_CATEGORY_ID ?? '';
+// Giscus IDs for Coh1e/lazy-kitchen Discussions → "General" category.
+// Override via env if forking.
+const GISCUS_REPO_ID = process.env.GISCUS_REPO_ID ?? 'R_kgDOSMmV4A';
+const GISCUS_CATEGORY = process.env.GISCUS_CATEGORY ?? 'General';
+const GISCUS_CATEGORY_ID = process.env.GISCUS_CATEGORY_ID ?? 'DIC_kwDOSMmV4M4C7sKr';
 
 interface Page { path: string; title: string; lang: 'zh' | 'en'; html: string }
 
@@ -360,7 +363,7 @@ function giscusBlock(termId: string): string {
   return `<div class="giscus-wrapper">
     <script src="https://giscus.app/client.js"
       data-repo="${REPO}" data-repo-id="${GISCUS_REPO_ID}"
-      data-category="Dish Discussions" data-category-id="${GISCUS_CATEGORY_ID}"
+      data-category="${GISCUS_CATEGORY}" data-category-id="${GISCUS_CATEGORY_ID}"
       data-mapping="specific" data-term="${termId}" data-strict="1"
       data-reactions-enabled="1" data-emit-metadata="0"
       data-input-position="top" data-theme="preferred_color_scheme"
