@@ -411,7 +411,9 @@ async function main() {
   pages.push({ path: 'zh/cover.md', title: '懒蛋厨房', lang: 'zh', html: coverZh });
   pages.push({ path: 'en/cover.md', title: 'Lazy Kitchen', lang: 'en', html: coverEn });
 
-  // Pages JSON for SPA router
+  // Pages JSON for SPA router.
+  // CRITICAL: escape </script> so inline HTML (e.g. Giscus widgets) doesn't break out
+  // of the outer <script>const PAGES = ...</script> block.
   const pagesJson = JSON.stringify(
     pages.reduce((acc, p) => {
       const slug = p.path.replace(/\.md$/, '');
@@ -419,7 +421,7 @@ async function main() {
       return acc;
     }, {} as Record<string, { title: string; html: string; lang: string }>),
     null, 0
-  );
+  ).replace(/<\/script/gi, '<\\/script').replace(/<!--/g, '<\\!--');
 
   const html = `<!doctype html>
 <html lang="zh-Hans">
