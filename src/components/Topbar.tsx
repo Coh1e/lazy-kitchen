@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 interface Props {
   lang: 'zh' | 'en'
@@ -10,21 +10,28 @@ export default function Topbar({ lang, onHamburger }: Props) {
   const t = (en: string, zh: string) => (lang === 'en' ? en : zh)
   const [q, setQ] = useState('')
   const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault()
-        document.getElementById('topbar-search')?.focus()
+        document.getElementById('search')?.focus()
       }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
-  function submit(e: React.FormEvent) {
-    e.preventDefault()
-    if (q.trim()) navigate(`/${lang}/search?q=${encodeURIComponent(q.trim())}`)
+  function onChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const v = e.target.value
+    setQ(v)
+    const trimmed = v.trim()
+    if (trimmed) {
+      navigate(`/${lang}/search?q=${encodeURIComponent(trimmed)}`, { replace: true })
+    } else if (location.pathname.includes('/search')) {
+      navigate(`/${lang}/cover`, { replace: true })
+    }
   }
 
   return (
@@ -39,17 +46,17 @@ export default function Topbar({ lang, onHamburger }: Props) {
           <span className="sep">·</span>
           <a className={lang === 'en' ? 'active' : ''} href="#/en/cover">EN</a>
         </span>
-        <form className="search" onSubmit={submit}>
+        <div className="search">
           <span className="muted">⌕</span>
           <input
-            id="topbar-search"
+            id="search"
             type="search"
             value={q}
-            onChange={(e) => setQ(e.target.value)}
+            onChange={onChange}
             placeholder={t('Search dishes, SKUs, SOPs…', '搜索菜、SKU、SOP…')}
           />
           <span className="search-kbd">⌘K</span>
-        </form>
+        </div>
       </div>
     </header>
   )

@@ -45,30 +45,25 @@ export default function Board() {
         </div>
       </div>
 
-      {(which === 'index' || which === 'proposed') && (
-        <Section
-          title={t('🍳 Proposed', '🍳 待审议')}
-          items={proposed}
-          lang={currentLang}
-          empty={t('No active proposals right now.', '当前没有待审议菜品。')}
-        />
-      )}
-      {(which === 'index' || which === 'recent') && (
-        <Section
-          title={t('✅ Approved', '✅ 已发布')}
-          items={approved}
-          lang={currentLang}
-          empty={t('No approved dishes yet.', '暂无已发布菜品。')}
-        />
-      )}
-      {which === 'index' && (
-        <Section
-          title={t('📋 Planned (roadmap)', '📋 路线图')}
-          items={planned}
-          lang={currentLang}
-          empty={t('Roadmap empty.', '路线图为空。')}
-        />
-      )}
+      {/* All 3 sections always shown; `which` only chooses which doc loads on top. */}
+      <Section
+        title={t('🍳 Proposed', '🍳 待审议')}
+        items={proposed}
+        lang={currentLang}
+        empty={t('No active proposals right now.', '当前没有待审议菜品。')}
+      />
+      <Section
+        title={t('✅ Approved', '✅ 已发布')}
+        items={approved}
+        lang={currentLang}
+        empty={t('No approved dishes yet.', '暂无已发布菜品。')}
+      />
+      <Section
+        title={t('📋 Planned (roadmap)', '📋 路线图')}
+        items={planned}
+        lang={currentLang}
+        empty={t('Roadmap empty.', '路线图为空。')}
+      />
     </>
   )
 }

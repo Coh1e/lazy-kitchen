@@ -55,8 +55,7 @@ export default function Search() {
   return (
     <>
       <h1>
-        {currentLang === 'zh' ? '搜索：' : 'Search: '}
-        <code>{q}</code>
+        {currentLang === 'zh' ? '搜索 / Search' : 'Search'}: <code>{q}</code>
       </h1>
       <p className="muted">
         {currentLang === 'zh' ? `${hits.length} 条结果` : `${hits.length} results`}

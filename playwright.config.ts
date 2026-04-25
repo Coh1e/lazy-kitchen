@@ -9,10 +9,18 @@ export default defineConfig({
   reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : 'list',
 
   use: {
-    // baseURL intentionally unset — file:// + relative path doesn't resolve
-    // sanely. Tests import VIEWER_URL from tests/e2e/_url.ts.
+    baseURL: 'http://localhost:4173/',
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
+  },
+
+  webServer: {
+    command: 'npm run build && npm run preview',
+    port: 4173,
+    reuseExistingServer: !process.env.CI,
+    timeout: 120_000,
+    stdout: 'pipe',
+    stderr: 'pipe',
   },
 
   // 2 logical groups: e2e behaviour + visual snapshots

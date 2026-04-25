@@ -44,10 +44,7 @@ jobs:
       - name: Build glossary cross-ref
         run: npm run build:glossary || echo "::warning::glossary completeness check has pending entries"
 
-      - name: Build HTML viewer (legacy single-file, deletes in Phase 3)
-        run: npm run build:html:legacy
-
-      - name: Build Vite app (Phase 1+ React skeleton)
+      - name: Build Vite app
         run: npm run build
 
       - name: Unit tests
