@@ -12,6 +12,9 @@ Step 3b 中遇到术语不在 `data/glossary.yaml`。
 
 1. 查找权威译法（用你的内部知识）
 2. 输出建议:
+
+> 💡 **批量展示**：若新术语 ≤3 个，可一次性把所有候选条目排版展示，让用户一次确认（"both yes" / "all yes"），不必逐词来回。≥4 词仍需逐词展示避免负担过重。
+
    ```
    新词: 'gochugaru'
    建议: { zh: 韩式粗辣椒粉, en: Korean coarse chili flakes }

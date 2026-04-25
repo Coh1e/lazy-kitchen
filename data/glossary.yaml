@@ -218,6 +218,12 @@ terms:
     en: Tofu
     category: protein
 
+  - zh: 鸡蛋
+    en: Egg
+    alias_zh: [蛋]
+    category: protein
+    notes: 默认指鸡蛋；如指鸭蛋/鹌鹑蛋等需明确写出
+
   # ─────────── 蔬菜 / Vegetables ───────────
   - zh: 白萝卜
     en: Daikon radish
@@ -231,6 +237,12 @@ terms:
   - zh: 青菜
     en: Leafy greens
     category: vegetable
+
+  - zh: 番茄
+    en: Tomato
+    alias_zh: [西红柿]
+    category: vegetable
+    notes: 中国南方/北方说法不同（南"番茄"、北"西红柿"），同一物
 
   # ─────────── 主食 / Grains ───────────
   - zh: 河粉

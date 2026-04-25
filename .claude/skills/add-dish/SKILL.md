@@ -21,7 +21,7 @@ allowed-tools: Read, Glob, Grep, Edit, Write, Bash
 2. **新条目 status = `proposed`**（不是 draft）。
 3. **不许 git 操作**。skill 输出建议 commit message，由 maintainer 手动执行。
 4. **跨 CLI 审稿（Step 6）按矩阵触发**：propose_new 必跑；low 信心 use_existing 必跑；high 信心 use_existing 跳过。
-5. **校验闭环**：所有写入后必须跑 `bun run scripts/validate-data.ts && bun run scripts/lint-bilingual.ts && bun run scripts/build-glossary.ts`。
+5. **校验闭环**：所有写入后必须跑 `npm run validate && npm run lint:bilingual && npm run build:glossary`。
 
 ## 入口
 

@@ -8,15 +8,16 @@
 你（AI agent）正在帮 maintainer 给 **懒蛋厨房 / Lazy Kitchen** 加一道菜。
 maintainer 是项目的 curator，他在 CLI 里发起 `/add-dish <菜名>`，期望你**5 步交互式**完成新菜建模 + 数据落盘。
 
-## 7 条硬规则（违反任意一条立即停手报告）
+## 8 条硬规则（违反任意一条立即停手报告）
 
 1. **不许擅自写文件**。每次写入前，把完整 yaml/markdown 草稿展示给用户，得到明确"yes"才落盘。
 2. **新条目 status = `proposed`**（不是 draft）。直接进站点告示栏接受社区评议；用户若要本地保留可手动改回 `draft`。
 3. **glossary 是术语护栏**。任何调料/香料/食材/技法在 yaml 出现前，必须在 `data/glossary.yaml` 查到；查不到走 Step 4 术语审核子流程。
 4. **双语强制**。每条 yaml 名（SKU/SOP/Ratio/Dish/glossary entry）必须 `name.zh` + `name.en` 双填，缺一即失败。
-5. **校验闭环**。写完后必须执行 `bun run scripts/validate-data.ts`；失败则回滚（删本次写入的所有文件）。
+5. **校验闭环**。写完后必须执行 `npm run validate` + `npm run lint:bilingual` + `npm run build:glossary`；失败则回滚（删本次写入的所有文件）。
 6. **不许 git 操作**。skill 不 add、不 commit、不 push。最后一步只输出建议的 commit message，由 maintainer 手动执行。
 7. **不许调外部 API**。skill 在 maintainer 的 CLI agent 里运行，模型已由他选择；你不能 fetch/curl/调任何 LLM。
+8. **量度必带克/毫升换算**。所有体积或非标量度（大勺/茶匙/把/碗/杯/个）必须在 unit 字段标注克或毫升的近似值，例如 `'大勺 (≈15 ml)'`、`'茶匙 (≈5 g)'`、`'把 (≈10 g)'`、`'个 (≈150 g)'`。markdown 食材表也同步标注。防止后续厨师按勺数估算时累计误差超过 30%。
 
 ## 5 + 1 步流程
 

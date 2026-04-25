@@ -11,9 +11,9 @@
 ### 校验
 
 ```bash
-bun run scripts/validate-data.ts
-bun run scripts/lint-bilingual.ts
-bun run scripts/build-glossary.ts
+npm run validate
+npm run lint:bilingual
+npm run build:glossary
 ```
 
 ### 全过的输出格式

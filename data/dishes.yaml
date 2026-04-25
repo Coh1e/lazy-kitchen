@@ -79,10 +79,52 @@ items:
   - id: DISH-CN-TOMATO-EGGS
     name: { zh: 番茄炒蛋, en: Tomato and eggs }
     cuisine: { region: 中, country: CN }
-    status: planned
-    planned_skus: []
-    planned_sops: [SOP-STIR-FRY-001]
-    notes: 无 SKU 极简示例，5 分钟全程 hands-on
+    status: proposed
+    cross_reviewed: false
+    cross_reviewer_cli: skipped
+    uses:
+      sku: []
+      sop: [SOP-STIR-FRY-001]
+      ratio: []
+    fresh_ingredients:
+      - name: { zh: 番茄, en: Tomato }
+        amount: 2
+        unit: { zh: '个 (≈300 g)', en: 'medium (~300 g)' }
+      - name: { zh: 鸡蛋, en: Egg }
+        amount: 3
+        unit: { zh: '个 (≈150 g)', en: 'large (~150 g)' }
+      - name: { zh: 葱花, en: Chopped scallion }
+        amount: 1
+        unit: { zh: '把 (≈10 g)', en: 'handful (~10 g)' }
+      - name: { zh: 食用油, en: Cooking oil }
+        amount: 2
+        unit: { zh: '大勺 (≈30 ml)', en: 'Tbsp (~30 ml)' }
+      - name: { zh: 盐, en: Salt }
+        amount: 1
+        unit: { zh: '茶匙 (≈5 g)', en: 'tsp (~5 g)' }
+      - name: { zh: 糖, en: Sugar }
+        amount: 1
+        unit: { zh: '茶匙 (≈4 g)', en: 'tsp (~4 g)' }
+    yield:
+      servings: 2
+    time:
+      prep_min: 3
+      hands_on_min: 5
+      unattended_min: 0
+      total_min: 8
+    hardware_required: [MVP]
+    hardware_extension: []
+    flavor_structure:
+      salt: '盐 + 1 茶匙糖平衡酸味'
+      fat: '食用油 2 大勺 + 蛋黄自带脂肪'
+      acid: '番茄天然酸'
+      heat: '高火快炒，总 5 分钟'
+    flavor_tags: [umami, sour, sweet, tender, silky, light]
+    diet_tags: [vegetarian, halal, kosher, no-pork, gluten-free, nut-free, dairy-free]
+    meal_pattern: plate
+    notes:
+      zh: 中国家常菜入门第一道；5 分钟全程 hands-on，无需 SKU/Ratio。
+      en: The quintessential beginner Chinese home-cook dish; 5 min hands-on, no SKU/Ratio needed.
 
   - id: DISH-CN-MALA-XIANGGUO
     name: { zh: 麻辣香锅, en: Mala xiang guo }
