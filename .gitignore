@@ -29,3 +29,6 @@ desktop.ini
 *.log
 npm-debug.log*
 pnpm-debug.log*
+
+# Claude Code per-user local settings — never share
+.claude/settings.local.json
