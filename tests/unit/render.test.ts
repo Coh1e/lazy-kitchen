@@ -187,10 +187,12 @@ describe('sidebar', () => {
 });
 
 describe('giscusBlock', () => {
-  it('emits something containing Discussion + the term id', () => {
+  it('emits real Giscus script with the term id when REPO_ID is set', () => {
     const html = giscusBlock('DISH-X');
-    expect(html).toContain('Discussion');
-    expect(html).toContain('DISH-X');
+    // With default IDs hardcoded, expect real Giscus widget
+    expect(html).toContain('giscus.app/client.js');
+    expect(html).toContain('data-term="DISH-X"');
+    expect(html).toContain('data-mapping="specific"');
   });
 });
 
