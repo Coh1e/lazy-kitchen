@@ -586,3 +586,85 @@ items:
     status: planned
     planned_skus: [WET-AR-CHIMICHURRI-v1]
     planned_sops: [SOP-PAN-SEAR-001]
+
+  - id: DISH-CN-001
+    name:
+      zh: 老鸭汤
+      en: Old duck soup
+    cuisine:
+      country: CN
+      region: Cantonese
+    status: proposed
+    cross_reviewed: false
+    cross_reviewer_cli: skipped
+    uses:
+      sku:
+        - DRY-CANTON-CLEAR-BEEF-v1
+      sop: []
+      ratio: []
+    fresh_ingredients:
+      - name:
+          zh: 老鸭
+          en: Old duck
+        amount: 1
+        unit:
+          zh: 只 (约1500 g)
+          en: whole (about 1500 g)
+      - name:
+          zh: 姜
+          en: Ginger
+        amount: 30
+        unit:
+          zh: 克
+          en: g
+      - name:
+          zh: 枸杞
+          en: Goji berries
+        amount: 15
+        unit:
+          zh: 克
+          en: g
+      - name:
+          zh: 花雕酒
+          en: Huadiao wine
+        amount: 30
+        unit:
+          zh: 毫升 (≈30 g)
+          en: ml (≈30 g)
+      - name:
+          zh: 盐
+          en: Salt
+        amount: 5
+        unit:
+          zh: 克
+          en: g
+      - name:
+          zh: 白胡椒粉
+          en: White pepper powder
+        amount: 2
+        unit:
+          zh: 克
+          en: g
+    yield:
+      servings: 4
+    time:
+      prep_min: 15
+      hands_on_min: 10
+      unattended_min: 90
+      total_min: 115
+    hardware_required:
+      - MVP
+    hardware_extension: []
+    flavor_structure:
+      salt: 中高
+      fat: 中
+      acid: 低
+      heat: 微
+    flavor_tags:
+      - umami
+      - herbal
+    diet_tags: []
+    meal_pattern: soup
+    notes:
+      zh: 老鸭汤清润滋补，适合秋冬季节。选用老鸭（饲养一年以上）才能炖出醇厚汤底，若用嫩鸭则时间减半。
+      en: Old duck soup is nourishing and suitable for autumn/winter. Use mature duck (over 1 year) for rich broth; if using young duck, reduce cooking time by half.
