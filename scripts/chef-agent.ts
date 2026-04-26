@@ -176,10 +176,19 @@ async function callChefBot(issue: IssueInput): Promise<AgentOutput> {
 
 /* ──────────────────── 5: apply changes ──────────────────── */
 
+/** Indent each non-empty line by 2 spaces — list items in the existing
+ *  files are nested under `items:` / `terms:` keys at column 2. */
+function indent2(s: string): string {
+  return s
+    .split('\n')
+    .map((l) => (l.length > 0 ? '  ' + l : l))
+    .join('\n')
+}
+
 async function appendDish(dish: AgentOutput['dish']) {
   const path = join(ROOT, 'data/dishes.yaml')
   const text = await readFile(path, 'utf-8')
-  const dump = yaml.dump([dish], { lineWidth: 200, quotingType: '"' }).trimEnd()
+  const dump = indent2(yaml.dump([dish], { lineWidth: 200, quotingType: '"' }).trimEnd())
   await writeFile(path, text.trimEnd() + '\n\n' + dump + '\n', 'utf-8')
 }
 
@@ -187,7 +196,7 @@ async function appendGlossary(terms: AgentOutput['glossary_additions']) {
   if (terms.length === 0) return
   const path = join(ROOT, 'data/glossary.yaml')
   const text = await readFile(path, 'utf-8')
-  const dump = yaml.dump(terms, { lineWidth: 200, quotingType: '"' }).trimEnd()
+  const dump = indent2(yaml.dump(terms, { lineWidth: 200, quotingType: '"' }).trimEnd())
   await writeFile(path, text.trimEnd() + '\n\n' + dump + '\n', 'utf-8')
 }
 
