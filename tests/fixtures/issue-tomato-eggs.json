@@ -1,0 +1,8 @@
+{
+  "issue": {
+    "number": 1,
+    "title": "[add-dish] 番茄炒蛋",
+    "user": { "login": "test-requester" },
+    "body": "### 菜名（中文）/ Dish name (Chinese)\n\n番茄炒蛋\n\n### 菜名（英文）/ Dish name (English)\n\nTomato and eggs\n\n### 国家代码 / Country code\n\nCN\n\n### 子地区 / Region (可选)\n\n中\n\n### 备注 / Notes\n\n- 5 分钟 hands-on\n- 不要太甜\n"
+  }
+}

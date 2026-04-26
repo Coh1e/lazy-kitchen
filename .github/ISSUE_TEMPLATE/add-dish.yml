@@ -1,0 +1,89 @@
+name: 🍳 加一道菜 / Add a dish
+description: 请 chef-bot 帮你设计一道新菜，由 maintainer 加 `agent-go` label 触发
+title: "[add-dish] "
+labels: ["add-dish-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        填好下面字段，maintainer 会在合适时刻加 `agent-go` label 触发 chef-bot。
+        Fill out the form below; maintainer will add the `agent-go` label
+        when ready to trigger chef-bot.
+
+  - type: input
+    id: dish_zh
+    attributes:
+      label: 菜名（中文）/ Dish name (Chinese)
+      placeholder: 例：番茄炒蛋
+    validations:
+      required: true
+
+  - type: input
+    id: dish_en
+    attributes:
+      label: 菜名（英文）/ Dish name (English)
+      placeholder: e.g. Tomato and eggs
+    validations:
+      required: true
+
+  - type: dropdown
+    id: cuisine_country
+    attributes:
+      label: 国家代码 / Country code
+      description: chef-bot endpoint 用此字段决定 persona / 模型路由（具体路由策略见 endpoint 实现）
+      options:
+        - CN
+        - HK
+        - TW
+        - JP
+        - KR
+        - TH
+        - VN
+        - IN
+        - PH
+        - MY
+        - ID
+        - SG
+        - FR
+        - IT
+        - ES
+        - PT
+        - US
+        - UK
+        - DE
+        - GR
+        - MX
+        - PE
+        - BR
+        - TR
+        - LB
+        - MA
+        - other
+    validations:
+      required: true
+
+  - type: input
+    id: cuisine_region
+    attributes:
+      label: 子地区 / Region (可选)
+      placeholder: 例：粤 / 川 / Toscana / Provence
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: 备注 / Notes
+      description: 任何对 chef-bot 有帮助的细节：辣度、餐次（早/午/晚/小食）、特殊食材偏好、忌口等
+      placeholder: |
+        - 辣度: 3/5
+        - 不吃猪肉
+        - 想要 5 分钟 hands-on 极简版
+
+  - type: checkboxes
+    id: agreement
+    attributes:
+      label: 确认
+      options:
+        - label: 我了解这是 AI 生成草案，会经过社区评议 + maintainer 审 + cross-CLI 二审才会进 approved
+          required: true
+        - label: 我不会要求政治/宗教/医疗功效宣称的菜（chef-bot 会拒绝）
+          required: true

@@ -18,7 +18,7 @@ jobs:
           cache: 'npm'
 
       - name: Install npm deps
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Cache Playwright browsers
         uses: actions/cache@v4

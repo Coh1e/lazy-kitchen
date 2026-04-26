@@ -133,11 +133,24 @@ LK 是 **maintainer 主导 + 社区共建** 的项目。所有社交互动都用
 
 | 角色 | 怎么做 | 用什么 |
 |---|---|---|
-| 路过的读者 | 看完直接走 | 双击 `lazy-kitchen.html`，零安装 |
+| 路过的读者 | 看完直接走 | 浏览器打开 https://bep.coh1e.com |
 | 想点赞或吐槽 | 在菜页底部 Giscus 投 👍/👎，留评论 | GitHub 账号（一次注册） |
+| 想加一道菜（最简）| 开 Issue 用 `add-dish` 模板，maintainer 加 `agent-go` 触发 chef-bot 自动出 PR | GitHub Issues |
 | 想报错 | 提 GitHub Issue（菜系不准 / 术语错 / 时间不实） | GitHub Issues |
 | 想改代码 | 提 GitHub PR（直接改 yaml） | GitHub PR |
 | 想成为 maintainer | clone + 跑 `/add-dish` skill 试试，提 PR 加新菜 | CLI + GitHub PR |
+
+### chef-bot — 让 AI 帮你加菜
+
+- 开 [新 Issue → 🍳 加一道菜](https://github.com/Coh1e/lazy-kitchen/issues/new?template=add-dish.yml)
+- maintainer 在 issue 加 `agent-go` label
+- GitHub Action 把请求转发到 maintainer 部署的 chef-bot endpoint
+- endpoint 一次性出 PR 草案 + 列出 assumptions
+- 社区评议 → maintainer 审 → merge → 站点自动 deploy
+
+Fork 想自启用 chef-bot？需要自部署 endpoint —— 详见
+[docs/zh/ai/agent-workflow.md](docs/zh/ai/agent-workflow.md) +
+[skills/chef-bot/README.md](skills/chef-bot/README.md)。
 
 ### Maintainer 工作流（自动公开发布）
 

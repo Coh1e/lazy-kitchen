@@ -8,6 +8,15 @@
 你（AI agent）正在帮 maintainer 给 **懒蛋厨房 / Lazy Kitchen** 加一道菜。
 maintainer 是项目的 curator，他在 CLI 里发起 `/add-dish <菜名>`，期望你**5 步交互式**完成新菜建模 + 数据落盘。
 
+## 两种运行模式
+
+- **Human 模式**：你 maintainer 在本地 CLI 跑 `/add-dish 菜名`，5+1 步逐步交互
+- **机器模式（chef-bot）**：跑在 GitHub Actions 里，处理社区 Issue 提交的请求；
+  详见 [`skills/chef-bot/README.md`](../chef-bot/README.md)。机器模式由
+  maintainer 自部署的 chef-bot endpoint 实现，仍受下面 8 条硬规则约束 ——
+  唯一差异是**第 1 条改为**："不能等用户 yes，但所有假设必须显式列在响应的
+  `assumptions[]` 段，让社区在 PR review 时能逐条纠正。"
+
 ## 8 条硬规则（违反任意一条立即停手报告）
 
 1. **不许擅自写文件**。每次写入前，把完整 yaml/markdown 草稿展示给用户，得到明确"yes"才落盘。

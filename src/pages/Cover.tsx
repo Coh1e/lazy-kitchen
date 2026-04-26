@@ -59,8 +59,8 @@ export default function Cover() {
           <div style={{ fontSize: 32, fontWeight: 700, color: 'var(--color-accent-hover)' }}>A.</div>
           <div className="stat-card__label">{t('Read manual', '看手册')}</div>
           <div className="stat-card__sub">
-            {t('Open kitchen.{your-domain} in any browser. Works on phone, tablet, laptop.',
-               '浏览器打开 kitchen.{你的域名}。手机/平板/电脑都能看。')}
+            {t('Open bep.coh1e.com in any browser. Works on phone, tablet, laptop.',
+               '浏览器打开 bep.coh1e.com。手机/平板/电脑都能看。')}
           </div>
         </div>
         <div className="stat-card">

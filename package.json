@@ -12,6 +12,7 @@
     "validate": "tsx scripts/validate-data.ts",
     "lint:bilingual": "tsx scripts/lint-bilingual.ts",
     "build:glossary": "tsx scripts/build-glossary.ts",
+    "chef:agent": "tsx scripts/chef-agent.ts",
     "test": "npm run test:unit && npm run test:e2e && npm run test:visual",
     "test:unit": "vitest run tests/unit",
     "test:e2e": "playwright test --project=e2e-desktop",
@@ -56,6 +57,7 @@
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.14.2",
     "rehype-raw": "^7.0.0",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "zod": "^4.3.6"
   }
 }

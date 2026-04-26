@@ -1,0 +1,63 @@
+name: chef-agent
+
+on:
+  issues:
+    types: [labeled]
+  issue_comment:
+    types: [created]
+
+jobs:
+  run:
+    # Only run when:
+    #   - issue is labeled `agent-go`, OR
+    #   - comment body contains `/agent-go`
+    # AND the trigger user is the repo owner (anti-spam guard)
+    if: |
+      github.event.sender.login == github.repository_owner && (
+        (github.event_name == 'issues' && github.event.label.name == 'agent-go') ||
+        (github.event_name == 'issue_comment' && contains(github.event.comment.body, '/agent-go'))
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history so we can branch + push
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci --legacy-peer-deps
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Run chef-agent
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CHEF_BOT_URL: ${{ secrets.CHEF_BOT_URL }}
+          CHEF_BOT_TOKEN: ${{ secrets.CHEF_BOT_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: npm run chef:agent
+
+      - name: Comment on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue_number = context.payload.issue.number
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number,
+              body: '🥚 chef-bot 跑挂了。看下 [Action 日志](' + context.payload.repository.html_url + '/actions/runs/' + context.runId + ') 找原因。常见原因：(1) API key 没配 (2) 当月 quota 爆了 (3) prompt 输出 schema fail。'
+            })
