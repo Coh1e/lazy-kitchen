@@ -586,3 +586,67 @@ items:
     status: planned
     planned_skus: [WET-AR-CHIMICHURRI-v1]
     planned_sops: [SOP-PAN-SEAR-001]
+
+  - id: DISH-FR-FRENCH-ONION-SOUP
+    name:
+      zh: 法式洋葱汤
+      en: French Onion Soup
+    cuisine:
+      country: FR
+      region: Lyon
+    status: proposed
+    cross_reviewed: false
+    cross_reviewer_cli: skipped
+    uses:
+      sku:
+        - SKU-BUTTER-UNSALTED-001
+        - SKU-OLIVE-OIL-EVOO-001
+        - SKU-GARLIC-001
+        - SKU-WINE-WHITE-DRY-001
+        - SKU-BEEF-STOCK-001
+        - SKU-BAY-LEAF-001
+        - SKU-THYME-FRESH-001
+        - SKU-SALT-KOSHER-001
+        - SKU-PEPPER-BLACK-WHOLE-001
+        - SKU-BAGUETTE-001
+        - SKU-GRUYERE-CHEESE-001
+      sop:
+        - SOP-CLEAR-STEW-001
+        - SOP-PAN-TOAST-001
+      ratio: []
+    fresh_ingredients:
+      - name:
+          zh: 黄洋葱
+          en: Yellow Onion
+        amount: 1000
+        unit:
+          zh: 克 (约4-5个)
+          en: g (approx. 4-5 medium)
+    yield:
+      servings: 2
+    time:
+      prep_min: 15
+      hands_on_min: 45
+      unattended_min: 20
+      total_min: 80
+    hardware_required:
+      - MVP
+    hardware_extension: []
+    flavor_structure:
+      salt: pronounced
+      fat: high
+      acid: medium
+      heat: none
+    flavor_tags:
+      - umami
+      - savory
+      - rich
+      - aromatic
+    diet_tags: []
+    meal_pattern: bowl
+    notes:
+      zh: 法式洋葱汤是一道经典法国菜，其精髓在于洋葱的耐心焦糖化和高质量牛肉高汤的选用。洋葱需在低温下缓慢煮至深棕色，释放出浓郁的甜味和鲜味。随后加入干白葡萄酒进行起味（deglaze），将锅底的焦糖风味刮起融入汤中。最后以焗烤的芝士法棍片覆盖，提供酥脆口感和咸香。
+      en: >-
+        French Onion Soup is a classic French dish, whose essence lies in the patient caramelization of onions and the selection of high-quality beef stock. Onions must be slowly cooked over low heat
+        until deep brown, releasing intense sweetness and umami. A dry white wine is then added to deglaze, lifting the caramelized flavors from the bottom of the pan into the soup. Finally, it is
+        topped with gratinéed baguette slices and cheese, providing a crispy texture and savory aroma.

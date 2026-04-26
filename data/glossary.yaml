@@ -277,3 +277,20 @@ terms:
     en: Velveting
     category: technique
     notes: 中式肉类预处理（淀粉+蛋清+酒）以保持嫩度
+
+  - zh: 格鲁耶尔芝士
+    en: Gruyère Cheese
+    category: dairy
+    notes: 一种硬质黄色瑞士奶酪，通常用于烘烤和制作法式洋葱汤。
+  - zh: 法棍
+    en: Baguette
+    category: grain
+    notes: 一种细长的法式面包，外皮酥脆，内部柔软，常用于制作面包片或与汤品搭配。
+  - zh: 焦糖化
+    en: Caramelization
+    category: technique
+    notes: 糖类在受热时发生的一系列非酶褐变反应，产生复杂的甜味和坚果风味。
+  - zh: 起味
+    en: Deglaze
+    category: technique
+    notes: 烹饪中将液体（如酒、高汤）加入热锅中，刮起锅底焦糖化或褐变的食物残渣以溶解风味的过程。
