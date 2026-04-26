@@ -63,6 +63,7 @@ const sections: Section[] = [
     links: [
       { path: 'ratios/index', zh: '调味公式', en: 'Ratios' },
       { path: 'glossary', zh: '中英术语', en: 'Glossary' },
+      { path: 'graph', zh: '🔗 依赖图', en: '🔗 Dependency graph' },
     ],
   },
   {

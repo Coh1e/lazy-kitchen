@@ -6,6 +6,7 @@ import Board from './pages/Board'
 import Glossary from './pages/Glossary'
 import Doc from './pages/Doc'
 import Search from './pages/Search'
+import Graph from './pages/Graph'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="board" element={<Board />} />
         <Route path="board/:view" element={<Board />} />
         <Route path="glossary" element={<Glossary />} />
+        <Route path="graph" element={<Graph />} />
         <Route path="search" element={<Search />} />
         <Route path="*" element={<Doc />} />
       </Route>

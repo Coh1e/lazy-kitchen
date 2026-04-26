@@ -634,3 +634,50 @@ footer.bottom a { color:var(--color-link); }
   background: currentColor; opacity: 0.7;
 }
 .dep-graph--empty .muted { font-size: 13px; }
+
+/* ============ GLOBAL GRAPH (D3-force) ============ */
+.global-graph {
+  margin-top: var(--spacing-xl);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.global-graph__svg { display: block; max-width: 100%; }
+.global-graph__edge {
+  stroke: var(--color-border-strong);
+  stroke-width: 0.6;
+  opacity: 0.5;
+}
+.global-graph__node { cursor: pointer; transition: opacity 0.15s; }
+.global-graph__node:hover .global-graph__node-circle {
+  stroke-width: 2;
+  filter: brightness(1.1);
+}
+.global-graph__node-circle { stroke: var(--color-bg-card); stroke-width: 1.5; }
+.global-graph__node--dish  .global-graph__node-circle { fill: var(--color-accent); }
+.global-graph__node--sku   .global-graph__node-circle { fill: var(--status-approved); }
+.global-graph__node--sop   .global-graph__node-circle { fill: var(--slate-700); }
+.global-graph__node--ratio .global-graph__node-circle { fill: var(--yolk-700); }
+.global-graph__node--hw    .global-graph__node-circle { fill: var(--slate-400); }
+.global-graph__node-label {
+  font-size: 11px; font-weight: 600;
+  fill: var(--color-text-primary);
+  paint-order: stroke;
+  stroke: var(--color-bg-card); stroke-width: 3; stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.global-graph__filters {
+  display: flex; gap: var(--spacing-sm); flex-wrap: wrap;
+  margin: var(--spacing-lg) 0;
+}
+.global-graph__filter--dish.active  { color: var(--color-accent); border-color: var(--color-accent); background: var(--yolk-100); }
+.global-graph__filter--sku.active   { color: var(--status-approved); border-color: var(--status-approved); }
+.global-graph__filter--sop.active   { color: var(--slate-700); border-color: var(--slate-700); }
+.global-graph__filter--ratio.active { color: var(--yolk-700); border-color: var(--yolk-700); }
+.global-graph__filter--hw.active    { color: var(--slate-400); border-color: var(--slate-400); }
+.global-graph__filter-swatch {
+  display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+  background: currentColor; margin-right: 4px;
+}
