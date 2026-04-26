@@ -277,3 +277,22 @@ terms:
     en: Velveting
     category: technique
     notes: 中式肉类预处理（淀粉+蛋清+酒）以保持嫩度
+
+  - zh: 老鸭
+    en: Old duck
+    alias_zh:
+      - 老母鸭
+      - 水鸭
+    alias_en:
+      - mature duck
+      - aged duck
+    category: protein
+    notes: 指饲养一年以上的鸭，肉质紧实，适合炖汤。
+  - zh: 花雕酒
+    en: Huadiao wine
+    alias_zh:
+      - 绍兴酒
+    alias_en:
+      - Shaoxing wine
+    category: sauce
+    notes: 绍兴黄酒的一种，常用于中式烹饪去腥增香。
