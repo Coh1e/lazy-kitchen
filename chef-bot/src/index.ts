@@ -62,6 +62,12 @@ export default {
 
       return Response.json({
         ...object,
+        dish: {
+          ...object.dish,
+          status: 'proposed',          // chef-bot always emits proposed (community审 + maintainer merge gate it)
+          cross_reviewed: false,       // machine mode never marks reviewed
+          cross_reviewer_cli: 'skipped',
+        },
         agent_label: personaLabel(personaKey),
         agent_avatar_url: `${AVATAR_BASE}/${personaKey}.png`,
       })

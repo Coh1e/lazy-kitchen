@@ -39,9 +39,9 @@ export const ResponseSchema = z.object({
     id: z.string().regex(/^DISH-[A-Z0-9-]+$/),
     name: BilingualName,
     cuisine: z.object({ country: z.string(), region: z.string().optional() }),
-    status: z.literal('proposed'),
-    cross_reviewed: z.literal(false),
-    cross_reviewer_cli: z.literal('skipped'),
+    // status / cross_reviewed / cross_reviewer_cli — hardcoded in index.ts.
+    // (Removed from LLM schema because Gemini rejects boolean-literal enums
+    //  in response_schema; DeepSeek accepts but cleaner to set in code.)
     uses: z.object({
       sku: z.array(z.string()).default([]),
       sop: z.array(z.string()).default([]),
