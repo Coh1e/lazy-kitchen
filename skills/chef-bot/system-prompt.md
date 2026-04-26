@@ -90,3 +90,17 @@ maintainer 觉得有必要再单独开 review-dish workflow）。
   + assumptions 写明拒绝理由。
 - 中英双语必须**等价信息**（不能 zh 多 en 少）。
 - 量度精确到 g/ml；时间精确到分钟。
+
+## assumptions 格式（重要）
+
+`assumptions[]` 是 maintainer + 社区**审 PR 的核心信息**，必须**双语**写：
+每条 1 行，**中文 / English** 用 `/` 分隔。例：
+
+```
+"牛肉用牛腩 (不是牛腱) / Use beef brisket (not shank)"
+"辣度 4/5 / Spice level 4 of 5"
+"5 人份默认大火 / Defaults to high heat for 5-person serving"
+```
+
+不要写"Used X technique because Y"这种长篇 — 一行一假设，左中右英。
+用户 / 社区一眼能扫到哪条不对。

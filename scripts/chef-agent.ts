@@ -227,32 +227,37 @@ function renderPRBody(out: AgentOutput, issue: IssueInput): string {
     ? `<img src="${out.agent_avatar_url}" align="right" width="120" alt="${out.agent_label ?? 'chef-bot'}">\n\n`
     : ''
   const labelLine = out.agent_label ? `\n> Agent: **${out.agent_label}**` : ''
+  const glossaryNames = out.glossary_additions.map((g) => `${g.zh} / ${g.en}`).join(', ')
 
   return [
-    avatarLine + `## 🍳 chef-bot 提案: ${out.dish.name.zh} / ${out.dish.name.en}`,
+    avatarLine + `## 🍳 chef-bot proposal / chef-bot 提案: ${out.dish.name.zh} / ${out.dish.name.en}`,
     '',
-    `> 由 #${issue.number} 触发 (@${issue.user})${labelLine}`,
+    `> Triggered by / 由 #${issue.number} 触发 (@${issue.user})${labelLine}`,
     '',
-    '### 决策',
-    `- **路径**: ${out.decision_path}`,
-    `- **信心**: ${out.confidence}`,
-    `- **Cross-CLI 审稿**: ⏸ 跳过（机器模式默认；maintainer 觉得需要请触发 review-dish）`,
+    '### Decision / 决策',
+    `- **Path / 路径**: \`${out.decision_path}\``,
+    `- **Confidence / 信心**: \`${out.confidence}\``,
+    `- **Cross-CLI review / 跨 CLI 审稿**: ⏸ skipped (machine mode default; maintainer triggers review-dish if needed) / 跳过（机器模式默认；maintainer 觉得需要再触发 review-dish）`,
     '',
-    '### 假设（社区可在评论纠错）',
+    '### Assumptions / 假设',
+    '> Community can correct in comments / 社区可在评论里纠错',
+    '',
     ...out.assumptions.map((a, i) => `${i + 1}. ${a}`),
     '',
-    '### 文件 diff',
-    `- \`data/dishes.yaml\` (新增 \`${out.dish.id}\`)`,
+    '### File diff / 文件 diff',
+    `- \`data/dishes.yaml\` — add / 新增 \`${out.dish.id}\``,
     out.glossary_additions.length > 0
-      ? `- \`data/glossary.yaml\` (新增 ${out.glossary_additions.length} 词条: ${out.glossary_additions.map((g) => g.zh).join(', ')})`
+      ? `- \`data/glossary.yaml\` — add ${out.glossary_additions.length} term(s) / 新增 ${out.glossary_additions.length} 词条: ${glossaryNames}`
       : '',
-    `- \`docs/zh/compose/${out.slug}.md\` (新建)`,
-    `- \`docs/en/compose/${out.slug}.md\` (新建)`,
+    `- \`docs/zh/compose/${out.slug}.md\` — new / 新建`,
+    `- \`docs/en/compose/${out.slug}.md\` — new / 新建`,
     '',
-    '### 待 maintainer',
-    '- [ ] yaml 字段对吗',
-    '- [ ] 双语翻译妥吗',
-    '- [ ] cross-CLI 二审要不要跑',
+    '### Maintainer review checklist / 待 maintainer',
+    '- [ ] YAML fields valid / yaml 字段对吗',
+    '- [ ] Bilingual translation accurate / 双语翻译妥吗',
+    '- [ ] Hardware within MVP 10-piece kit / 硬件没超 MVP 10 件套',
+    '- [ ] Measurements have g/ml conversion / 量度有 g/ml 换算',
+    '- [ ] Cross-CLI review needed? / 是否需要跨 CLI 二审',
     '',
     `Closes #${issue.number}`,
   ].filter(Boolean).join('\n')
