@@ -1,0 +1,24 @@
+{
+  "name": "lazy-kitchen-chef-bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "懒蛋厨房 chef-bot Worker — HTTP endpoint that routes add-dish requests to a chef persona + LLM.",
+  "license": "MIT",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "ai": "^6.0.168",
+    "@ai-sdk/deepseek": "^2.0.29",
+    "@ai-sdk/google": "^3.0.64",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0",
+    "@cloudflare/workers-types": "^4.20240725.0",
+    "typescript": "^5.6.0"
+  }
+}

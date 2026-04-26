@@ -1,0 +1,9 @@
+# 本地 wrangler dev 用的环境变量。复制成 .dev.vars (gitignored) 填真值。
+# 生产环境用 `wrangler secret put NAME` 设进 CF。
+
+DEEPSEEK_API_KEY=sk-...
+GEMINI_API_KEY=AIza...
+
+# 可选：限定只有持此 token 的请求可以调用 chef-bot endpoint。
+# 公开 repo 的 .github/workflows/chef-agent.yml 通过 secret CHEF_BOT_TOKEN 传。
+AUTH_TOKEN=
