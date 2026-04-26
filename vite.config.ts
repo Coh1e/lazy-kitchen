@@ -3,15 +3,14 @@ import react from '@vitejs/plugin-react'
 import yaml from '@rollup/plugin-yaml'
 import { fileURLToPath, URL } from 'node:url'
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 export default defineConfig({
-  plugins: [
-    react(),
-    yaml({
-      transform(data) {
-        return JSON.parse(JSON.stringify(data))
-      },
-    }),
-  ],
+  plugins: [react(), yaml({
+    transform(data) {
+      return JSON.parse(JSON.stringify(data))
+    },
+  }), cloudflare()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
