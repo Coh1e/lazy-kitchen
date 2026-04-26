@@ -8,8 +8,8 @@ Lazy Kitchen is not a recipe website. It is a **structured, AI-curated, minimal-
 
 ### 1. Content is the product; the website is just a viewer
 
-All real knowledge lives in `data/*.yaml`. The HTML is just a renderer.
-Clone the repo → double-click `lazy-kitchen.html` → view the full manual offline, zero deps.
+All real knowledge lives in `data/*.yaml`. The site is just a renderer.
+Open https://bep.coh1e.com in any browser; or `git clone` + `npm install` + `npm run dev` for local preview.
 
 ### 2. AI does NOT run inside the repo
 

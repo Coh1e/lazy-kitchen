@@ -8,8 +8,8 @@
 
 ### 1. 内容是产品，网站只是查看皮肤
 
-所有真知识在 `data/*.yaml`。网站 HTML 只是把 yaml 渲染成人类好读的样子。
-你 clone 仓库 → 双击 `lazy-kitchen.html` → 离线、零依赖看完整手册。
+所有真知识在 `data/*.yaml`。网站只是把 yaml 渲染成人类好读的样子。
+浏览器开 https://bep.coh1e.com 看完整手册；想本地预览贡献：`git clone` + `npm install` + `npm run dev`。
 
 ### 2. AI 不在仓库里跑
 

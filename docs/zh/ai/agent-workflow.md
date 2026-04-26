@@ -15,34 +15,50 @@
 
 详见 [skills/add-dish/workflow.md](../../../skills/add-dish/workflow.md)。
 
-## chef-bot GitHub 工作流（社区）
+## chef-bot GitHub 工作流（社区，前后端解耦）
 
 ```text
 路人 → 开 GitHub Issue (用 add-dish.yml template 填菜名/菜系)
 maintainer → 检查请求合理 → 加 label `agent-go`
 GitHub Action → 触发 .github/workflows/chef-agent.yml
-chef-agent.ts → 解析 issue → POST 到 CHEF_BOT_URL endpoint
-                (该 endpoint 由 maintainer 自部署，可以是 CF Worker / Lambda /
-                 Vercel Functions / 其它任意 HTTP 服务)
-endpoint → 一次性返回结构化 JSON (dish + glossary + 双语 markdown + assumptions)
-script → 写文件 + npm run validate → git commit + push 到 chef-bot/issue-N
-script → gh pr create (label: agent-proposal, needs-maintainer-review)
+chef-agent.ts (公开 repo) → 解析 issue → POST 到 chef-bot Worker
+                            (URL 在 secrets CHEF_BOT_URL)
+chef-bot Worker (chef-bot/ 子目录，wrangler 部署到 *.workers.dev) →
+  按 cuisine.country 路由 persona:
+    · CN/HK/TW/MO → 唐牛 (DeepSeek)
+    · 其它一切 → Remy / 雷米 (Gemini)
+  → 加载该 persona prompt (bundle 自 skills/chef-bot/personas/*.md)
+  → 调 LLM 生成结构化 JSON (dish + glossary + 双语 markdown + assumptions)
+  → 返回
+chef-agent.ts → 写文件 + npm run validate → git commit + push 到 chef-bot/issue-N
+              → gh pr create (label: agent-proposal, needs-maintainer-review)
 PR → 社区评论纠正 assumptions
 maintainer → review + merge 或 close
 merge → CF Pages 自动 deploy → 新菜上线
 ```
 
-## 部署 chef-bot endpoint（fork / self-host 必读）
+## Personas 是公开 + 社区可治理的
 
-repo 不包含 chef-bot endpoint 实现 —— 那是 maintainer 自己的服务（包含
-prompts / persona / 模型选择 / API key 等私有内容）。要在自己 fork 上启用 chef-bot：
+`skills/chef-bot/personas/*.md` 是开源 prompt，社区可在 issue 提议新 persona
+或弹劾现有的。详见 [persona-governance.md](./persona-governance.md)。
 
-1. 自部署一个 HTTP endpoint 实现 [chef-bot README](../../../skills/chef-bot/README.md)
-   规定的请求 / 响应 schema。
-2. repo Settings → Secrets → 加：
-   - `CHEF_BOT_URL` — 你的 endpoint URL
-   - `CHEF_BOT_TOKEN` — 鉴权 token（可选）
-3. issue 加 `agent-go` label 触发 chef-agent workflow，会 POST 到你的 endpoint。
+## 自部署 chef-bot endpoint (fork / self-host)
+
+repo 含完整 Worker 源码 (`chef-bot/`)，只要你有 CF 账户：
+
+```bash
+cd chef-bot
+npm install
+wrangler login
+wrangler secret put DEEPSEEK_API_KEY
+wrangler secret put GEMINI_API_KEY
+wrangler secret put AUTH_TOKEN          # 可选
+wrangler deploy
+```
+
+部署完拿 URL → 主 repo Settings → Secrets：
+- `CHEF_BOT_URL` = 你 Worker 的 URL
+- `CHEF_BOT_TOKEN` = 你设的 AUTH_TOKEN
 
 ## 想加菜（用 maintainer 部署的官方 endpoint）？
 

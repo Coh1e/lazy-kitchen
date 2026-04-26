@@ -32,3 +32,6 @@ pnpm-debug.log*
 
 # Claude Code per-user local settings — never share
 .claude/settings.local.json
+
+# Private maintainer-only notes (monetization, operations, governance internals)
+.private/

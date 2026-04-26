@@ -1,0 +1,90 @@
+name: 🍳 提议新 chef persona / Propose new chef persona
+description: 提议给 chef-bot 加一个新大厨人格（特定菜系专家）
+title: "[propose-persona] "
+labels: ["persona-proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        chef-bot 当前只有 2 位大厨：唐牛 (中餐) + Remy (其它一切)。如果你觉得
+        缺哪个菜系专家、想提议加新 persona，填本表。社区讨论后 maintainer 决定。
+        合入后 chef-bot Worker 自动 redeploy。
+
+  - type: input
+    id: name_zh
+    attributes:
+      label: persona 名（中文）/ Persona name (Chinese)
+      placeholder: 例：大和、奶奶、拉杰
+    validations:
+      required: true
+
+  - type: input
+    id: name_en
+    attributes:
+      label: persona 名（英文 / 拉丁）/ Persona name (English / Latin)
+      placeholder: e.g. Yamato, Granny, Raj
+    validations:
+      required: true
+
+  - type: textarea
+    id: cuisine_coverage
+    attributes:
+      label: 菜系覆盖 / Cuisine coverage
+      description: 该 persona 主管哪些菜系？必须与现有 persona 不重叠或有清晰差异。
+      placeholder: |
+        - 主菜系: 日料 (JP)
+        - 子方向: 寿司、拉面、家常菜
+        - 与现有 persona 的差异: 现 Remy 兜底日料但承认非专长，本 persona 才是真权威
+    validations:
+      required: true
+
+  - type: textarea
+    id: style
+    attributes:
+      label: 风格描述 / Style description
+      description: 至少 200 字。说清楚这位 persona 的用语、价值观、偏好、会拒绝什么。
+      placeholder: |
+        风格：用语简约克制；季节感至上；刀工是核心价值观；…
+        偏好：优先用 X SKU/SOP；…
+        会拒绝：…
+    validations:
+      required: true
+
+  - type: textarea
+    id: prompt_draft
+    attributes:
+      label: prompt 草稿 / Prompt draft (markdown)
+      description: 复制 `skills/chef-bot/personas/_template.md` 模板填写。完成的 markdown 帖到这里。
+      render: markdown
+    validations:
+      required: true
+
+  - type: input
+    id: avatar_concept
+    attributes:
+      label: 头像设计概念 / Avatar concept
+      description: 给一个 ChatGPT/DALL-E 提示词或概念草图链接，**绝不允许复刻特定影视/演员肖像**
+      placeholder: 例："淡雅卡通和服厨师，原创设计；不复刻任何特定动漫角色"
+    validations:
+      required: true
+
+  - type: input
+    id: llm_preference
+    attributes:
+      label: 推荐 LLM / Suggested LLM
+      description: DeepSeek / Gemini / 其它（带原因）
+      placeholder: 例：Gemini（多语言强；google.translate 在 JP→EN 准）
+
+  - type: checkboxes
+    id: agreement
+    attributes:
+      label: 提案者声明 / Proposer declaration
+      options:
+        - label: 名字是通用名或公共领域人物，无知名 IP 关联（不是真实知名厨师 / 演员 / 角色名）
+          required: true
+        - label: 头像设计**绝不复刻** Disney/Pixar/影视作品中的角色或演员肖像
+          required: true
+        - label: 风格描述具体到能让 chef-bot 输出有差异化的 prompt（不只"X 国厨师"这种水货）
+          required: true
+        - label: 我了解 maintainer 终裁权（不投票决定），merge 后 PR 公开理由
+          required: true

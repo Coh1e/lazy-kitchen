@@ -1,0 +1,70 @@
+name: 🚫 弹劾 chef persona / Impeach chef persona
+description: 觉得某位 chef-bot 大厨质量持续低、不准确、有偏见？开本 issue 申请弹劾
+title: "[impeach-persona] "
+labels: ["persona-impeach"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠ **弹劾是严肃操作**。请确保有**具体证据**，不是"我不喜欢"。
+        maintainer 会基于证据决定（可能保留、改 prompt、或彻底删除）。
+        无论结果，issue 永久保留作为治理 history。
+
+  - type: dropdown
+    id: target_persona
+    attributes:
+      label: 弹劾对象 / Target persona
+      options:
+        - 唐牛 (中餐, DeepSeek)
+        - Remy / 雷米 (其它, Gemini)
+        - 其它 (在备注说明)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 严重程度 / Severity
+      options:
+        - 轻 — 偶有不准，建议改 prompt
+        - 中 — 系统性问题，建议换 LLM 或大改 prompt
+        - 重 — 持续输出错误/有害，建议彻底删除
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 具体证据 / Concrete evidence
+      description: 至少列 3 个 PR/issue 链接，说明这位 persona 哪些输出有问题。
+      placeholder: |
+        1. PR #X: dish "Y" 用错 SOP，把焯水当成蒸 (link)
+        2. PR #Z: 味型描述与该菜本土做法严重不符 (link)
+        3. PR #W: 量度不带 g/ml 换算 (link)
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: replacement
+    attributes:
+      label: 替代方案 / Replacement
+      description: 弹劾后由谁接管该菜系？必须 propose 替代方案，纯破坏性 close。
+      placeholder: |
+        - 选项 A: 换成新 persona X (链接 propose-persona issue)
+        - 选项 B: 让现有 persona Y 兜底
+        - 选项 C: 该菜系暂停 chef-bot 服务
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: agreement
+    attributes:
+      label: 申请人声明 / Petitioner declaration
+      options:
+        - label: 我提供的证据是具体的 (附 PR/issue 链接)，不是模糊感受
+          required: true
+        - label: 我提了替代方案，不只是"删了它"
+          required: true
+        - label: 我了解 maintainer 终裁，本 issue 不论结果永久保留
+          required: true

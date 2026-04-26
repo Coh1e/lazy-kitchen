@@ -13,7 +13,7 @@ A structured, AI-curated, minimal-hardware, time-optimal kitchen operating syste
 
 1. **不是菜谱网站**，是把世界菜拆成可复用 SKU + SOP + Ratio 的模块化知识库。
 2. **AI 不在仓库里跑**，在你本机的 CLI 里跑（Claude Code / Cline+DeepSeek / Codex / Gemini / Aider）。仓库只放结构化数据 + 调用指令。
-3. **Clone 完双击 `lazy-kitchen.html`**，零依赖看完整手册；想贡献新菜？在 CLI 里跑 `add-dish` skill。
+3. **浏览器开** https://bep.coh1e.com 即可看完整手册；想贡献新菜？开 GitHub Issue 让 chef-bot 帮，或在自己 CLI 里跑 `add-dish` skill。
 
 ---
 
@@ -21,30 +21,24 @@ A structured, AI-curated, minimal-hardware, time-optimal kitchen operating syste
 
 ### A. 我只想看手册 / Just read the manual
 
-**三种查看方式，按你愿意的安装成本递增：**
+**两种查看方式：**
 
-**A1. 零安装**（推荐普通读者）
-
-```bash
-git clone <this-repo>
-# 双击 lazy-kitchen.html 即可在浏览器打开
-# Open lazy-kitchen.html in any browser. No server. No install. No internet.
-```
-
-**A2. Bun 热重建**（推荐贡献者，看自己改的内容立即生效）
-
-```bash
-git clone <this-repo>
-# 一次性安装 bun: https://bun.sh
-bun install
-bun dev
-# 打开 http://localhost:3000，编辑 docs/ 下的 markdown，刷新浏览器即见
-```
-
-**A3. 公网托管**（CF Pages 自动同步主分支，访客只读）
+**A1. 在线（推荐）**
 
 ```text
-https://lazy-kitchen.{your-domain}
+https://bep.coh1e.com
+```
+
+直接浏览器打开，无需安装。手机/平板/电脑都能看。
+
+**A2. 本地开发预览**（贡献者用；看自己改的内容立即生效）
+
+```bash
+git clone https://github.com/Coh1e/lazy-kitchen
+cd lazy-kitchen
+npm install
+npm run dev
+# 打开 http://127.0.0.1:5173，编辑 docs/ 下 markdown，HMR 立即更新
 ```
 
 ### B. 我想加一道新菜 / Add a new dish
@@ -55,7 +49,7 @@ https://lazy-kitchen.{your-domain}
 > /add-dish 菲律宾阿多波鸡
 ```
 
-skill 会用 5 步交互流（分析 → 匹配现有 SKU/SOP → 草拟 → 术语审核 → 校验）跟你确认每一步，最后写入 `data/` + `docs/`。所有新条目状态恒为 `draft`。
+skill 会用 5+1 步交互流（分析 → 匹配现有 SKU/SOP → 草拟 → 术语审核 → 校验 → 跨 CLI 二审）跟你确认每一步，最后写入 `data/` + `docs/`。所有新条目状态恒为 `proposed`。
 
 ### C. 我想审稿 / Review someone's draft
 
@@ -115,13 +109,15 @@ Ingredient + SKU + SOP + Ratio  =  Dish  =  Meal
 
 ## 部署 / Deployment
 
-公网站点托管在 Cloudflare Pages：
+公网站点托管在 Cloudflare Workers Static Assets：
 
 ```text
-Build command:    pnpm build:html   (或留空，使用已 commit 的 lazy-kitchen.html)
-Build output:     .                 (根目录)
-Custom domain:    在 CF 控制台绑你的域名
+Build command:    npm run build
+Build output:     dist
+Custom domain:    bep.coh1e.com (在 CF 控制台绑)
 ```
+
+`wrangler.jsonc` 在仓库根；详见 chef-bot 子项目 `chef-bot/README.md` 看后端 Worker 部署。
 
 ---
 
@@ -144,12 +140,19 @@ LK 是 **maintainer 主导 + 社区共建** 的项目。所有社交互动都用
 
 - 开 [新 Issue → 🍳 加一道菜](https://github.com/Coh1e/lazy-kitchen/issues/new?template=add-dish.yml)
 - maintainer 在 issue 加 `agent-go` label
-- GitHub Action 把请求转发到 maintainer 部署的 chef-bot endpoint
-- endpoint 一次性出 PR 草案 + 列出 assumptions
+- GitHub Action 把请求转发到 chef-bot Worker
+- Worker 按菜系路由 persona：
+  - 中餐 (CN/HK/TW/MO) → **唐牛** (DeepSeek)
+  - 一切其它 → **Remy / 雷米** (Gemini)
+- chef 一次性出 PR 草案 + 列出 assumptions
 - 社区评议 → maintainer 审 → merge → 站点自动 deploy
 
-Fork 想自启用 chef-bot？需要自部署 endpoint —— 详见
-[docs/zh/ai/agent-workflow.md](docs/zh/ai/agent-workflow.md) +
+**Personas 公开 + 社区可治理**：[新提议](https://github.com/Coh1e/lazy-kitchen/issues/new?template=propose-persona.yml)
+或 [弹劾](https://github.com/Coh1e/lazy-kitchen/issues/new?template=impeach-persona.yml) 都接受。
+详见 [persona-governance.md](docs/zh/ai/persona-governance.md)。
+
+Fork 想自启用 chef-bot？整个 Worker 源码在 `chef-bot/` 子目录，
+`cd chef-bot && wrangler deploy` 即可。详见
 [skills/chef-bot/README.md](skills/chef-bot/README.md)。
 
 ### Maintainer 工作流（自动公开发布）

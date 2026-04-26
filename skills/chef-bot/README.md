@@ -1,9 +1,9 @@
-# chef-bot — non-interactive add-dish via remote endpoint
+# chef-bot — non-interactive add-dish via remote Worker
 
-`chef-bot` 是 `add-dish` skill 的**机器变体**，跑在 GitHub Actions 里，处理
-社区在 Issues 提的"加菜请求"。
+`chef-bot` 是 `add-dish` skill 的**机器变体**，跑在 GitHub Actions 里，
+处理社区在 Issues 提的"加菜请求"。
 
-## 架构
+## 架构（前后端 wrangler 解耦）
 
 ```
 GitHub Issue + agent-go label
@@ -12,7 +12,11 @@ GitHub Issue + agent-go label
      ↓
 scripts/chef-agent.ts (公开 — 解析 issue + 转发请求 + 写文件 + 开 PR)
      ↓ HTTP POST { dish_zh, dish_en, country, region, notes }
-CHEF_BOT_URL endpoint (你自定义部署的 CF Worker — 私有)
+chef-bot/ Worker (公开源码 — wrangler 部署到 *.workers.dev 或自定子域)
+     ├─ src/routing.ts — country → persona key (CN/HK/TW/MO → 唐牛, else → Remy)
+     ├─ src/personas-bundle.ts — import personas/*.md ?raw 进 bundle
+     ├─ src/llm.ts — DeepSeek (唐牛) 或 Gemini (Remy) via Vercel AI SDK
+     └─ src/index.ts — Workers handler
      ↓ 返回结构化 JSON (dish, glossary_additions, markdown_zh, markdown_en, ...)
 scripts/chef-agent.ts
      ↓
@@ -25,69 +29,60 @@ PR with labels: agent-proposal, needs-maintainer-review
 CF Pages auto-deploy → bep.coh1e.com
 ```
 
-公开 repo 只负责 **GitHub-side 接入层**：触发、解析、转发、落盘、提 PR。
-**所有提示词、模型选择、persona 设定** 都在你部署的 CF Worker 里，repo 不可见。
+## 当前 personas (公开 + 社区可治理)
 
-## 你需要部署一个 chef-bot endpoint
+| Persona | 菜系覆盖 | LLM | 文件 |
+|---|---|---|---|
+| **唐牛** | 中餐 (CN/HK/TW/MO) | DeepSeek | [personas/tangniu.md](./personas/tangniu.md) |
+| **Remy / 雷米** | 一切其它 (FR/IT/US/JP/KR/IN/SEA/ME/拉美/非洲...) | Gemini | [personas/remy.md](./personas/remy.md) |
 
-任何能接受 POST 请求并返回符合 schema 的 JSON 的 HTTP 服务都行。最自然
-的选择是 **CF Worker**（用 wrangler 部署），但也可以是 Lambda / Vercel
-Functions / 自建服务器。
+Remy 处理非西方菜系时会在 assumptions 第一条声明"我是西餐背景，对 X 菜系
+仅有书本/旅行级了解"，建议社区核对。
 
-### 请求 schema（POST body）
+## 治理：提议 / 弹劾 personas
 
-```json
-{
-  "dish_zh": "番茄炒蛋",
-  "dish_en": "Tomato and eggs",
-  "country": "CN",
-  "region": "中",
-  "notes": "5 分钟 hands-on"
-}
+**任何人可以**：
+
+- **提议新 persona**：开 issue 用 `🍳 提议新 chef persona` 模板，附 prompt 草稿
+- **弹劾现有 persona**：开 issue 用 `🚫 弹劾 chef persona` 模板，列具体不准确证据
+
+**maintainer 终裁**（公开理由），merge 后 chef-bot Worker 自动 redeploy。
+
+详见 [docs/zh/ai/persona-governance.md](../../docs/zh/ai/persona-governance.md)。
+
+## 持续 8 条硬规则（继承 add-dish/workflow.md）
+
+机器模式仍受 `skills/add-dish/workflow.md` 的 8 条硬规则约束 —— 唯一差异是
+**第 1 条改为机器模式**："不能等用户 yes，但所有假设必须显式列在响应的
+`assumptions[]` 段，让社区/maintainer 在 review 时能逐条纠正。"
+
+## 自部署 chef-bot Worker (fork / self-host)
+
+repo 含完整 Worker 源码 (`chef-bot/`)，只要你有 CF 账户：
+
+```bash
+cd chef-bot
+npm install
+wrangler login
+wrangler secret put DEEPSEEK_API_KEY    # platform.deepseek.com
+wrangler secret put GEMINI_API_KEY      # aistudio.google.com
+wrangler secret put AUTH_TOKEN          # 自定 random 字符串 (可选)
+wrangler deploy
+# 拿到 URL: https://lazy-kitchen-chef-bot.<your-account>.workers.dev
 ```
 
-### 响应 schema（JSON body）
-
-```json
-{
-  "agent_label": "可选 — 用于 PR body 显示哪位 chef 出的方案",
-  "agent_avatar_url": "可选 — 完整 URL，渲染在 PR body 顶部",
-  "slug": "cn-tomato-eggs",
-  "decision_path": "use_existing | adapt_existing | propose_new | out_of_scope",
-  "confidence": "high | medium | low",
-  "assumptions": ["...", "..."],
-  "dish": { /* 符合 schemas/dish.schema.json 的对象 */ },
-  "glossary_additions": [
-    { "zh": "...", "en": "...", "category": "...", "alias_zh": [...], "alias_en": [...], "notes": "..." }
-  ],
-  "markdown_zh": "# ...\n...",
-  "markdown_en": "# ...\n...",
-  "commit_message": "chef-bot: ..."
-}
-```
-
-完整 zod schema 在 `scripts/chef-agent.ts` 里 `Schema` 常量。
-
-### 鉴权
-
-请求会带 `Authorization: Bearer <CHEF_BOT_TOKEN>` header。endpoint 自己决定
-是否校验。
-
-## 8 条硬规则（继承 add-dish/workflow.md）
-
-`chef-bot` endpoint 的实现仍受 `skills/add-dish/workflow.md` 8 条硬规则约束 ——
-唯一差异是**第 1 条改为机器模式**："不能等用户 yes，但所有假设必须显式列在
-响应的 `assumptions[]` 段，让社区/maintainer 在 review 时能逐条纠正。"
-
-## 配置 GitHub Action 用
-
-repo settings → Secrets and variables → Actions → 添加：
+然后回主 repo Settings → Secrets：
 
 | Secret | Value |
 |---|---|
-| `CHEF_BOT_URL` | 你的 endpoint 完整 URL，例 `https://chef-bot.example.workers.dev` |
-| `CHEF_BOT_TOKEN` | 鉴权 token，由你的 endpoint 自己定义和校验 |
+| `CHEF_BOT_URL` | 你 Worker 部署的完整 URL |
+| `CHEF_BOT_TOKEN` | 你设的 AUTH_TOKEN（可选） |
+
+## 法律说明
+
+角色名"唐牛"、"Remy / 雷米"为通用文化符号致敬；头像为原创设计，不复刻任何
+特定影视作品中的人物造型或演员肖像。如有侵权疑虑请提 issue。
 
 ## 端到端流程
 
-详见 `docs/{zh,en}/ai/agent-workflow.md`。
+详见 [docs/{zh,en}/ai/agent-workflow.md](../../docs/zh/ai/agent-workflow.md)。
