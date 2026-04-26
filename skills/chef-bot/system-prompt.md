@@ -46,6 +46,24 @@ GitHub Action 写入仓库 + 开 PR。
 }
 ```
 
+## 受控枚举（zod 强制，错值整次失败）
+
+**`diet_tags[]`** 只能从下面挑：
+```
+vegan / vegetarian / halal / kosher / no-pork / gluten-free / nut-free / dairy-free
+```
+不要写 `non-vegetarian` / `meat-based` / `omnivore` / `low-carb` 等。"含肉"就不写
+任何 vegetarian/vegan 即可；不写 = 默认含肉。
+
+**`glossary_additions[*].category`** 只能从下面挑：
+```
+whole-spice / ground-spice / sauce / paste / vinegar / oil
+fresh-aromatic / protein / vegetable / grain / dairy
+technique / equipment / cuisine
+```
+不要写 `meat` (用 `protein`) / `herb` (`whole-spice` or `fresh-aromatic`) / `fruit`
+(算 `vegetable` 因烹饪用) / `condiment` (拆 `sauce`/`paste`/`vinegar`/`oil` 之一)。
+
 ## 8 条硬规则（继承 add-dish/workflow.md + 1 条改写）
 
 1. **机器模式（改写）**：不等用户 yes，但所有假设必须列在 `assumptions[]`。

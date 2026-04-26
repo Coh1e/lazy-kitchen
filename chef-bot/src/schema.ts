@@ -8,6 +8,18 @@ import { z } from 'zod'
 
 const BilingualName = z.object({ zh: z.string(), en: z.string() })
 
+/** Enums kept in sync with main repo schemas/_common.schema.json + glossary-entry.schema.json */
+const DietTag = z.enum([
+  'vegan', 'vegetarian', 'halal', 'kosher',
+  'no-pork', 'gluten-free', 'nut-free', 'dairy-free',
+])
+
+const GlossaryCategory = z.enum([
+  'whole-spice', 'ground-spice', 'sauce', 'paste', 'vinegar', 'oil',
+  'fresh-aromatic', 'protein', 'vegetable', 'grain', 'dairy',
+  'technique', 'equipment', 'cuisine',
+])
+
 export const RequestSchema = z.object({
   dish_zh: z.string().min(1),
   dish_en: z.string().min(1),
@@ -56,7 +68,7 @@ export const ResponseSchema = z.object({
       heat: z.string().nullable(),
     }),
     flavor_tags: z.array(z.string()),
-    diet_tags: z.array(z.string()),
+    diet_tags: z.array(DietTag),
     meal_pattern: z.string(),
     notes: BilingualName,
   }),
@@ -65,7 +77,7 @@ export const ResponseSchema = z.object({
     en: z.string(),
     alias_zh: z.array(z.string()).optional(),
     alias_en: z.array(z.string()).optional(),
-    category: z.string(),
+    category: GlossaryCategory,
     notes: z.string().optional(),
   })).default([]),
   markdown_zh: z.string(),
