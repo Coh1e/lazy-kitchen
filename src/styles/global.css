@@ -582,3 +582,55 @@ footer.bottom a { color:var(--color-link); }
 .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--spacing-lg); }
 .grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--spacing-lg); }
 @media (max-width:768px) { .grid-2,.grid-3,.grid-4 { grid-template-columns:1fr 1fr; gap:var(--spacing-sm); } }
+
+/* ============ DEPENDENCY GRAPH (D3) ============ */
+.dep-graph {
+  margin-top: var(--spacing-3xl); padding: var(--spacing-xl);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+}
+.dep-graph__title {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+}
+.dep-graph__svg { display: block; max-width: 100%; height: auto; overflow: visible; }
+.dep-graph__edge {
+  fill: none;
+  stroke: var(--color-border-strong);
+  stroke-width: 1.5;
+  opacity: 0.6;
+}
+.dep-graph__node-bg { stroke: currentColor; stroke-width: 1.5; fill: var(--color-bg-card); }
+.dep-graph__node--dish  { color: var(--color-accent); }
+.dep-graph__node--dish .dep-graph__node-bg { fill: var(--yolk-100); }
+.dep-graph__node--sku   { color: var(--status-approved); }
+.dep-graph__node--sop   { color: var(--slate-700); }
+.dep-graph__node--ratio { color: var(--yolk-700); }
+.dep-graph__node--hw    { color: var(--color-text-muted); }
+.dep-graph__node-label {
+  text-anchor: middle;
+  font-size: 12px; font-weight: 600;
+  fill: var(--color-text-primary);
+  pointer-events: none;
+}
+.dep-graph__node-sub {
+  text-anchor: middle;
+  font-size: 9px; font-weight: 500; letter-spacing: 0.04em;
+  text-transform: uppercase;
+  fill: var(--color-text-muted);
+  pointer-events: none;
+}
+.dep-graph__legend {
+  display: flex; gap: var(--spacing-md); flex-wrap: wrap;
+  margin-top: var(--spacing-md); padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border-default);
+  font-size: 11px; color: var(--color-text-muted);
+}
+.dep-graph__legend-item { display: inline-flex; align-items: center; gap: 6px; }
+.dep-graph__legend-swatch {
+  display: inline-block; width: 12px; height: 12px; border-radius: 3px;
+  background: currentColor; opacity: 0.7;
+}
+.dep-graph--empty .muted { font-size: 13px; }
